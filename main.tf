@@ -237,7 +237,11 @@ module "signer_roles" {
 }
 
 module "key_values" {
-  source = "modules/signer_roles"
+  source = "modules/key_values"
+  restricted_poll_type = "${var.restricted_poll_type}"
+  asset_type_kyc = "${var.asset_type_kyc}"
+  asset_type_security = "${var.asset_type_security}"
+  asset_type_default = "${var.asset_type_default}"
 }
 
 module "assets" {
