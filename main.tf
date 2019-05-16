@@ -1,3 +1,7 @@
+variable identity_signer {
+  type = "string"
+}
+
 variable restricted_poll_type {
   type = "string"
   default = "3"
@@ -174,7 +178,7 @@ module "account_roles" {
   ]
 
   us_verified = [
-        "${module.account_rules.balance_creator}",
+    "${module.account_rules.balance_creator}",
     "${module.account_rules.sender}",
     "${module.account_rules.payment_receiver}",
     "${module.account_rules.atomic_swap_receiver}",
@@ -210,6 +214,7 @@ module "account_roles" {
 // create defaul signer rules
 module "signer_rules" {
   source = "modules/signer_rules"
+  default_account_role = "${module.account_roles.unverified}"
 }
 
 // create default signer roles
@@ -234,6 +239,11 @@ module "signer_roles" {
     "${module.signer_rules.license_creator}",
     "${module.signer_rules.stamp_creator}",
   ]
+
+  service_identity = [
+    "${module.signer_rules.tx_sender}",
+    "${module.signer_rules.default_account_creator}",
+  ]
 }
 
 module "key_values" {
@@ -246,4 +256,11 @@ module "key_values" {
 
 module "assets" {
   source = "modules/assets"
+}
+
+resource tokend_account_signer "identity_service" {
+    public_key = "${var.identity_signer}",
+    weight = "1000",
+    identity = "1",
+    role_id = "${module.signer_roles.service_identity}",
 }

@@ -46,38 +46,48 @@ resource tokend_account_role "us_verified" {
   rules = ["${var.us_verified}"]
 }
 
+# TODO: move to key_values module
 resource tokend_key_value "unverified" {
   key = "account_role:unverified"
   value_type = "uint32"
   value = "${tokend_account_role.unverified.id}"
 }
 
+# TODO: move to key_values module
 resource tokend_key_value "general" {
   key = "account_role:general"
   value_type = "uint32"
   value = "${tokend_account_role.general.id}"
 }
 
+# TODO: move to key_values module
 resource tokend_key_value "syndicate" {
   key = "account_role:corporate"
   value_type = "uint32"
   value = "${tokend_account_role.syndicate.id}"
 }
 
+# TODO: move to key_values module
 resource tokend_key_value "blocked" {
   key = "account_role:blocked"
   value_type = "uint32"
   value = "${tokend_account_role.blocked.id}"
 }
 
+# TODO: move to key_values module
 resource tokend_key_value "us_verified" {
   key = "account_role:us_verified"
   value_type = "uint32"
   value = "${tokend_account_role.us_verified.id}"
 }
 
+# TODO: move to key_values module
 resource tokend_key_value "us_accredited" {
   key = "account_role:us_accredited"
   value_type = "uint32"
   value = "${tokend_account_role.us_accredited.id}"
+}
+
+output "unverified" {
+  value = "${tokend_account_role.unverified.id}"
 }

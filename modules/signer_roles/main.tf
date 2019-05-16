@@ -14,6 +14,10 @@ variable "license_admin" {
   type = "list"
 }
 
+variable "service_identity" {
+  type = "list"
+}
+
 resource tokend_signer_role "super_admin" {
   rules = [
     "1",

@@ -1,3 +1,7 @@
+variable default_account_role {
+  type = "string"
+}
+
 resource tokend_signer_rule "issuance_creator" {
   action =  "create"
   entry_type = "reviewable_request"
@@ -55,6 +59,14 @@ resource tokend_signer_rule "stamp_creator" {
   entry_type = "stamp"
 }
 
+resource tokend_signer_rule "default_account_creator" {
+  action = "create"
+  entry_type = "account"
+  entry = {
+    role_id = "${var.default_account_role}"
+  }
+}
+
 output "issuance_creator" {
   value = "${tokend_signer_rule.issuance_creator.id}"
 }
@@ -89,4 +101,8 @@ output "license_creator" {
 
 output "stamp_creator" {
   value = "${tokend_signer_rule.stamp_creator.id}"
+}
+
+output "default_account_creator" {
+  value = "${tokend_signer_rule.default_account_creator.id}"
 }
