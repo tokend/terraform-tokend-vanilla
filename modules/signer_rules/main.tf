@@ -100,5 +100,5 @@ output "stamp_creator" {
 }
 
 output "kyc_recovery_creator" {
-  value = "${tokend_signer_rule.kyc_recovery_creator}"
+  value = "${tokend_signer_rule.kyc_recovery_creator.id}"
 }
