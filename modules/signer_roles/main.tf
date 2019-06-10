@@ -20,7 +20,7 @@ variable "create_kyc" {
 
 resource tokend_signer_role "create_kyc_recovery" {
   rules = [
-  "${var.create_kyc}}",
+  "${var.create_kyc}",
   ]
   details = {
     admin_role = false
