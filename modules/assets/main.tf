@@ -5,6 +5,10 @@ resource tokend_asset "DOGE" {
   pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
   trailing_digits_count       = 6
 
+  details = {
+    asset_name = "DOGE"
+  }
+
   policies = [
     "transferable",
     "base_asset",
@@ -19,6 +23,10 @@ resource tokend_asset "BTC" {
   pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
   trailing_digits_count       = 6
 
+  details = {
+    asset_name = "BTC"
+  }
+
   policies = [
     "transferable",
     "base_asset",
@@ -31,6 +39,10 @@ resource tokend_asset "USD" {
   initial_pre_issuance_amount = "9223372036853"
   pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
   trailing_digits_count       = 6
+
+  details = {
+    asset_name = "USD"
+  }
 
   policies = [
     "transferable",
