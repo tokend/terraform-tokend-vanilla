@@ -3,6 +3,11 @@ variable restricted_poll_type {
   default = "3"
 }
 
+variable unrestricted_poll_type {
+  type = "string"
+  default = "4"
+}
+
 variable asset_type_default {
   type = "string"
   default = "0"
@@ -243,6 +248,7 @@ module "signer_roles" {
 module "key_values" {
   source = "modules/key_values"
   restricted_poll_type = "${var.restricted_poll_type}"
+  unrestricted_poll_type = "${var.unrestricted_poll_type}"
   asset_type_kyc = "${var.asset_type_kyc}"
   asset_type_security = "${var.asset_type_security}"
   asset_type_default = "${var.asset_type_default}"
