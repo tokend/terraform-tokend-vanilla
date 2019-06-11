@@ -2,6 +2,10 @@ variable "restricted_poll_type" {
   type = "string"
 }
 
+variable "unrestricted_poll_type" {
+  type = "string"
+}
+
 variable "asset_type_kyc" {
   type = "string"
 }
@@ -19,6 +23,12 @@ resource tokend_key_value "poll_type_restricted" {
   key = "poll_type:restricted"
   value_type = "uint32"
   value = "${var.restricted_poll_type}"
+}
+
+resource tokend_key_value "poll_type_unrestricted" {
+  key = "poll_type:unrestricted"
+  value_type = "uint32"
+  value = "${var.unrestricted_poll_type}"
 }
 
 resource tokend_key_value "asset_type_kyc_required" {
