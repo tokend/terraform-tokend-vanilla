@@ -114,6 +114,36 @@ resource tokend_account_rule "forbid_restricted_vote_remove" {
   }
 }
 
+resource tokend_account_rule "poll_closer" {
+  action = "close"
+  entry_type = "poll"
+
+  entry = {
+    poll_id = "*"
+    permission_type = "*"
+  }
+}
+
+resource tokend_account_rule "poll_end_time_updater" {
+  action = "update_end_time"
+  entry_type = "poll"
+
+  entry = {
+    poll_id = "*"
+    permission_type = "*"
+  }
+}
+
+resource tokend_account_rule "poll_canceler" {
+  action = "cancel"
+  entry_type = "poll"
+
+  entry = {
+    poll_id = "*"
+    permission_type = "*"
+  }
+}
+
 output "external_binder" {
   value = "${tokend_account_rule.external_binder.id}"
 }
@@ -161,4 +191,16 @@ output "vote_remover" {
 
 output "forbid_restricted_vote_remove" {
   value = "${tokend_account_rule.forbid_restricted_vote_remove.id}"
+}
+
+output "poll_closer" {
+  value = "${tokend_account_rule.poll_closer.id}"
+}
+
+output "poll_end_time_updater" {
+  value = "${tokend_account_rule.poll_end_time_updater.id}"
+}
+
+output "poll_canceler" {
+  value = "${tokend_account_rule.poll_canceler.id}"
 }

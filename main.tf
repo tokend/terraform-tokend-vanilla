@@ -135,6 +135,9 @@ module "account_roles" {
     "${module.account_rules.vote_creator}",
     "${module.account_rules.vote_remover}",
     "${module.account_rules.forbid_restricted_vote_remove}",
+    "${module.account_rules.poll_closer}",
+    "${module.account_rules.poll_canceler}",
+    "${module.account_rules.poll_end_time_updater}",
   ]
 
   us_accredited = [
