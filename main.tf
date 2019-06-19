@@ -95,6 +95,7 @@ module "account_roles" {
     "${module.account_rules.vote_remover}",
     "${module.account_rules.forbid_restricted_vote_remove}",
     "${module.account_rules.kyc_recovery_creator}",
+    "${module.account_rules.atomic_swap_ask_creator}",
   ]
 
   syndicate_rules = [

@@ -152,6 +152,16 @@ resource tokend_account_rule "kyc_recovery_creator" {
   }
 }
 
+resource tokend_account_rule "atomic_swap_ask_creator" {
+  action = "create"
+  entry_type = "atomic_swap_ask"
+
+  entry = {
+    asset_type = "*"
+    asset_code = "*"
+  }
+}
+
 output "external_binder" {
   value = "${tokend_account_rule.external_binder.id}"
 }
@@ -215,4 +225,8 @@ output "poll_canceler" {
 
 output "kyc_recovery_creator" {
   value = "${tokend_account_rule.kyc_recovery_creator.id}"
+}
+
+output "atomic_swap_ask_creator" {
+  value = "${tokend_account_rule.atomic_swap_ask_creator.id}"
 }
