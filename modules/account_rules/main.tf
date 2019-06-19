@@ -144,6 +144,14 @@ resource tokend_account_rule "poll_canceler" {
   }
 }
 
+resource tokend_account_rule "kyc_recovery_creator" {
+  action = "create"
+  entry_type = "reviewable_request"
+  entry = {
+    request_type = "kyc_recovery"
+  }
+}
+
 resource tokend_account_rule "atomic_swap_ask_creator" {
   action = "create"
   entry_type = "atomic_swap_ask"
@@ -213,6 +221,10 @@ output "poll_end_time_updater" {
 
 output "poll_canceler" {
   value = "${tokend_account_rule.poll_canceler.id}"
+}
+
+output "kyc_recovery_creator" {
+  value = "${tokend_account_rule.kyc_recovery_creator.id}"
 }
 
 output "atomic_swap_ask_creator" {
