@@ -126,3 +126,9 @@ resource tokend_key_value "kyc_recovery_enabled" {
   value_type = "uint32"
   value      = "1"
 }
+
+resource tokend_key_value "create_poll_tasks" {
+  key        = "create_poll_tasks:*"
+  value_type = "uint32"
+  value      = "1"
+}
