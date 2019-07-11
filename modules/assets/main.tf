@@ -6,7 +6,7 @@ resource tokend_asset "DOGE" {
   trailing_digits_count       = 6
 
   details = {
-    asset_name = "DOGE"
+    name = "Dogecoin"
   }
 
   policies = [
@@ -24,7 +24,7 @@ resource tokend_asset "BTC" {
   trailing_digits_count       = 6
 
   details = {
-    asset_name = "BTC"
+    name = "Bitcoin"
   }
 
   policies = [
@@ -41,7 +41,7 @@ resource tokend_asset "USD" {
   trailing_digits_count       = 6
 
   details = {
-    asset_name = "USD"
+    name = "US Dollar"
   }
 
   policies = [
