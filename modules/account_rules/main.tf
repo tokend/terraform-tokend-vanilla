@@ -24,7 +24,7 @@ resource tokend_account_rule "role_updater" {
   action = "create"
   entry_type = "reviewable_request"
   entry = {
-    type = "change_role"
+    request_type = "change_role"
   }
 }
 
