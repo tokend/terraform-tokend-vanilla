@@ -83,7 +83,7 @@ resource tokend_key_value "us_accredited" {
 }
 
 resource tokend_key_value "default_account_role" {
-  key = "account_roles:default"
+  key = "default_account_role"
   value_type = "uint32"
   value = "${tokend_account_role.unverified.id}"
 }
