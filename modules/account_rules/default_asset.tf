@@ -69,6 +69,11 @@ resource tokend_account_rule "issuance_receiver" {
   }
 }
 
+resource tokend_account_rule "asset_pair_creator" {
+  action = "manage"
+  entry_type = "asset_pair"
+}
+
 output "default_for_default_buy_offer_creator" {
   value = "${tokend_account_rule.default_for_default_buy_offer_creator.id}"
 }
@@ -95,4 +100,8 @@ output "withdrawer" {
 
 output "issuance_receiver" {
   value = "${tokend_account_rule.issuance_receiver.id}"
+}
+
+output "asset_pair_creator" {
+  value = "${tokend_account_rule.asset_pair_creator.id}"
 }
