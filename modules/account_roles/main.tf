@@ -82,8 +82,8 @@ resource tokend_key_value "us_accredited" {
   value = "${tokend_account_role.us_accredited.id}"
 }
 
-resource tokend_key_value "default_account_role" {
-  key = "default_account_role"
+resource tokend_key_value "account_role:default" {
+  key = "account_role:default"
   value_type = "uint32"
   value = "${tokend_account_role.unverified.id}"
 }
