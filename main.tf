@@ -52,7 +52,6 @@ module "account_roles" {
     "${module.account_rules.vote_creator}",
     "${module.account_rules.vote_remover}",
     "${module.account_rules.forbid_restricted_vote_remove}",
-    "${module.account_rules.kyc_recovery_creator}",
   ]
 
   general_rules = [
@@ -94,7 +93,6 @@ module "account_roles" {
     "${module.account_rules.vote_creator}",
     "${module.account_rules.vote_remover}",
     "${module.account_rules.forbid_restricted_vote_remove}",
-    "${module.account_rules.kyc_recovery_creator}",
   ]
 
   syndicate_rules = [
@@ -140,7 +138,6 @@ module "account_roles" {
     "${module.account_rules.poll_closer}",
     "${module.account_rules.poll_canceler}",
     "${module.account_rules.poll_end_time_updater}",
-    "${module.account_rules.kyc_recovery_creator}",
     "${module.account_rules.atomic_swap_ask_creator}",
   ]
 
@@ -183,7 +180,6 @@ module "account_roles" {
     "${module.account_rules.vote_creator}",
     "${module.account_rules.vote_remover}",
     "${module.account_rules.forbid_restricted_vote_remove}",
-    "${module.account_rules.kyc_recovery_creator}",
   ]
 
   us_verified = [
@@ -215,7 +211,6 @@ module "account_roles" {
     "${module.account_rules.vote_creator}",
     "${module.account_rules.vote_remover}",
     "${module.account_rules.forbid_restricted_vote_remove}",
-    "${module.account_rules.kyc_recovery_creator}",
   ]
 
   blocked_rules = []
