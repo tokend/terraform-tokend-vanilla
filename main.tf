@@ -1,5 +1,5 @@
-module "account_roles" {
-  source = "modules/account_roles"
+module "account_rules" {
+  source = "modules/account_rules"
 }
 // create default account roles
 module "account_roles" {
