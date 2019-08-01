@@ -2,10 +2,6 @@ variable "default_rules" {
   type = "list"
 }
 
-variable "license_admin" {
-  type = "list"
-}
-
 variable "create_kyc" {
   type = "list"
 }
