@@ -266,3 +266,7 @@ module "key_values" {
 module "assets" {
   source = "modules/assets"
 }
+
+module "external_system_type_pool_entry" {
+  source = "modules/external_system_type_pool_entry"
+}
