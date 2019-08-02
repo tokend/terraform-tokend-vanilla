@@ -13,5 +13,6 @@ resource tokend_asset "UAH" {
     "transferable",
     "base_asset",
     "stats_quote_asset",
+    "can_be_quote_in_atomic_swap",
   ]
 }
