@@ -243,10 +243,6 @@ module "signer_roles" {
     "${module.signer_rules.license_creator}",
     "${module.signer_rules.stamp_creator}",
   ]
-
-  create_kyc = [
-  "${module.signer_rules.kyc_recovery_creator}",
-  ]
 }
 
 module "key_values" {
