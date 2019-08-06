@@ -1,12 +1,12 @@
-resource tokend_asset "DOGE" {
-  code                        = "DOGE"
+resource tokend_asset "USD" {
+  code                        = "USD"
   max_issuance_amount         = "9223372036853"
   initial_pre_issuance_amount = "9223372036853"
   pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
   trailing_digits_count       = 6
 
   details = {
-    name = "Dogecoin"
+    name = "US Dollar"
   }
 
   policies = [
@@ -33,15 +33,15 @@ resource tokend_asset "BTC" {
   ]
 }
 
-resource tokend_asset "USD" {
-  code                        = "USD"
+resource tokend_asset "EUR" {
+  code                        = "EUR"
   max_issuance_amount         = "9223372036853"
   initial_pre_issuance_amount = "9223372036853"
   pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
   trailing_digits_count       = 6
 
   details = {
-    name = "US Dollar"
+    name = "Euro"
   }
 
   policies = [
@@ -49,20 +49,36 @@ resource tokend_asset "USD" {
   ]
 }
 
-resource tokend_asset_pair "BTC_DOGE" {
-  base  = "${tokend_asset.BTC.id}"
-  quote = "${tokend_asset.DOGE.id}"
-  price = "1960909"
-}
+resource tokend_asset "CHF" {
+  code                        = "CHF"
+  max_issuance_amount         = "9223372036853"
+  initial_pre_issuance_amount = "9223372036853"
+  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  trailing_digits_count       = 6
 
-resource tokend_asset_pair "USD_DOGE" {
-  base  = "${tokend_asset.USD.id}"
-  quote = "${tokend_asset.DOGE.id}"
-  price = "1000"
+  details = {
+    name = "Swiss franc"
+  }
+
+  policies = [
+    "transferable",
+  ]
 }
 
 resource tokend_asset_pair "USD_BTC" {
   base  = "${tokend_asset.BTC.id}"
   quote = "${tokend_asset.USD.id}"
-  price = "2344111116"
+  price = "11757111116"
+}
+
+resource tokend_asset_pair "USD_EUR" {
+  base = "${tokend_asset.EUR.id}"
+  quote = "${tokend_asset.USD.id}"
+  price = "1100000"
+}
+
+resource tokend_asset_pair "USD_CHF" {
+  base = "${tokend_asset.CHF.id}"
+  quote = "${tokend_asset.USD.id}"
+  price = "1024590"
 }
