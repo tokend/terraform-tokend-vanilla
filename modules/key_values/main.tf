@@ -110,3 +110,10 @@ resource tokend_key_value "preissuance_tasks_default" {
   value_type = "uint32"
   value      = "0"
 }
+
+resource tokend_key_value "kyc_recovery_enabled" {
+  key        = "kyc_recovery_enabled"
+  value_type = "uint32"
+  value      = "1"
+}
+

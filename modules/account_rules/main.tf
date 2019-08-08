@@ -114,6 +114,14 @@ resource tokend_account_rule "forbid_restricted_vote_remove" {
   }
 }
 
+resource tokend_account_rule "kyc_recovery_creator" {
+  action = "create"
+  entry_type = "reviewable_request"
+  entry = {
+    request_type = "kyc_recovery"
+  }
+}
+
 output "external_binder" {
   value = "${tokend_account_rule.external_binder.id}"
 }
@@ -162,3 +170,8 @@ output "vote_remover" {
 output "forbid_restricted_vote_remove" {
   value = "${tokend_account_rule.forbid_restricted_vote_remove.id}"
 }
+
+output "kyc_recovery_creator" {
+  value = "${tokend_account_rule.kyc_recovery_creator.id}"
+}
+

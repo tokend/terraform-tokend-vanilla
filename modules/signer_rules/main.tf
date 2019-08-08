@@ -8,6 +8,14 @@ resource tokend_signer_rule "issuance_creator" {
   }
 }
 
+resource tokend_signer_rule "kyc_recovery_creator" {
+  action = "create"
+  entry_type = "reviewable_request"
+  entry = {
+    request_type = "kyc_recovery"
+  }
+}
+
 resource tokend_signer_rule "tx_sender" {
   action     = "send"
   entry_type = "transaction"
@@ -90,3 +98,8 @@ output "license_creator" {
 output "stamp_creator" {
   value = "${tokend_signer_rule.stamp_creator.id}"
 }
+
+output "kyc_recovery_creator" {
+  value = "${tokend_signer_rule.kyc_recovery_creator.id}"
+}
+
