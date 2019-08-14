@@ -81,3 +81,9 @@ resource tokend_key_value "us_accredited" {
   value_type = "uint32"
   value = "${tokend_account_role.us_accredited.id}"
 }
+
+resource tokend_key_value "general_change_role_tasks" {
+  key        = "change_role_tasks:${tokend_account_role.unverified.id}:${tokend_account_role.general.id}"
+  value_type = "uint32"
+  value      = "0"
+}
