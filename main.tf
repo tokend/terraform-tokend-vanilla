@@ -267,6 +267,9 @@ module "assets" {
   source = "modules/assets"
 }
 
+ module "limits" {
+ source = "modules/limits"
+ }
 module "external_system_type_pool_entry" {
   source = "modules/external_system_type_pool_entry"
 }
