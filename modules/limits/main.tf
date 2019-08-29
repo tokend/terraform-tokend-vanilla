@@ -1,7 +1,7 @@
-resource tokend_limit "default" {
-  role                        = "general"
-  stats_type                  = "WITHDRAW"
-  asset_code                  = "*"
+resource tokend_limit "limits_init" {
+  role                        = 1
+  stats_type                  = "withdraw"
+  asset_code                  = "BTC"
   convert                     = true
   daily_out                   = 1
   weekly_out                  = 7
