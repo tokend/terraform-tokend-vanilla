@@ -76,7 +76,7 @@ resource tokend_key_value "default_withdraw_tasks" {
 resource tokend_key_value "default_change_role_tasks" {
   key        = "change_role_tasks:*:*"
   value_type = "uint32"
-  value      = "1"
+  value      = "0"
 }
 
 resource tokend_key_value "asset_create_tasks" {
