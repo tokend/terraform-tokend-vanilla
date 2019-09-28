@@ -94,3 +94,7 @@ resource tokend_key_value "create_kyc_recovery_role" {
   value_type = "uint64"
   value = "${tokend_signer_role.create_kyc_recovery.id}"
 }
+
+output "license_signer_role" {
+  value = "${tokend_signer_role.license_admin.id}"
+}
