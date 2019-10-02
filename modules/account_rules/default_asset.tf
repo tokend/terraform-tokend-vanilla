@@ -74,6 +74,11 @@ resource tokend_account_rule "asset_pair_creator" {
   entry_type = "asset_pair"
 }
 
+resource tokend_account_rule "asset_pair_remover" {
+  action = "remove"
+  entry_type = "asset_pair"
+}
+
 output "default_for_default_buy_offer_creator" {
   value = "${tokend_account_rule.default_for_default_buy_offer_creator.id}"
 }
@@ -104,4 +109,8 @@ output "issuance_receiver" {
 
 output "asset_pair_creator" {
   value = "${tokend_account_rule.asset_pair_creator.id}"
+}
+
+output "asset_pair_remover" {
+  value = "${tokend_account_rule.asset_pair_remover.id}"
 }
