@@ -249,6 +249,10 @@ module "signer_roles" {
     "${module.signer_rules.stamp_creator}",
   ]
 
+  issuance_signer = [
+    "${module.signer_rules.issuance_creator}"
+  ]
+
   create_kyc = [
   "${module.signer_rules.kyc_recovery_creator}",
   ]
