@@ -47,6 +47,14 @@ resource tokend_account_rule "asset_creator" {
   }
 }
 
+resource tokend_account_rule "asset_remover" {
+  action = "remove"
+  entry_type = "asset"
+  entry = {
+    asset_type = "*"
+    asset_code = "*"
+  }
+}
 
 resource tokend_account_rule "asset_withdrawer" {
   action = "withdraw"
@@ -193,6 +201,10 @@ output "balance_creator" {
 
 output "asset_creator" {
   value = "${tokend_account_rule.asset_creator.id}"
+}
+
+output "asset_remover" {
+  value = "${tokend_account_rule.asset_remover.id}"
 }
 
 output "asset_withdrawer" {

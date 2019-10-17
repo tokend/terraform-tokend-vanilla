@@ -18,6 +18,21 @@ variable "create_kyc" {
   type = "list"
 }
 
+variable "issuance_signer" {
+  type = "list"
+}
+
+resource tokend_signer_role "issuance_signer" {
+  rules = [
+    "${var.issuance_signer}",
+  ]
+  details = {
+    admin_role = false
+    name = "Issuance"
+    description = "Role allows signer only to send create issuance requests"
+  }
+}
+
 resource tokend_signer_role "create_kyc_recovery" {
   rules = [
   "${var.create_kyc}",
@@ -92,7 +107,13 @@ resource tokend_key_value "default" {
 resource tokend_key_value "create_kyc_recovery_role" {
   key        = "kyc_recovery_signer_role"
   value_type = "uint64"
-  value = "${tokend_signer_role.create_kyc_recovery.id}"
+  value      = "${tokend_signer_role.create_kyc_recovery.id}"
+}
+
+resource tokend_key_value "issuance_signer_role" {
+  key        = "signer_role:issuance"
+  value_type = "uint32"
+  value      = "${tokend_signer_role.issuance_signer.id}"
 }
 
 resource tokend_key_value "license_admin_role" {

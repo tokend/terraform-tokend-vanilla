@@ -107,6 +107,7 @@ module "account_roles" {
     "${module.account_rules.role_updater}",
     "${module.account_rules.signer_manager}",
     "${module.account_rules.asset_creator}",
+    "${module.account_rules.asset_remover}",
     "${module.account_rules.default_for_default_sell_offer_creator}",
     "${module.account_rules.default_for_default_buy_offer_creator}",
     "${module.account_rules.default_for_kyc_buy_offer_creator}",
@@ -247,6 +248,10 @@ module "signer_roles" {
     "${module.signer_rules.tx_sender}",
     "${module.signer_rules.license_creator}",
     "${module.signer_rules.stamp_creator}",
+  ]
+
+  issuance_signer = [
+    "${module.signer_rules.issuance_creator}"
   ]
 
   create_kyc = [
