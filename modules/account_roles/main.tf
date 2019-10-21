@@ -30,6 +30,10 @@ resource tokend_account_role "general" {
   rules = ["${var.general_rules}"]
 }
 
+output "general" {
+  value = "${tokend_account_role.general.id}"
+}
+
 resource tokend_account_role "syndicate" {
   rules = ["${var.syndicate_rules}"]
 }

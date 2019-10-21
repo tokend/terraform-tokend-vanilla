@@ -119,3 +119,7 @@ resource tokend_key_value "issuance_signer_role" {
 output "license_signer_role" {
   value = "${tokend_signer_role.license_admin.id}"
 }
+
+output "general" {
+  value = "${tokend_signer_role.default.id}"
+}
