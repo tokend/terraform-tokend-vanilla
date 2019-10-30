@@ -252,6 +252,10 @@ module "signer_roles" {
     "${module.signer_rules.stamp_creator}",
   ]
 
+  issuance_signer = [
+    "${module.signer_rules.issuance_creator}"
+  ]
+
   create_kyc = [
   "${module.signer_rules.kyc_recovery_creator}",
   ]
@@ -268,4 +272,13 @@ module "key_values" {
 
 module "assets" {
   source = "modules/assets"
+}
+
+module "external_system_type_pool_entry" {
+  source = "modules/external_system_type_pool_entry"
+}
+
+module "signers" {
+  source = "modules/signers"
+  license_signer_role = "${module.signer_roles.license_signer_role}"
 }
