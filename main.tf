@@ -274,10 +274,6 @@ module "assets" {
   source = "modules/assets"
 }
 
-module "external_system_type_pool_entry" {
-  source = "modules/external_system_type_pool_entry"
-}
-
 module "signers" {
   source = "modules/signers"
   license_signer_role = "${module.signer_roles.license_signer_role}"
