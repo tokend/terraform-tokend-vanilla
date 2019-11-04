@@ -65,19 +65,19 @@ resource tokend_asset "CHF" {
   ]
 }
 
-resource tokend_asset_pair "USD_BTC" {
+resource tokend_asset_pair "BTC_USD" {
   base  = "${tokend_asset.BTC.id}"
   quote = "${tokend_asset.USD.id}"
   price = "11757"
 }
 
-resource tokend_asset_pair "USD_EUR" {
+resource tokend_asset_pair "EUR_USD" {
   base = "${tokend_asset.EUR.id}"
   quote = "${tokend_asset.USD.id}"
   price = "1.1"
 }
 
-resource tokend_asset_pair "USD_CHF" {
+resource tokend_asset_pair "CHF_USD" {
   base = "${tokend_asset.CHF.id}"
   quote = "${tokend_asset.USD.id}"
   price = "1.02459"
