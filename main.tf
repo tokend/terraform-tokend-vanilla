@@ -90,7 +90,6 @@ module "roles" {
 
   unverified_rules = [
     "${module.rules.balance_creator}",
-    "${module.rules.signer_manager}",
     "${module.rules.default_sender}",
     "${module.rules.default_receiver}",
     "${module.rules.user_to_service_default_sender}",
@@ -104,11 +103,10 @@ module "roles" {
 
   syndicate_rules = [
     "${module.rules.balance_creator}",
-    "${module.rules.signer_manager}",
     "${module.rules.asset_creator}",
     "${module.rules.asset_updater}",
   ]
-//  blocked_rules = []
+  //  blocked_rules = []
 }
 
 
