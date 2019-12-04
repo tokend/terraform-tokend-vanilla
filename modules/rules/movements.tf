@@ -33,11 +33,9 @@ resource tokend_rule "default_issuance_receiver" {
 }
 
 output "default_destroyer" {
-  type = "string"
   value = "${tokend_rule.default_destroyer.id}"
 }
 
 output "default_issuance_receiver" {
-  type = "string"
   value = "${tokend_rule.default_issuance_receiver.id}"
 }
