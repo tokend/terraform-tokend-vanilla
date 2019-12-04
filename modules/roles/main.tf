@@ -18,46 +18,46 @@ variable blocked_rules {
   type = "list"
 }
 
-resource tokend_account_role "payment_service" {
+resource tokend_role "payment_service" {
   rules = ["${var.payment_service_rules}"]
 }
 
-resource tokend_account_role "unverified" {
+resource tokend_role "unverified" {
   rules = ["${var.unverified_rules}"]
 }
 
-resource tokend_account_role "general" {
+resource tokend_role "general" {
   rules = ["${var.general_rules}"]
 }
 
-resource tokend_account_role "syndicate" {
+resource tokend_role "syndicate" {
   rules = ["${var.syndicate_rules}"]
 }
 
-resource tokend_account_role "blocked" {
+resource tokend_role "blocked" {
   rules = ["${var.blocked_rules}"]
 }
 
 resource tokend_key_value "unverified" {
-  key = "account_role:unverified"
+  key = "role:unverified"
   value_type = "uint32"
-  value = "${tokend_account_role.unverified.id}"
+  value = "${tokend_role.unverified.id}"
 }
 
 resource tokend_key_value "general" {
-  key = "account_role:general"
+  key = "role:general"
   value_type = "uint32"
-  value = "${tokend_account_role.general.id}"
+  value = "${tokend_role.general.id}"
 }
 
 resource tokend_key_value "syndicate" {
-  key = "account_role:corporate"
+  key = "role:corporate"
   value_type = "uint32"
-  value = "${tokend_account_role.syndicate.id}"
+  value = "${tokend_role.syndicate.id}"
 }
 
 resource tokend_key_value "blocked" {
-  key = "account_role:blocked"
+  key = "role:blocked"
   value_type = "uint32"
-  value = "${tokend_account_role.blocked.id}"
+  value = "${tokend_role.blocked.id}"
 }
