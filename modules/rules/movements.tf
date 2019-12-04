@@ -20,6 +20,13 @@ resource tokend_rule "default_destroyer" {
     security_type = "${var.asset_type_default}"
     asset_code = "*"
   }
+
+  action = [
+    {
+      destroy = {
+        security_type = "*"
+      }
+    }]
 }
 
 resource tokend_rule "default_issuance_receiver" {
@@ -30,6 +37,14 @@ resource tokend_rule "default_issuance_receiver" {
     security_type = "${var.asset_type_default}"
     asset_code = "*"
   }
+
+  action = [
+    {
+      receive_issuance = {
+        security_type = "*"
+      }
+    }
+  ]
 }
 
 output "default_destroyer" {
