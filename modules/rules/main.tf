@@ -9,10 +9,6 @@ variable "asset_type_kyc" {
 variable "asset_type_security" {
   type = "string"
 }
-resource tokend_rule "balance_creator" {
-  action_type = "create"
-  entry_type = "balance"
-}
 
 resource tokend_rule "asset_creator" {
   action_type = "create"
@@ -30,10 +26,6 @@ resource tokend_rule "asset_updater" {
     security_type = "*"
     asset_code = "*"
   }
-}
-
-output "balance_creator" {
-  value = "${tokend_rule.balance_creator.id}"
 }
 
 output "asset_creator" {
