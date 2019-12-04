@@ -13,10 +13,10 @@ variable general_rules {
 variable syndicate_rules {
   type = "list"
 }
-
-variable blocked_rules {
-  type = "list"
-}
+//
+//variable blocked_rules {
+//  type = "list"
+//}
 
 resource tokend_role "payment_service" {
   rules = ["${var.payment_service_rules}"]
@@ -33,10 +33,10 @@ resource tokend_role "general" {
 resource tokend_role "syndicate" {
   rules = ["${var.syndicate_rules}"]
 }
-
-resource tokend_role "blocked" {
-  rules = ["${var.blocked_rules}"]
-}
+//
+//resource tokend_role "blocked" {
+//  rules = ["${var.blocked_rules}"]
+//}
 
 resource tokend_key_value "unverified" {
   key = "role:unverified"
@@ -55,9 +55,9 @@ resource tokend_key_value "syndicate" {
   value_type = "uint32"
   value = "${tokend_role.syndicate.id}"
 }
-
-resource tokend_key_value "blocked" {
-  key = "role:blocked"
-  value_type = "uint32"
-  value = "${tokend_role.blocked.id}"
-}
+//
+//resource tokend_key_value "blocked" {
+//  key = "role:blocked"
+//  value_type = "uint32"
+//  value = "${tokend_role.blocked.id}"
+//}
