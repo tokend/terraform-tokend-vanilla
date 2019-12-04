@@ -114,8 +114,8 @@ module "key_values" {
   asset_type_security = "${var.asset_type_security}"
   asset_type_default = "${var.asset_type_default}"
 }
-
-module "assets" {
-  source = "modules/assets"
-  asset_type_default = "${var.asset_type_default}"
-}
+//
+//module "assets" {
+//  source = "modules/assets"
+//  asset_type_default = "${var.asset_type_default}"
+//}
