@@ -121,4 +121,5 @@ module "key_values" {
 
 module "assets" {
   source = "modules/assets"
+  asset_type_default = "${var.asset_type_default}"
 }
