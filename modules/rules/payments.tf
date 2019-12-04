@@ -187,26 +187,26 @@ resource tokend_rule "service_to_service_default_receiver" {
 }
 
 output "default_sender" {
-  value = "${tokend_rule.default_sender}"
+  value = "${tokend_rule.default_sender.id}"
 }
 output "default_receiver" {
-  value = "${tokend_rule.default_receiver}"
+  value = "${tokend_rule.default_receiver.id}"
 }
 output "user_to_service_default_sender" {
-  value = "${tokend_rule.user_to_service_default_sender}"
+  value = "${tokend_rule.user_to_service_default_sender.id}"
 }
 output "user_to_service_default_receiver" {
-  value = "${tokend_rule.user_to_service_default_receiver}"
+  value = "${tokend_rule.user_to_service_default_receiver.id}"
 }
 output "service_to_user_default_sender" {
-  value = "${tokend_rule.service_to_user_default_sender}"
+  value = "${tokend_rule.service_to_user_default_sender.id}"
 }
 output "service_to_user_default_receiver" {
-  value = "${tokend_rule.service_to_user_default_receiver}"
+  value = "${tokend_rule.service_to_user_default_receiver.id}"
 }
 output "service_to_service_default_sender" {
-  value = "${tokend_rule.service_to_service_default_sender}"
+  value = "${tokend_rule.service_to_service_default_sender.id}"
 }
 output "service_to_service_default_receiver" {
-  value = "${tokend_rule.service_to_service_default_receiver}"
+  value = "${tokend_rule.service_to_service_default_receiver.id}"
 }
