@@ -1,61 +1,61 @@
 variable asset_type_default {
   type = "string"
-  default = "0"
+  default = "1"
 }
 
 variable asset_type_kyc {
   type = "string"
-  default = "1"
+  default = "2"
 }
 
 variable asset_type_security {
   type = "string"
-  default = "2"
+  default = "3"
 }
 
 variable destroy_type_default {
   type = "string"
-  default = "0"
+  default = "1"
 }
 variable issue_type_default {
   type = "string"
-  default = "0"
+  default = "1"
 }
 variable receive_issuance_default {
   type = "string"
-  default = "0"
+  default = "1"
 }
 variable receive_type_default {
   type = "string"
-  default = "0"
+  default = "1"
 }
 variable receive_type_service_to_service {
   type = "string"
-  default = "1"
+  default = "2"
 }
 variable receive_type_service_to_user {
   type = "string"
-  default = "2"
+  default = "3"
 }
 variable receive_type_user_to_service {
   type = "string"
-  default = "3"
+  default = "4"
 }
 variable send_type_default {
   type = "string"
-  default = "0"
+  default = "1"
 }
 variable send_type_service_to_service {
   type = "string"
-  default = "1"
+  default = "2"
 }
 variable send_type_service_to_user {
   type = "string"
-  default = "2"
+  default = "3"
 }
 variable send_type_user_to_service {
   type = "string"
-  default = "3"
+  default = "4"
 }
 
 // creates basic account rules
