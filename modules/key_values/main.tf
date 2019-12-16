@@ -10,6 +10,10 @@ variable "asset_type_default" {
   type = "string"
 }
 
+variable "signer_role_default" {
+  type = "string"
+}
+
 resource tokend_key_value "asset_type_kyc_required" {
   key = "asset_type:kyc_required"
   value_type = "uint32"
@@ -26,4 +30,10 @@ resource tokend_key_value "asset_type_default" {
   key = "asset_type:default"
   value_type = "uint32"
   value = "${var.asset_type_default}"
+}
+
+resource tokend_key_value "default_signer_role" {
+  key = "signer_role:default"
+  value_type = "uint32"
+  value = "${var.signer_role_default}"
 }

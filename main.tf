@@ -58,6 +58,11 @@ variable send_type_user_to_service {
   default = "4"
 }
 
+variable signer_role_default {
+  type = string
+  default = "1"
+}
+
 // creates basic account rules
 module "rules" {
   source = "modules/rules"
@@ -108,7 +113,7 @@ module "roles" {
     "${module.rules.asset_creator}",
     "${module.rules.asset_updater}",
   ]
-    blocked_rules = []
+  blocked_rules = []
 }
 
 
@@ -117,6 +122,7 @@ module "key_values" {
   asset_type_kyc = "${var.asset_type_kyc}"
   asset_type_security = "${var.asset_type_security}"
   asset_type_default = "${var.asset_type_default}"
+  signer_role_default = "${var.signer_role_default}"
 }
 //
 //module "assets" {
