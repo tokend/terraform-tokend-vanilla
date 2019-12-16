@@ -18,6 +18,12 @@ variable blocked_rules {
   type = "list"
 }
 
+
+variable "signer_role_default" {
+  type = "string"
+}
+
+
 resource tokend_role "payment_service" {
   rules = ["${var.payment_service_rules}"]
 }
@@ -60,4 +66,11 @@ resource tokend_key_value "blocked" {
   key = "role:blocked"
   value_type = "uint64"
   value = "${tokend_role.blocked.id}"
+}
+
+
+resource tokend_key_value "default_signer_role" {
+  key = "signer_role:default"
+  value_type = "uint64"
+  value = "${var.signer_role_default}"
 }

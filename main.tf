@@ -59,7 +59,7 @@ variable send_type_user_to_service {
 }
 
 variable signer_role_default {
-  type = string
+  type = "string"
   default = "1"
 }
 
@@ -85,6 +85,8 @@ module "rules" {
 // create default account roles
 module "roles" {
   source = "modules/roles"
+
+  signer_role_default = "${var.signer_role_default}"
 
   payment_service_rules = [
     "${module.rules.user_to_service_default_receiver}",
@@ -122,7 +124,6 @@ module "key_values" {
   asset_type_kyc = "${var.asset_type_kyc}"
   asset_type_security = "${var.asset_type_security}"
   asset_type_default = "${var.asset_type_default}"
-  signer_role_default = "${var.signer_role_default}"
 }
 //
 //module "assets" {
