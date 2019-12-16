@@ -108,7 +108,7 @@ module "roles" {
     "${module.rules.asset_creator}",
     "${module.rules.asset_updater}",
   ]
-  //  blocked_rules = []
+    blocked_rules = []
 }
 
 
