@@ -63,6 +63,37 @@ variable signer_role_default {
   default = "1"
 }
 
+variable request_change_role_security_type {
+  type = "string"
+  default = "1"
+}
+
+variable request_kyc_recovery_security_type {
+  type = "string"
+  default = "2"
+}
+
+variable kyc_recovery_op_types {
+  type = "list"
+  default = [
+    "28"]
+}
+
+variable change_roles_op_types {
+  type = "list"
+  default = [
+    "14"]
+}
+
+module "reviewable_request_operations" {
+  source = "modules/reviewable_request_operations"
+  change_account_roles_request = "${var.request_change_role_security_type}"
+  kyc_recovery_request = "${var.request_kyc_recovery_security_type}"
+  change_account_roles_request_op_types = "${var.change_roles_op_types}"
+  kyc_recovery_request_op_types = "${var.kyc_recovery_op_types}"
+}
+
+
 // creates basic account rules
 module "rules" {
   source = "modules/rules"
@@ -124,6 +155,8 @@ module "key_values" {
   asset_type_kyc = "${var.asset_type_kyc}"
   asset_type_security = "${var.asset_type_security}"
   asset_type_default = "${var.asset_type_default}"
+  change_role_security_type = "${var.request_change_role_security_type}"
+  kyc_recovery_security_type = "${var.request_kyc_recovery_security_type}"
 }
 //
 //module "assets" {
