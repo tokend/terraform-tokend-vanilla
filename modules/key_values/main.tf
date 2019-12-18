@@ -37,13 +37,13 @@ resource tokend_key_value "asset_type_default" {
 }
 
 resource tokend_key_value "change_role_tasks" {
-  key = "reviewable_request_tasks:"+"${var.change_role_security_type}"
+  key = "reviewable_request_tasks:${var.change_role_security_type}"
   value_type = "uint64"
   value = "1024"
 }
 
 resource tokend_key_value "kyc_recovery_tasks" {
-  key = "reviewable_request_tasks:"+"${var.kyc_recovery_security_type}"
+  key = "reviewable_request_tasks:${var.kyc_recovery_security_type}"
   value_type = "uint64"
   value = "1024"
 }
