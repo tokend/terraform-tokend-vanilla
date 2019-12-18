@@ -30,7 +30,8 @@ variable "signer_role_default" {
 
 resource tokend_role "recovery" {
   rules = [
-    var.recovery_rules]
+    "${var.recovery_rules}"
+  ]
   details = {
     admin_role = false
     name = "KYC Recovery creator"
