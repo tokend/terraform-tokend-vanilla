@@ -11,7 +11,7 @@ variable "asset_type_security" {
 }
 
 variable "recovery_req_type" {
-  type = string
+  type = "string"
 }
 
 resource tokend_rule "signer_manager" {
