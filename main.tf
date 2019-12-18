@@ -89,8 +89,8 @@ module "reviewable_request_operations" {
   source = "modules/reviewable_request_operations"
   change_account_roles_request = "${var.request_change_role_security_type}"
   kyc_recovery_request = "${var.request_kyc_recovery_security_type}"
-  change_account_roles_request_op_types = "${var.change_roles_op_types}"
-  kyc_recovery_request_op_types = "${var.kyc_recovery_op_types}"
+  change_account_roles_request_op_types = var.change_roles_op_types
+  kyc_recovery_request_op_types = var.kyc_recovery_op_types
 }
 
 
