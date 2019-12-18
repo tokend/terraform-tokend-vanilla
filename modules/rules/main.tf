@@ -63,6 +63,19 @@ resource tokend_rule "recovery_req_creator" {
     }]
 }
 
+resource tokend_rule "recovery_initiator" {
+  action_type = "initiate_recovery"
+  entry_type = "account"
+  action = [
+    {
+      initiate_recovery = [
+        {
+          role_ids = [
+            "*"]
+        }]
+    }]
+}
+
 output "signer_manager" {
   value = "${tokend_rule.signer_manager.id}"
 }
@@ -77,6 +90,10 @@ output "asset_creator" {
 
 output "asset_updater" {
   value = "${tokend_rule.asset_updater.id}"
+}
+
+output "recovery_initiator" {
+  value = "${tokend_rule.recovery_initiator.id}"
 }
 
 output "recovery_request_creator" {

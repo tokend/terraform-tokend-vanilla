@@ -130,7 +130,9 @@ module "roles" {
     "${module.rules.default_receiver}",
     "${module.rules.user_to_service_default_sender}",
     "${module.rules.service_to_user_default_receiver}",
-    "${module.rules.default_issuance_receiver}"
+    "${module.rules.default_issuance_receiver}",
+    "${module.rules.recovery_initiator}",
+    "${module.rules.recovery_request_creator}"
   ]
 
   general_rules = [
