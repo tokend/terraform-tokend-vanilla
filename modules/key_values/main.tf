@@ -47,3 +47,15 @@ resource tokend_key_value "kyc_recovery_tasks" {
   value_type = "uint64"
   value = "1024"
 }
+
+resource tokend_key_value "request_change_role" {
+  key = "request:change_role"
+  value_type = "uint32"
+  value = "${var.change_role_security_type}"
+}
+
+resource tokend_key_value "request_kyc_recovery" {
+  key = "request:kyc_recovery"
+  value_type = "uint32"
+  value = "${var.kyc_recovery_security_type}"
+}

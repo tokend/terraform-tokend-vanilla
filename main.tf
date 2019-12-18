@@ -102,6 +102,7 @@ module "rules" {
   send_type_service_to_service = "${var.send_type_service_to_service}"
   send_type_service_to_user = "${var.send_type_service_to_user}"
   send_type_user_to_service = "${var.send_type_user_to_service}"
+  recovery_req_type = var.request_kyc_recovery_security_type
 }
 
 // create default account roles
@@ -109,6 +110,10 @@ module "roles" {
   source = "modules/roles"
 
   signer_role_default = "${var.signer_role_default}"
+
+  recovery_rules = [
+    module.rules.recovery_request_creator,
+  ]
 
   payment_service_rules = [
     "${module.rules.user_to_service_default_receiver}",

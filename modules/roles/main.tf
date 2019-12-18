@@ -19,35 +19,60 @@ variable blocked_rules {
 }
 
 
+variable "recovery_rules" {
+  type = "list"
+}
+
 variable "signer_role_default" {
   type = "string"
 }
 
 
+resource tokend_role "recovery" {
+  rules = [
+    var.recovery_rules]
+  details = {
+    admin_role = false
+    name = "KYC Recovery creator"
+    description = "Use ID of role as value in kv by kyc_recovery_role key"
+  }
+}
+
 resource tokend_role "payment_service" {
-  rules = ["${var.payment_service_rules}"]
+  rules = [
+    "${var.payment_service_rules}"]
 }
 
 resource tokend_role "unverified" {
-  rules = ["${var.unverified_rules}"]
+  rules = [
+    "${var.unverified_rules}"]
 }
 
 resource tokend_role "general" {
-  rules = ["${var.general_rules}"]
+  rules = [
+    "${var.general_rules}"]
 }
 
 resource tokend_role "syndicate" {
-  rules = ["${var.syndicate_rules}"]
+  rules = [
+    "${var.syndicate_rules}"]
 }
 
 resource tokend_role "blocked" {
-  rules = ["${var.blocked_rules}"]
+  rules = [
+    "${var.blocked_rules}"]
 }
 
 resource tokend_key_value "unverified" {
   key = "role:unverified"
   value_type = "uint64"
   value = "${tokend_role.unverified.id}"
+}
+
+resource tokend_key_value "recovery" {
+  key = "role:recovery"
+  value_type = "uint64"
+  value = "${tokend_role.recovery.id}"
 }
 
 resource tokend_key_value "general" {
