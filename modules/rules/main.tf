@@ -122,7 +122,7 @@ output "asset_updater" {
 }
 
 output "change_role_request_creator" {
-  value = "${tokend_rule.recovery_initiator.id}"
+  value = "${tokend_rule.change_role_req_creator.id}"
 }
 
 output "recovery_initiator" {
