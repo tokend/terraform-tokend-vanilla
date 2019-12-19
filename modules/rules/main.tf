@@ -109,7 +109,7 @@ resource tokend_rule "forbid_change_role" {
         }]
     }]
   entry_type = "account"
-  forbid = true
+  forbids = true
 }
 
 resource tokend_rule "allow_change_role" {
