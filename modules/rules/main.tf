@@ -89,7 +89,7 @@ resource tokend_rule "change_role_req_creator" {
               change_roles = [
                 {
                   role_ids = [
-                    "${var.account_role_general}"]
+                    "*"]
                 }]
             }]
           entry_type = "account"
@@ -111,7 +111,7 @@ resource tokend_rule "gen_change_role_req_creator" {
               change_roles = [
                 {
                   role_ids = [
-                    "*"]
+                    "${var.account_role_general}"]
                 }]
             }]
           entry_type = "account"
