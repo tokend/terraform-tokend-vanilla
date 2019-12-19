@@ -103,6 +103,7 @@ module "rules" {
   send_type_service_to_user = "${var.send_type_service_to_user}"
   send_type_user_to_service = "${var.send_type_user_to_service}"
   recovery_req_type = "${var.request_kyc_recovery_security_type}"
+  change_role_req_type = "${var.request_change_role_security_type}"
 
 }
 
