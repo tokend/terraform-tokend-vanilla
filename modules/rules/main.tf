@@ -22,6 +22,9 @@ variable "gen_change_role_req_type" {
   type = "string"
 }
 
+variable "account_role_general" {
+  type = "string"
+}
 
 resource tokend_rule "signer_manager" {
   action_type = "*"
@@ -86,7 +89,7 @@ resource tokend_rule "change_role_req_creator" {
               change_roles = [
                 {
                   role_ids = [
-                    "*"]
+                    "${var.account_role_general}"]
                 }]
             }]
           entry_type = "account"

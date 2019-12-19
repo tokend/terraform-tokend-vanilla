@@ -100,3 +100,7 @@ resource tokend_key_value "default_signer_role" {
   value_type = "uint64"
   value = "${var.signer_role_default}"
 }
+
+output "account_role_general" {
+  value = "${tokend_role.general.id}"
+}

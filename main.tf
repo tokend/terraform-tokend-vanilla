@@ -110,7 +110,7 @@ module "rules" {
   recovery_req_type = "${var.request_kyc_recovery_security_type}"
   change_role_req_type = "${var.request_change_role_security_type}"
   gen_change_role_req_type = "${var.gen_change_role_security_type}"
-
+  account_role_general = "${module.roles.account_role_general}"
 }
 
 // create default account roles
