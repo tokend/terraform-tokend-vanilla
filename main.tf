@@ -165,11 +165,12 @@ module "roles" {
     "${module.rules.default_issuance_receiver}",
     "${module.rules.recovery_initiator}",
     "${module.rules.recovery_request_creator}",
-    "${module.rules.change_role_request_creator}",
     "${module.rules.balance_creator}",
     "${module.rules.signer_manager}",
     "${module.rules.asset_creator}",
     "${module.rules.asset_updater}",
+    "${module.rules.change_role_request_creator}",
+    "${module.rules.default_destroyer}"
   ]
   blocked_rules = []
 }
