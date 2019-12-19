@@ -22,8 +22,8 @@ variable "gen_change_role_req_type" {
   type = "string"
 }
 
-variable "account_role_general" {
-  type = "string"
+variable "unverified_forbidden_roles" {
+  type = "list"
 }
 
 resource tokend_rule "signer_manager" {
@@ -98,26 +98,31 @@ resource tokend_rule "change_role_req_creator" {
     }]
 }
 
-resource tokend_rule "gen_change_role_req_creator" {
-  action_type = "create"
-  entry_type = "reviewable_request"
-  reviewable_request = [
+resource tokend_rule "forbid_change_role" {
+  action_type = "change_roles"
+  action = [
     {
-      op_rules = [
+      change_roles = [
         {
-          action_type = "change_roles"
-          action = [
-            {
-              change_roles = [
-                {
-                  role_ids = [
-                    "${var.account_role_general}"]
-                }]
-            }]
-          entry_type = "account"
+          role_ids = [
+            "${var.unverified_forbidden_roles}"]
         }]
-      security_type = "${var.gen_change_role_req_type}"
     }]
+  entry_type = "account"
+  forbidden = true
+}
+
+resource tokend_rule "allow_change_role" {
+  action_type = "change_roles"
+  action = [
+    {
+      change_roles = [
+        {
+          role_ids = [
+            "*"]
+        }]
+    }]
+  entry_type = "account"
 }
 
 
@@ -154,8 +159,12 @@ output "change_role_request_creator" {
   value = "${tokend_rule.change_role_req_creator.id}"
 }
 
-output "gen_change_role_request_creator" {
-  value = "${tokend_rule.gen_change_role_req_creator.id}"
+output "forbid_change_role" {
+  value = "${tokend_rule.forbid_change_role.id}"
+}
+
+output "allow_change_role" {
+  value = "${tokend_rule.allow_change_role.id}"
 }
 
 output "recovery_initiator" {

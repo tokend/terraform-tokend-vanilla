@@ -101,10 +101,11 @@ resource tokend_key_value "default_signer_role" {
   value = "${var.signer_role_default}"
 }
 
-output "account_role_general" {
-  value = "${tokend_role.general.id}"
-}
-
-output "account_role_unverified" {
-  value = "${tokend_role.general.id}"
+output "roles_restricted" {
+  value = [
+    "${tokend_role.syndicate.id}",
+    "${tokend_role.recovery.id}",
+    "${tokend_role.blocked.id}",
+    "${tokend_role.payment_service.id}"
+  ]
 }

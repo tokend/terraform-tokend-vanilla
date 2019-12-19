@@ -82,6 +82,7 @@ variable request_kyc_recovery_security_type {
 module "reviewable_request_operations" {
   source = "modules/reviewable_request_operations"
   change_account_roles_request = "${var.request_change_role_security_type}"
+  gen_change_account_roles_request = "${var.gen_change_role_security_type}"
   kyc_recovery_request = "${var.request_kyc_recovery_security_type}"
   change_account_roles_request_op_types = [
     "14"]
@@ -110,7 +111,9 @@ module "rules" {
   recovery_req_type = "${var.request_kyc_recovery_security_type}"
   change_role_req_type = "${var.request_change_role_security_type}"
   gen_change_role_req_type = "${var.gen_change_role_security_type}"
-  account_role_general = "${module.roles.account_role_general}"
+  unverified_forbidden_roles = [
+    "${module.roles.roles_restricted}",
+  ]
 }
 
 // create default account roles
@@ -140,37 +143,18 @@ module "roles" {
     "${module.rules.default_issuance_receiver}",
     "${module.rules.recovery_initiator}",
     "${module.rules.recovery_request_creator}",
-    "${module.rules.gen_change_role_request_creator}"
+    "${module.rules.allow_change_role}",
+    "${module.rules.forbid_change_role}",
   ]
 
   general_rules = [
-    "${module.rules.balance_creator}",
-    "${module.rules.signer_manager}",
-    "${module.rules.default_sender}",
-    "${module.rules.default_receiver}",
-    "${module.rules.user_to_service_default_sender}",
-    "${module.rules.service_to_user_default_receiver}",
-    "${module.rules.default_issuance_receiver}",
-    "${module.rules.recovery_initiator}",
-    "${module.rules.recovery_request_creator}",
+    "${module.rules.default_destroyer}",
     "${module.rules.change_role_request_creator}",
-    "${module.rules.default_destroyer}"
   ]
 
   syndicate_rules = [
-    "${module.rules.default_sender}",
-    "${module.rules.default_receiver}",
-    "${module.rules.user_to_service_default_sender}",
-    "${module.rules.service_to_user_default_receiver}",
-    "${module.rules.default_issuance_receiver}",
-    "${module.rules.recovery_initiator}",
-    "${module.rules.recovery_request_creator}",
-    "${module.rules.balance_creator}",
-    "${module.rules.signer_manager}",
     "${module.rules.asset_creator}",
     "${module.rules.asset_updater}",
-    "${module.rules.change_role_request_creator}",
-    "${module.rules.default_destroyer}"
   ]
   blocked_rules = []
 }
