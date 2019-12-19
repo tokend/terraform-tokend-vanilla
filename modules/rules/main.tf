@@ -77,6 +77,14 @@ resource tokend_rule "change_role_req_creator" {
       op_rules = [
         {
           action_type = "change_roles"
+          action = [
+            {
+              change_roles = [
+                {
+                  role_ids = [
+                    "*"]
+                }]
+            }]
           entry_type = "account"
         }]
       security_type = "${var.change_role_req_type}"
