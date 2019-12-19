@@ -18,6 +18,10 @@ variable "change_role_req_type" {
   type = "string"
 }
 
+variable "gen_change_role_req_type" {
+  type = "string"
+}
+
 
 resource tokend_rule "signer_manager" {
   action_type = "*"
@@ -91,6 +95,28 @@ resource tokend_rule "change_role_req_creator" {
     }]
 }
 
+resource tokend_rule "gen_change_role_req_creator" {
+  action_type = "create"
+  entry_type = "reviewable_request"
+  reviewable_request = [
+    {
+      op_rules = [
+        {
+          action_type = "change_roles"
+          action = [
+            {
+              change_roles = [
+                {
+                  role_ids = [
+                    "*"]
+                }]
+            }]
+          entry_type = "account"
+        }]
+      security_type = "${var.gen_change_role_req_type}"
+    }]
+}
+
 
 resource tokend_rule "recovery_initiator" {
   action_type = "initiate_recovery"
@@ -123,6 +149,10 @@ output "asset_updater" {
 
 output "change_role_request_creator" {
   value = "${tokend_rule.change_role_req_creator.id}"
+}
+
+output "gen_change_role_request_creator" {
+  value = "${tokend_rule.gen_change_role_req_creator.id}"
 }
 
 output "recovery_initiator" {

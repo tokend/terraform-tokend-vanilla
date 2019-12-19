@@ -68,6 +68,11 @@ variable request_change_role_security_type {
   default = "1"
 }
 
+variable gen_change_role_security_type {
+  type = "string"
+  default = "3"
+}
+
 variable request_kyc_recovery_security_type {
   type = "string"
   default = "2"
@@ -104,6 +109,7 @@ module "rules" {
   send_type_user_to_service = "${var.send_type_user_to_service}"
   recovery_req_type = "${var.request_kyc_recovery_security_type}"
   change_role_req_type = "${var.request_change_role_security_type}"
+  gen_change_role_req_type = "${var.gen_change_role_security_type}"
 
 }
 
@@ -134,7 +140,8 @@ module "roles" {
     "${module.rules.default_issuance_receiver}",
     "${module.rules.recovery_initiator}",
     "${module.rules.recovery_request_creator}",
-    "${module.rules.change_role_request_creator}"
+    "${module.rules.change_role_request_creator}",
+    "${module.rules.gen_change_role_request_creator}"
   ]
 
   general_rules = [
@@ -158,6 +165,7 @@ module "key_values" {
   asset_type_default = "${var.asset_type_default}"
   change_role_security_type = "${var.request_change_role_security_type}"
   kyc_recovery_security_type = "${var.request_kyc_recovery_security_type}"
+  gen_change_role_security_type = "${var.gen_change_role_security_type}"
 }
 //
 //module "assets" {
