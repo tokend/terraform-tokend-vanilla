@@ -104,3 +104,7 @@ resource tokend_key_value "default_signer_role" {
 output "account_role_general" {
   value = "${tokend_role.general.id}"
 }
+
+output "account_role_unverified" {
+  value = "${tokend_role.general.id}"
+}
