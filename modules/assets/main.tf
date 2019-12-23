@@ -2,7 +2,7 @@ resource tokend_asset "USD" {
   code                        = "USD"
   max_issuance_amount         = "9223372036853"
   initial_pre_issuance_amount = "9223372036853"
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  pre_issuance_signer         = "GAWHHIG2OT4JCC6WGLEFESU73VMPHHOUJPNXOFBXHDVLUUL4VLU7OKT3"
   trailing_digits_count       = 6
 
   details = {
@@ -20,7 +20,7 @@ resource tokend_asset "BTC" {
   code                        = "BTC"
   max_issuance_amount         = "21000000"
   initial_pre_issuance_amount = "21000000"
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  pre_issuance_signer         = "GAWHHIG2OT4JCC6WGLEFESU73VMPHHOUJPNXOFBXHDVLUUL4VLU7OKT3"
   trailing_digits_count       = 6
 
   details = {
@@ -37,7 +37,7 @@ resource tokend_asset "EUR" {
   code                        = "EUR"
   max_issuance_amount         = "9223372036853"
   initial_pre_issuance_amount = "9223372036853"
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  pre_issuance_signer         = "GAWHHIG2OT4JCC6WGLEFESU73VMPHHOUJPNXOFBXHDVLUUL4VLU7OKT3"
   trailing_digits_count       = 6
 
   details = {
@@ -53,7 +53,7 @@ resource tokend_asset "CHF" {
   code                        = "CHF"
   max_issuance_amount         = "9223372036853"
   initial_pre_issuance_amount = "9223372036853"
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  pre_issuance_signer         = "GAWHHIG2OT4JCC6WGLEFESU73VMPHHOUJPNXOFBXHDVLUUL4VLU7OKT3"
   trailing_digits_count       = 6
 
   details = {
