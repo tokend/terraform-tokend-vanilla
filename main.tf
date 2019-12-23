@@ -255,7 +255,19 @@ module "signer_roles" {
   ]
 
   create_kyc = [
-  "${module.signer_rules.kyc_recovery_creator}",
+    "${module.signer_rules.kyc_recovery_creator}",
+  ]
+
+  label_agent = [
+    "${module.signer_rules.tx_sender}",
+    "${module.signer_rules.asset_creator}",
+    "${module.signer_rules.asset_manager}"
+  ]
+
+  label_sales_manager = [
+    "${module.signer_rules.tx_sender}",
+    "${module.signer_rules.sale_creator}",
+    "${module.signer_rules.sale_manager}"
   ]
 }
 

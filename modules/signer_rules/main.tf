@@ -63,6 +63,42 @@ resource tokend_signer_rule "stamp_creator" {
   entry_type = "stamp"
 }
 
+resource tokend_signer_rule "asset_creator" {
+  action = "create"
+  entry_type = "asset"
+}
+
+resource tokend_signer_rule "asset_manager" {
+  action = "manage"
+  entry_type = "asset"
+}
+
+resource tokend_signer_rule "sale_creator" {
+  action = "create"
+  entry_type = "sale"
+}
+
+resource tokend_signer_rule "sale_manager" {
+  action = "manage"
+  entry_type = "sale"
+}
+
+output "sale_creator" {
+  value = "${tokend_signer_rule.sale_creator.id}"
+}
+
+output "sale_manager" {
+  value = "${tokend_signer_rule.sale_manager.id}"
+}
+
+output "asset_creator" {
+  value = "${tokend_signer_rule.asset_creator.id}"
+}
+
+output "asset_manager" {
+  value = "${tokend_signer_rule.asset_manager.id}"
+}
+
 output "issuance_creator" {
   value = "${tokend_signer_rule.issuance_creator.id}"
 }

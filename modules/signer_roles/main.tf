@@ -22,6 +22,36 @@ variable "issuance_signer" {
   type = "list"
 }
 
+variable "label_agent" {
+  type = "list"
+}
+
+variable "label_sales_manager" {
+  type = "list"
+}
+
+resource tokend_signer_role "label_agent" {
+  rules = [
+    "${var.label_agent}"
+  ]
+  details = {
+    admin_role = false
+    name = "Label agent"
+    description = "Role allows signer to create artists, music objects and update details of them on behalf of label account"
+  }
+}
+
+resource tokend_signer_role "label_sales_manager" {
+  rules = [
+    "${var.label_sales_manager}"
+  ]
+  details = {
+    admin_role = false
+    name = "Label sales manages"
+    description = "Role allows signer to create sales and manage details of them on behalf of label account"
+  }
+}
+
 resource tokend_signer_role "issuance_signer" {
   rules = [
     "${var.issuance_signer}",
