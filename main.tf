@@ -225,6 +225,7 @@ module "account_roles" {
 // create defaul signer rules
 module "signer_rules" {
   source = "modules/signer_rules"
+  asset_type_default = "${var.asset_type_default}"
 }
 
 // create default signer roles

@@ -66,11 +66,19 @@ resource tokend_signer_rule "stamp_creator" {
 resource tokend_signer_rule "asset_creator" {
   action = "create"
   entry_type = "asset"
+  entry = {
+    asset_code = "*"
+    asset_type = "${var.asset_type_default}"
+  }
 }
 
 resource tokend_signer_rule "asset_manager" {
   action = "manage"
   entry_type = "asset"
+  entry = {
+    asset_code = "*"
+    asset_type = "${var.asset_type_default}"
+  }
 }
 
 resource tokend_signer_rule "sale_creator" {
@@ -137,4 +145,8 @@ output "stamp_creator" {
 
 output "kyc_recovery_creator" {
   value = "${tokend_signer_rule.kyc_recovery_creator.id}"
+}
+
+variable "asset_type_default" {
+  type = "string"
 }

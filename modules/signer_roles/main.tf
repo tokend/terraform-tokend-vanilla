@@ -112,7 +112,7 @@ resource tokend_signer_role "kyc_aml_admin" {
 
 resource tokend_signer_role "license_admin" {
   rules = [
-  "${var.license_admin}",
+    "${var.license_admin}",
   ]
   details = {
     admin_role = true
