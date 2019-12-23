@@ -84,11 +84,19 @@ resource tokend_signer_rule "asset_manager" {
 resource tokend_signer_rule "sale_creator" {
   action = "create"
   entry_type = "sale"
+  entry = {
+    sale_id = "*"
+    sale_type = "*"
+  }
 }
 
 resource tokend_signer_rule "sale_manager" {
   action = "manage"
   entry_type = "sale"
+  entry = {
+    sale_id = "*"
+    sale_type = "*"
+  }
 }
 
 output "sale_creator" {
