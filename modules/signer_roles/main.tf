@@ -32,7 +32,7 @@ variable "label_sales_manager" {
 
 resource tokend_signer_role "label_agent" {
   rules = [
-    "${var.label_agent}"
+    "${var.label_agent}",
   ]
   details = {
     admin_role = false
@@ -43,7 +43,7 @@ resource tokend_signer_role "label_agent" {
 
 resource tokend_signer_role "label_sales_manager" {
   rules = [
-    "${var.label_sales_manager}"
+    "${var.label_sales_manager}",
   ]
   details = {
     admin_role = false
@@ -112,7 +112,7 @@ resource tokend_signer_role "kyc_aml_admin" {
 
 resource tokend_signer_role "license_admin" {
   rules = [
-  "${var.license_admin}"
+  "${var.license_admin}",
   ]
   details = {
     admin_role = true
