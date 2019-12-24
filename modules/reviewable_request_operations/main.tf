@@ -2,10 +2,6 @@ variable change_account_roles_request {
   type = "string"
 }
 
-variable gen_change_account_roles_request {
-  type = "string"
-}
-
 variable change_account_roles_request_op_types {
   type = "list"
 }
@@ -16,12 +12,6 @@ variable kyc_recovery_request_op_types {
 
 variable kyc_recovery_request {
   type = "string"
-}
-
-resource tokend_reviewable_request_operations "change_roles_general" {
-  security_type = "${var.gen_change_account_roles_request}"
-  op_types = [
-    "${var.change_account_roles_request_op_types}"]
 }
 
 resource tokend_reviewable_request_operations "change_roles" {

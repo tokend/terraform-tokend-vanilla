@@ -18,10 +18,6 @@ variable "change_role_req_type" {
   type = "string"
 }
 
-variable "gen_change_role_req_type" {
-  type = "string"
-}
-
 variable "unverified_forbidden_roles" {
   type = "list"
 }

@@ -68,11 +68,6 @@ variable request_change_role_security_type {
   default = "1"
 }
 
-variable gen_change_role_security_type {
-  type = "string"
-  default = "3"
-}
-
 variable request_kyc_recovery_security_type {
   type = "string"
   default = "2"
@@ -82,7 +77,6 @@ variable request_kyc_recovery_security_type {
 module "reviewable_request_operations" {
   source = "modules/reviewable_request_operations"
   change_account_roles_request = "${var.request_change_role_security_type}"
-  gen_change_account_roles_request = "${var.gen_change_role_security_type}"
   kyc_recovery_request = "${var.request_kyc_recovery_security_type}"
   change_account_roles_request_op_types = [
     "14"]
@@ -110,7 +104,6 @@ module "rules" {
   send_type_user_to_service = "${var.send_type_user_to_service}"
   recovery_req_type = "${var.request_kyc_recovery_security_type}"
   change_role_req_type = "${var.request_change_role_security_type}"
-  gen_change_role_req_type = "${var.gen_change_role_security_type}"
   unverified_forbidden_roles = [
     "${module.roles.roles_restricted}",
   ]
@@ -167,7 +160,11 @@ module "key_values" {
   asset_type_default = "${var.asset_type_default}"
   change_role_security_type = "${var.request_change_role_security_type}"
   kyc_recovery_security_type = "${var.request_kyc_recovery_security_type}"
-  gen_change_role_security_type = "${var.gen_change_role_security_type}"
+  payment_p2p = "${var.send_type_default}"
+  payment_p2s = "${var.send_type_user_to_service}"
+  payment_s2p = "${var.send_type_service_to_user}"
+  payment_s2s = "${var.send_type_service_to_service}"
+
 }
 //
 //module "assets" {
