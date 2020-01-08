@@ -143,6 +143,8 @@ module "roles" {
   general_rules = [
     "${module.rules.default_destroyer}",
     "${module.rules.change_role_request_creator}",
+    "${module.rules.change_role_request_updater}",
+    "${module.rules.change_role_request_remover}",
   ]
 
   syndicate_rules = [

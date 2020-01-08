@@ -94,6 +94,50 @@ resource tokend_rule "change_role_req_creator" {
     }]
 }
 
+resource tokend_rule "change_role_req_updater" {
+  action_type = "update"
+  entry_type = "reviewable_request"
+  reviewable_request = [
+    {
+      op_rules = [
+        {
+          action_type = "change_roles"
+          action = [
+            {
+              change_roles = [
+                {
+                  role_ids = [
+                    "*"]
+                }]
+            }]
+          entry_type = "account"
+        }]
+      security_type = "${var.change_role_req_type}"
+    }]
+}
+
+resource tokend_rule "change_role_req_remover" {
+  action_type = "remove"
+  entry_type = "reviewable_request"
+  reviewable_request = [
+    {
+      op_rules = [
+        {
+          action_type = "change_roles"
+          action = [
+            {
+              change_roles = [
+                {
+                  role_ids = [
+                    "*"]
+                }]
+            }]
+          entry_type = "account"
+        }]
+      security_type = "${var.change_role_req_type}"
+    }]
+}
+
 resource tokend_rule "forbid_change_role" {
   action_type = "change_roles"
   action = [
@@ -153,6 +197,14 @@ output "asset_updater" {
 
 output "change_role_request_creator" {
   value = "${tokend_rule.change_role_req_creator.id}"
+}
+
+output "change_role_request_updater" {
+  value = "${tokend_rule.change_role_req_updater.id}"
+}
+
+output "change_role_request_remover" {
+  value = "${tokend_rule.change_role_req_remover.id}"
 }
 
 output "forbid_change_role" {
