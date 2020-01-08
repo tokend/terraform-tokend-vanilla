@@ -55,11 +55,11 @@ resource tokend_account_role "us_verified" {
 }
 
 resource tokend_account_role "label" {
-  rule = ["${var.label_rules}"]
+  rules = ["${var.label_rules}"]
 }
 
 resource tokend_account_role "investor" {
-  rule = ["${var.investor_rules}"]
+  rules = ["${var.investor_rules}"]
 }
 
 resource tokend_key_value "unverified" {
@@ -96,4 +96,16 @@ resource tokend_key_value "us_accredited" {
   key = "account_role:us_accredited"
   value_type = "uint32"
   value = "${tokend_account_role.us_accredited.id}"
+}
+
+resource tokend_key_value "label" {
+  key = "account_role:label"
+  value_type = "uint32"
+  value = "${tokend_account_role.label.id}"
+}
+
+resource tokend_key_value "investor" {
+  key = "account_role:investor"
+  value_type = "uint32"
+  value = "${tokend_account_role.investor.id}"
 }
