@@ -14,6 +14,14 @@ variable blocked_rules {
   type = "list"
 }
 
+variable label_rules {
+  type = "list"
+}
+
+variable investor_rules {
+  type = "list"
+}
+
 variable us_verified {
   type = "list"
 }
@@ -44,6 +52,14 @@ resource tokend_account_role "us_accredited" {
 
 resource tokend_account_role "us_verified" {
   rules = ["${var.us_verified}"]
+}
+
+resource tokend_account_role "label" {
+  rule = ["${var.label_rules}"]
+}
+
+resource tokend_account_role "investor" {
+  rule = ["${var.investor_rules}"]
 }
 
 resource tokend_key_value "unverified" {
