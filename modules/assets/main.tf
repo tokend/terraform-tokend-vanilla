@@ -12,5 +12,6 @@ resource tokend_asset "RUB" {
   policies = [
     "transferable",
     "base_asset",
+    "stats_quote_asset"
   ]
 }
