@@ -152,6 +152,7 @@ module "account_roles" {
     "${module.account_rules.balance_creator}",
     "${module.account_rules.asset_creator}",
     "${module.account_rules.asset_remover}",
+    "${module.account_rules.issuance_receiver}"
   ]
 
   investor_rules = [
