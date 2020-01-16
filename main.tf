@@ -151,6 +151,7 @@ module "account_roles" {
     "${module.account_rules.signer_manager}",
     "${module.account_rules.balance_creator}",
     "${module.account_rules.asset_creator}",
+    "${module.account_rules.asset_creator_with_tasks}",
     "${module.account_rules.asset_remover}",
     "${module.account_rules.sender}", # (asset sender)
     "${module.account_rules.issuance_receiver}",

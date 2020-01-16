@@ -38,6 +38,15 @@ resource tokend_account_rule "tx_sender" {
   entry_type = "transaction"
 }
 
+resource tokend_account_rule "asset_creator_with_tasks" {
+  action = "create_with_tasks"
+  entry_type = "asset"
+  entry = {
+    asset_type = "*"
+    asset_code = "*"
+  }
+}
+
 resource tokend_account_rule "asset_creator" {
   action = "create"
   entry_type = "asset"
@@ -201,6 +210,10 @@ output "balance_creator" {
 
 output "asset_creator" {
   value = "${tokend_account_rule.asset_creator.id}"
+}
+
+output "asset_creator_with_tasks" {
+  value = "${tokend_account_rule.asset_creator_with_tasks.id}"
 }
 
 output "asset_remover" {
