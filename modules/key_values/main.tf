@@ -73,19 +73,19 @@ resource tokend_key_value "default_withdraw_tasks" {
   value      = "4"
 }
 
-resource tokend_key_value "withdraw_tasks:USD" {
+resource tokend_key_value "withdraw_tasks_USD" {
   key        = "withdrawal_tasks:USD"
   value_type = "uint32"
   value      = "1"
 }
 
-resource tokend_key_value "withdraw_tasks:BTC" {
+resource tokend_key_value "withdraw_tasks_BTC" {
   key        = "withdrawal_tasks:BTC"
   value_type = "uint32"
   value      = "1"
 }
 
-resource tokend_key_value "withdraw_tasks:ARS" {
+resource tokend_key_value "withdraw_tasks_ARS" {
   key        = "withdrawal_tasks:ARS"
   value_type = "uint32"
   value      = "1"
