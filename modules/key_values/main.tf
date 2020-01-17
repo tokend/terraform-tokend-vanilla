@@ -70,7 +70,25 @@ resource tokend_key_value "change_role_task-manual_review_required" {
 resource tokend_key_value "default_withdraw_tasks" {
   key        = "withdrawal_tasks:*"
   value_type = "uint32"
-  value      = "2048"
+  value      = "4"
+}
+
+resource tokend_key_value "withdraw_tasks:USD" {
+  key        = "withdrawal_tasks:USD"
+  value_type = "uint32"
+  value      = "1"
+}
+
+resource tokend_key_value "withdraw_tasks:BTC" {
+  key        = "withdrawal_tasks:BTC"
+  value_type = "uint32"
+  value      = "1"
+}
+
+resource tokend_key_value "withdraw_tasks:ARS" {
+  key        = "withdrawal_tasks:ARS"
+  value_type = "uint32"
+  value      = "1"
 }
 
 resource tokend_key_value "default_change_role_tasks" {
