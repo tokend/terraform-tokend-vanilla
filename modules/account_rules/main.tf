@@ -14,7 +14,6 @@ variable restricted_poll_type {
   type = "string"
 }
 
-
 resource tokend_account_rule "signer_manager" {
   action = "*"
   entry_type = "signer"
@@ -65,7 +64,6 @@ resource tokend_account_rule "asset_withdrawer" {
   }
 }
 
-
 resource tokend_account_rule "reviewable_request_creator" { // TODO shrink scope to specific requests
   action = "create"
   entry_type = "reviewable_request"
@@ -73,8 +71,6 @@ resource tokend_account_rule "reviewable_request_creator" { // TODO shrink scope
     request_type = "*"
   }
 }
-
-
 
 resource tokend_account_rule "sale_participant" {
   action     = "participate"
@@ -160,10 +156,17 @@ resource tokend_account_rule "kyc_recovery_creator" {
   }
 }
 
-resource tokend_account_rule "atomic_swap_ask_creator" {
+resource tokend_account_rule "redemption_creator" {
   action = "create"
-  entry_type = "atomic_swap_ask"
+  entry_type = "reviewable_request"
+  entry = {
+    request_type = "perform_redemption"
+  }
+}
 
+resource tokend_account_rule "redemption_receiver" {
+  action = "receive_redemption"
+  entry_type = "asset"
   entry = {
     asset_type = "*"
     asset_code = "*"
@@ -177,7 +180,6 @@ output "external_binder" {
 output "sale_participant" {
   value = "${tokend_account_rule.sale_participant.id}"
 }
-
 
 output "reviewable_request_creator" {
   value = "${tokend_account_rule.reviewable_request_creator.id}"
@@ -239,6 +241,10 @@ output "kyc_recovery_creator" {
   value = "${tokend_account_rule.kyc_recovery_creator.id}"
 }
 
-output "atomic_swap_ask_creator" {
-  value = "${tokend_account_rule.atomic_swap_ask_creator.id}"
+output "redemption_receiver" {
+  value = "${tokend_account_rule.redemption_receiver.id}"
+}
+
+output "redemption_creator" {
+  value = "${tokend_account_rule.redemption_creator.id}"
 }

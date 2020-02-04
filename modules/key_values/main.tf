@@ -157,14 +157,8 @@ resource tokend_key_value "create_poll_tasks" {
   value      = "1"
 }
 
-resource tokend_key_value "atomic_swap_ask_tasks" {
-  key = "atomic_swap_ask_tasks"
-  value_type = "uint32"
-  value = "0"
-}
-
-resource tokend_key_value "atomic_swap_bid_tasks" {
-  key = "atomic_swap_bid_tasks:*"
+resource tokend_key_value "redemption_tasks" {
+  key = "redemption_tasks"
   value_type = "uint32"
   value = "1"
 }

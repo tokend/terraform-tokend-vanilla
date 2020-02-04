@@ -63,6 +63,22 @@ resource tokend_signer_rule "stamp_creator" {
   entry_type = "stamp"
 }
 
+resource tokend_signer_rule "redemption_reviewer" {
+  action = "review"
+  entry_type = "reviewable_request"
+  entry = {
+    request_type = "perform_redemption"
+  }
+}
+
+resource tokend_signer_rule "redemption_creator" {
+  action = "create"
+  entry_type = "reviewable_request"
+  entry = {
+    request_type = "perform_redemption"
+  }
+}
+
 output "issuance_creator" {
   value = "${tokend_signer_rule.issuance_creator.id}"
 }
@@ -97,6 +113,14 @@ output "license_creator" {
 
 output "stamp_creator" {
   value = "${tokend_signer_rule.stamp_creator.id}"
+}
+
+output "redemption_reviewer" {
+  value = "${tokend_signer_rule.redemption_reviewer.id}"
+}
+
+output "redemption_creator" {
+  value = tokend_signer_rule.redemption_creator.id
 }
 
 output "kyc_recovery_creator" {

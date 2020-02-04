@@ -40,7 +40,6 @@ module "account_roles" {
     "${module.account_rules.balance_creator}",
     "${module.account_rules.sender}",
     "${module.account_rules.payment_receiver}",
-    "${module.account_rules.atomic_swap_receiver}",
     "${module.account_rules.issuance_receiver}",
     "${module.account_rules.tx_sender}",
     "${module.account_rules.role_updater}",
@@ -59,7 +58,6 @@ module "account_roles" {
     "${module.account_rules.balance_creator}",
     "${module.account_rules.sender}",
     "${module.account_rules.payment_receiver}",
-    "${module.account_rules.atomic_swap_receiver}",
     "${module.account_rules.issuance_receiver}",
     "${module.account_rules.tx_sender}",
     "${module.account_rules.role_updater}",
@@ -83,7 +81,6 @@ module "account_roles" {
     "${module.account_rules.kyc_for_security_buy_offer_creator}",
     "${module.account_rules.kyc_for_security_sell_offer_creator}",
     "${module.account_rules.kyc_sender}",
-    "${module.account_rules.kyc_atomic_swap_receiver}",
     "${module.account_rules.kyc_payment_receiver}",
     "${module.account_rules.kyc_withdrawer}",
     "${module.account_rules.kyc_issuance_receiver}",
@@ -101,7 +98,6 @@ module "account_roles" {
     "${module.account_rules.balance_creator}",
     "${module.account_rules.sender}",
     "${module.account_rules.payment_receiver}",
-    "${module.account_rules.atomic_swap_receiver}",
     "${module.account_rules.issuance_receiver}",
     "${module.account_rules.tx_sender}",
     "${module.account_rules.role_updater}",
@@ -127,7 +123,6 @@ module "account_roles" {
     "${module.account_rules.kyc_for_security_buy_offer_creator}",
     "${module.account_rules.kyc_for_security_sell_offer_creator}",
     "${module.account_rules.kyc_sender}",
-    "${module.account_rules.kyc_atomic_swap_receiver}",
     "${module.account_rules.kyc_payment_receiver}",
     "${module.account_rules.kyc_withdrawer}",
     "${module.account_rules.kyc_issuance_receiver}",
@@ -142,14 +137,14 @@ module "account_roles" {
     "${module.account_rules.poll_canceler}",
     "${module.account_rules.poll_end_time_updater}",
     "${module.account_rules.kyc_recovery_creator}",
-    "${module.account_rules.atomic_swap_ask_creator}",
+    module.account_rules.redemption_creator,
+    module.account_rules.redemption_receiver,
   ]
 
   us_accredited = [
     "${module.account_rules.balance_creator}",
     "${module.account_rules.sender}",
     "${module.account_rules.payment_receiver}",
-    "${module.account_rules.atomic_swap_receiver}",
     "${module.account_rules.issuance_receiver}",
     "${module.account_rules.tx_sender}",
     "${module.account_rules.role_updater}",
@@ -173,7 +168,6 @@ module "account_roles" {
     "${module.account_rules.kyc_for_security_buy_offer_creator}",
     "${module.account_rules.kyc_for_security_sell_offer_creator}",
     "${module.account_rules.kyc_sender}",
-    "${module.account_rules.kyc_atomic_swap_receiver}",
     "${module.account_rules.kyc_payment_receiver}",
     "${module.account_rules.kyc_withdrawer}",
     "${module.account_rules.kyc_issuance_receiver}",
@@ -191,7 +185,6 @@ module "account_roles" {
         "${module.account_rules.balance_creator}",
     "${module.account_rules.sender}",
     "${module.account_rules.payment_receiver}",
-    "${module.account_rules.atomic_swap_receiver}",
     "${module.account_rules.issuance_receiver}",
     "${module.account_rules.tx_sender}",
     "${module.account_rules.role_updater}",
@@ -205,7 +198,6 @@ module "account_roles" {
     "${module.account_rules.kyc_for_default_buy_offer_creator}",
     "${module.account_rules.kyc_for_default_sell_offer_creator}",
     "${module.account_rules.kyc_sender}",
-    "${module.account_rules.kyc_atomic_swap_receiver}",
     "${module.account_rules.kyc_payment_receiver}",
     "${module.account_rules.kyc_withdrawer}",
     "${module.account_rules.kyc_issuance_receiver}",
@@ -219,7 +211,20 @@ module "account_roles" {
     "${module.account_rules.kyc_recovery_creator}",
   ]
 
+  buyback_service = [
+    module.account_rules.tx_sender,
+    module.account_rules.sender,
+    module.account_rules.payment_receiver,
+    module.account_rules.kyc_sender,
+    module.account_rules.kyc_payment_receiver,
+  ]
+
   blocked_rules = []
+}
+
+module "accounts" {
+  source = "modules/accounts"
+  buyback_account_role = module.account_roles.buyback_service
 }
 
 // create defaul signer rules
@@ -248,6 +253,14 @@ module "signer_roles" {
     "${module.signer_rules.tx_sender}",
     "${module.signer_rules.license_creator}",
     "${module.signer_rules.stamp_creator}",
+  ]
+
+  redemption_admin = [
+    module.signer_rules.redemption_reviewer
+  ]
+
+  redeemer = [
+    module.signer_rules.redemption_creator
   ]
 
   issuance_signer = [
@@ -279,4 +292,5 @@ module "external_system_type_pool_entry" {
 module "signers" {
   source = "modules/signers"
   license_signer_role = "${module.signer_roles.license_signer_role}"
+  redemption_reviewer_role = module.signer_roles.redemption_signer_role
 }

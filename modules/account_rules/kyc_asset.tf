@@ -18,16 +18,6 @@ resource tokend_account_rule "kyc_payment_receiver" {
   }
 }
 
-resource tokend_account_rule "kyc_atomic_swap_receiver" {
-  action     = "receive_atomic_swap"
-  entry_type = "asset"
-
-  entry = {
-    asset_type = "${var.asset_type_kyc}"
-    asset_code = "*"
-  }
-}
-
 resource tokend_account_rule "kyc_withdrawer" {
   action     = "withdraw"
   entry_type = "asset"
@@ -136,10 +126,6 @@ output "default_for_kyc_sell_offer_creator" {
 
 output "kyc_sender" {
   value = "${tokend_account_rule.kyc_sender.id}"
-}
-
-output "kyc_atomic_swap_receiver" {
-  value = "${tokend_account_rule.kyc_atomic_swap_receiver.id}"
 }
 
 output "kyc_payment_receiver" {

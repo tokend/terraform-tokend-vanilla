@@ -14,6 +14,14 @@ variable "license_admin" {
   type = "list"
 }
 
+variable "redemption_admin" {
+  type = "list"
+}
+
+variable "redeemer" {
+  type = "list"
+}
+
 variable "create_kyc" {
   type = "list"
 }
@@ -91,6 +99,23 @@ resource tokend_signer_role "license_admin" {
   }
 }
 
+resource tokend_signer_role "redemption_admin" {
+  rules = [var.redemption_admin]
+  details = {
+    admin_role = true
+    name = "Redemption Admin"
+    description = "Able to review redemption requests"
+  }
+}
+
+resource tokend_signer_role "redeemer" {
+  rules = [var.redeemer]
+  details = {
+    admin_role = false
+    name = "Redemption Creator"
+    description = "Able to create redemption requests"
+  }
+}
 
 // users operational signer role
 resource tokend_signer_role "default" {
@@ -122,6 +147,16 @@ resource tokend_key_value "license_admin_role" {
   value      = "${tokend_signer_role.license_admin.id}"
 }
 
+resource tokend_key_value "redemption_signer_role" {
+  key = "redemption_creator_singer_role"
+  value_type = "uint64"
+  value = tokend_signer_role.redeemer.id
+}
+
 output "license_signer_role" {
   value = "${tokend_signer_role.license_admin.id}"
+}
+
+output "redemption_signer_role" {
+  value = tokend_signer_role.redemption_admin.id
 }
