@@ -17,5 +17,5 @@ resource tokend_account_signer "redemption_reviewer" {
   public_key = "GC6MQ5V2TOTHEBLIWK7XFRNUWSSG6O4Y5A6WC252XUF5OOC34A5XVR3N"
   weight = 1000
   identity = 228
-  role_id = var.redemption_reviewer_role
+  role_id = "${var.redemption_reviewer_role}"
 }

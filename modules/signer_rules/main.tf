@@ -120,7 +120,7 @@ output "redemption_reviewer" {
 }
 
 output "redemption_creator" {
-  value = tokend_signer_rule.redemption_creator.id
+  value = "${tokend_signer_rule.redemption_creator.id}"
 }
 
 output "kyc_recovery_creator" {

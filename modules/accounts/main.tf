@@ -4,7 +4,7 @@ variable "buyback_account_role" {
 
 resource tokend_account "buyback_service" {
   account_id = "GC6MQ5V2TOTHEBLIWK7XFRNUWSSG6O4Y5A6WC252XUF5OOC34A5XVR3N"
-  role_id = var.buyback_account_role
+  role_id = "${var.buyback_account_role}"
   signers = [
     {
       public_key = "GC6MQ5V2TOTHEBLIWK7XFRNUWSSG6O4Y5A6WC252XUF5OOC34A5XVR3N"

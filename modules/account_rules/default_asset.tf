@@ -28,7 +28,6 @@ resource tokend_account_rule "withdrawer" {
   }
 }
 
-
 resource tokend_account_rule "default_for_default_buy_offer_creator" {
   action = "create"
   entry_type = "offer"

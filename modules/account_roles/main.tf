@@ -52,7 +52,7 @@ resource tokend_account_role "us_verified" {
 
 resource tokend_account_role "buyback_service" {
   rules = [
-    var.buyback_service
+    "${var.buyback_service}"
   ]
   details = {
     admin_role = true
@@ -98,5 +98,5 @@ resource tokend_key_value "us_accredited" {
 }
 
 output "buyback_service" {
-  value = tokend_account_role.buyback_service.id
+  value = "${tokend_account_role.buyback_service.id}"
 }

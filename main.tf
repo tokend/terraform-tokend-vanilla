@@ -137,8 +137,8 @@ module "account_roles" {
     "${module.account_rules.poll_canceler}",
     "${module.account_rules.poll_end_time_updater}",
     "${module.account_rules.kyc_recovery_creator}",
-    module.account_rules.redemption_creator,
-    module.account_rules.redemption_receiver,
+    "${module.account_rules.redemption_creator}",
+    "${module.account_rules.redemption_receiver}",
   ]
 
   us_accredited = [
@@ -212,11 +212,11 @@ module "account_roles" {
   ]
 
   buyback_service = [
-    module.account_rules.tx_sender,
-    module.account_rules.sender,
-    module.account_rules.payment_receiver,
-    module.account_rules.kyc_sender,
-    module.account_rules.kyc_payment_receiver,
+    "${module.account_rules.tx_sender}",
+    "${module.account_rules.sender}",
+    "${module.account_rules.payment_receiver}",
+    "${module.account_rules.kyc_sender}",
+    "${module.account_rules.kyc_payment_receiver}",
   ]
 
   blocked_rules = []
@@ -224,7 +224,7 @@ module "account_roles" {
 
 module "accounts" {
   source = "modules/accounts"
-  buyback_account_role = module.account_roles.buyback_service
+  buyback_account_role = "${module.account_roles.buyback_service}"
 }
 
 // create defaul signer rules
@@ -256,11 +256,11 @@ module "signer_roles" {
   ]
 
   redemption_admin = [
-    module.signer_rules.redemption_reviewer
+    "${module.signer_rules.redemption_reviewer}"
   ]
 
   redeemer = [
-    module.signer_rules.redemption_creator
+    "${module.signer_rules.redemption_creator}"
   ]
 
   issuance_signer = [
@@ -292,5 +292,5 @@ module "external_system_type_pool_entry" {
 module "signers" {
   source = "modules/signers"
   license_signer_role = "${module.signer_roles.license_signer_role}"
-  redemption_reviewer_role = module.signer_roles.redemption_signer_role
+  redemption_reviewer_role = "${module.signer_roles.redemption_signer_role}"
 }
