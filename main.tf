@@ -256,6 +256,8 @@ module "signer_roles" {
   ]
 
   redemption_admin = [
+    "${module.signer_rules.asset_pair_manager}",
+    "${module.signer_rules.udpate_asset_reviewer}",
     "${module.signer_rules.redemption_reviewer}"
   ]
 

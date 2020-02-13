@@ -63,6 +63,19 @@ resource tokend_signer_rule "stamp_creator" {
   entry_type = "stamp"
 }
 
+resource tokend_signer_rule "asset_pair_manager" {
+  action = "manage"
+  entry_type = "asset_pair"
+}
+
+resource tokend_signer_rule "update_asset_reviewer" {
+  action = "review"
+  entry_type = "reviewable_request"
+  entry = {
+    request_type = "update_asset"
+  }
+}
+
 resource tokend_signer_rule "redemption_reviewer" {
   action = "review"
   entry_type = "reviewable_request"
@@ -113,6 +126,14 @@ output "license_creator" {
 
 output "stamp_creator" {
   value = "${tokend_signer_rule.stamp_creator.id}"
+}
+
+output "asset_pair_manager" {
+  value = "${tokend_signer_rule.asset_pair_manager.id}"
+}
+
+output "udpate_asset_reviewer" {
+  value = "${tokend_signer_rule.update_asset_reviewer.id}"
 }
 
 output "redemption_reviewer" {
