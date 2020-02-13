@@ -149,7 +149,7 @@ resource tokend_key_value "license_admin_role" {
 
 resource tokend_key_value "redemption_signer_role" {
   key = "redemption_creator_singer_role"
-  value_type = "uint64"
+  value_type = "uint32"
   value = "${tokend_signer_role.redeemer.id}"
 }
 
