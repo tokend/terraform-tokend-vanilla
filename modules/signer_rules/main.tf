@@ -73,6 +73,7 @@ resource tokend_signer_rule "update_asset_reviewer" {
   entry_type = "reviewable_request"
   entry = {
     request_type = "update_asset"
+    tasks_to_remove = 1
   }
 }
 
