@@ -6,7 +6,7 @@ resource tokend_asset "E-hrivnya" {
   trailing_digits_count       = 2
 
   details = {
-    name = "Ukrainian hryvnia"
+    name = "E-hrivnya"
   }
 
   policies = [
