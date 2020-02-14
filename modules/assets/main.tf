@@ -1,5 +1,5 @@
 resource tokend_asset "E-hrivnya" {
-  code                        = "E-hrivnya"
+  code                        = "Ehrivnya"
   max_issuance_amount         = "9223372036853"
   initial_pre_issuance_amount = "9223372036853"
   pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
