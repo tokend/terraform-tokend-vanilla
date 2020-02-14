@@ -165,3 +165,9 @@ resource tokend_key_value "redemption_tasks" {
   value_type = "uint32"
   value = "${var.redemption_tasks}"
 }
+
+resource tokend_key_value "burn_closer_public_key" {
+  key = "burn_closer_public_key"
+  value_type = "string"
+  value = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+}
