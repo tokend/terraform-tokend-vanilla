@@ -23,6 +23,11 @@ variable asset_type_security {
   default = "2"
 }
 
+variable redemption_tasks {
+  type = "string"
+  default = "1"
+}
+
 // creates basic account rules
 module "account_rules" {
   source = "modules/account_rules"
@@ -230,6 +235,7 @@ module "accounts" {
 // create defaul signer rules
 module "signer_rules" {
   source = "modules/signer_rules"
+  redemption_tasks = "${var.redemption_tasks}"
 }
 
 // create default signer roles
@@ -281,6 +287,7 @@ module "key_values" {
   asset_type_kyc = "${var.asset_type_kyc}"
   asset_type_security = "${var.asset_type_security}"
   asset_type_default = "${var.asset_type_default}"
+  redemption_tasks = "${var.redemption_tasks}"
 }
 
 module "assets" {

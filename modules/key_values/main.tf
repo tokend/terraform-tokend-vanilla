@@ -18,6 +18,9 @@ variable "asset_type_default" {
   type = "string"
 }
 
+variable "redemption_tasks" {
+  type = "string"
+}
 
 resource tokend_key_value "poll_type_restricted" {
   key = "poll_type:restricted"
@@ -160,5 +163,5 @@ resource tokend_key_value "create_poll_tasks" {
 resource tokend_key_value "redemption_tasks" {
   key = "redemption_tasks"
   value_type = "uint32"
-  value = "1"
+  value = "${var.redemption_tasks}"
 }

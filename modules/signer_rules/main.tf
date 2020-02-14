@@ -1,3 +1,7 @@
+variable "redemption_tasks" {
+  type = "string"
+}
+
 resource tokend_signer_rule "issuance_creator" {
   action =  "create"
   entry_type = "reviewable_request"
@@ -82,6 +86,7 @@ resource tokend_signer_rule "redemption_reviewer" {
   entry_type = "reviewable_request"
   entry = {
     request_type = "perform_redemption"
+    tasks_to_remove = "${var.redemption_tasks}"
   }
 }
 
