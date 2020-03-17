@@ -29,6 +29,22 @@ resource tokend_signer_rule "request_reviewer" {
   }
 }
 
+resource tokend_signer_rule "aml_alert_reviewer" {
+  action = "review"
+  entry_type = "reviewable_request"
+  entry = {
+    request_type = "create_aml_alert"
+  }
+}
+
+resource tokend_signer_rule "kyc_request_reviewer" {
+  action = "review"
+  entry_type = "reviewable_request"
+  entry = {
+    request_type = "change_role"
+  }
+}
+
 resource tokend_signer_rule "sale_checker" {
   action = "check"
   entry_type = "sale"
@@ -61,6 +77,14 @@ resource tokend_signer_rule "license_creator" {
 resource tokend_signer_rule "stamp_creator" {
   action = "create"
   entry_type = "stamp"
+}
+
+output "aml_alert_reviewer" {
+  value = "${tokend_signer_rule.aml_alert_reviewer.id}"
+}
+
+output "kyc_request_reviewer" {
+  value = "${tokend_signer_rule.kyc_request_reviewer.id}"
 }
 
 output "issuance_creator" {

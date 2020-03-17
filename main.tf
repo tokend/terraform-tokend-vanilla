@@ -237,7 +237,8 @@ module "signer_roles" {
 
   kyc_aml_admin = [
     "${module.signer_rules.tx_sender}",
-    "${module.signer_rules.issuance_creator}",
+    "${module.signer_rules.aml_alert_reviewer}",
+    "${module.signer_rules.kyc_request_reviewer}",
   ]
 
   external_systems_admin = [
