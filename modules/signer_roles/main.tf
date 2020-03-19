@@ -2,10 +2,6 @@ variable "default_rules" {
   type = "list"
 }
 
-variable "external_systems_admin" {
-  type = "list"
-}
-
 variable "kyc_aml_admin" {
   type = "list"
 }
@@ -53,18 +49,6 @@ resource tokend_signer_role "super_admin" {
     admin_role  = true
     name        = "Super Administrator"
     description = "Have full access to system administration functionality"
-  }
-}
-
-resource tokend_signer_role "external_systems_admin" {
-  rules = [
-    "${var.external_systems_admin}",
-  ]
-
-  details = {
-    admin_role = true
-    name       = "External Systems Administrator"
-    details    = "Performs issuance and withdraw operations of external funds"
   }
 }
 

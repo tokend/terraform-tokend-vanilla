@@ -241,10 +241,6 @@ module "signer_roles" {
     "${module.signer_rules.kyc_request_reviewer}",
   ]
 
-  external_systems_admin = [
-    "${module.signer_rules.tx_sender}",
-  ]
-
   license_admin = [
     "${module.signer_rules.tx_sender}",
     "${module.signer_rules.license_creator}",
