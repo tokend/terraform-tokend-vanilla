@@ -27,3 +27,9 @@ resource tokend_key_value "default_change_role_tasks" {
   value_type = "uint32"
   value      = "1"
 }
+
+resource tokend_key_value "data_type-review" {
+  key        = "data_type:review"
+  value_type = "uint32"
+  value      = "999999"
+}
