@@ -26,12 +26,15 @@ variable asset_type_security {
 module "accounts" {
   source = "modules/accounts"
   general_account_role = "${module.account_roles.general_account_role}"
-  general_account_signers = [
+//  general_account_signers = [
+//    {
+//      role_id = "${module.signer_roles.default_signer_role}"
+//    }
+//  ]
+  rec_payments_account_signers = [
     {
       role_id = "${module.signer_roles.default_signer_role}"
-    }
-  ]
-  rec_payments_account_signers = [
+    },
     {
       role_id = "${module.signer_roles.rec_payments_signer_role}"
     }
