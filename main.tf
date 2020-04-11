@@ -29,7 +29,7 @@ module "accounts" {
 
   general_signer_pkey = "" # TODO remove
   default_signer_role = "${module.signer_roles.default_signer_role}"
-  rec_payments_signer_pkey = ""
+  rec_payments_signer_pkey = "${module.signers.rec_payments_signer_pkey}"
   rec_payments_signer_role = "${module.signer_roles.rec_payments_signer_role}"
 }
 
