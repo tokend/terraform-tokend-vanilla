@@ -82,6 +82,10 @@ resource tokend_signer_rule "stamp_creator" {
 resource tokend_signer_rule "rec_payment_creator" {
   action = "send"
   entry_type = "asset"
+  entry = {
+    asset_code = "*"
+    asset_type = "*"
+  }
 }
 
 output "aml_alert_reviewer" {
