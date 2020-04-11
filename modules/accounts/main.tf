@@ -2,10 +2,6 @@ variable "general_account_role" {
     type = "string"
 }
 
-variable "default_signer_role" {
-    type = "string"
-}
-
 variable "rec_payments_signer_role" {
     type = "string"
 }
