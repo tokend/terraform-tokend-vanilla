@@ -124,4 +124,11 @@ resource tokend_key_value "license_admin_role" {
 output "license_signer_role" {
   value = "${tokend_signer_role.license_admin.id}"
 }
-3
+
+output "rec_payments_signer_role" {
+  value = "${tokend_signer_role.rec_payments_signer.id}"
+}
+
+output "default_signer_role" {
+  value = "${tokend_signer_role.default.id}"
+}

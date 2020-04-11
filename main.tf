@@ -23,6 +23,21 @@ variable asset_type_security {
   default = "2"
 }
 
+module "accounts" {
+  source = "modules/accounts"
+  general_account_role = "${module.account_roles.general_account_role}"
+  general_account_signers = [
+    {
+      role_id = "${module.signer_roles.default_signer_role}"
+    }
+  ]
+  rec_payments_account_signers = [
+    {
+      role_id = "${module.signer_roles.rec_payments_signer_role}"
+    }
+  ]
+}
+
 // creates basic account rules
 module "account_rules" {
   source = "modules/account_rules"
