@@ -80,8 +80,8 @@ resource tokend_signer_rule "stamp_creator" {
 }
 
 resource tokend_signer_rule "rec_payment_creator" {
-  action = "create_for_other"
-  entry_type = "payment"
+  action = "send"
+  entry_type = "asset"
 }
 
 output "aml_alert_reviewer" {
