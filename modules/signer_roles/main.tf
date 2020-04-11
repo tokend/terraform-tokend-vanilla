@@ -10,6 +10,10 @@ variable "license_admin" {
   type = "list"
 }
 
+variable "rec_payments_rules" {
+  type = "list"
+}
+
 variable "create_kyc" {
   type = "list"
 }
@@ -66,7 +70,7 @@ resource tokend_signer_role "kyc_aml_admin" {
 
 resource tokend_signer_role "license_admin" {
   rules = [
-  "${var.license_admin}"
+    "${var.license_admin}"
   ]
   details = {
     admin_role = true
@@ -75,6 +79,17 @@ resource tokend_signer_role "license_admin" {
   }
 }
 
+resource tokend_signer_role "rec_payments_signer" {
+  rules = [
+    "${var.rec_payments_rules}"
+  ]
+
+  details = {
+    admin_role = false
+    name = "Recurring Payments signer role"
+    description = "Able to sign recurring payments"
+  }
+}
 
 // users operational signer role
 resource tokend_signer_role "default" {
@@ -109,3 +124,4 @@ resource tokend_key_value "license_admin_role" {
 output "license_signer_role" {
   value = "${tokend_signer_role.license_admin.id}"
 }
+3

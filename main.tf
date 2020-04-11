@@ -254,6 +254,11 @@ module "signer_roles" {
   create_kyc = [
   "${module.signer_rules.kyc_recovery_creator}",
   ]
+
+  rec_payments_rules = [
+    "${module.signer_rules.tx_sender}",
+    "${module.signer_rules.rec_payment_creator}"
+  ]
 }
 
 module "key_values" {
@@ -276,4 +281,5 @@ module "external_system_type_pool_entry" {
 module "signers" {
   source = "modules/signers"
   license_signer_role = "${module.signer_roles.license_signer_role}"
+  rec_payments_signer_role = "${module.signer_roles.rec_payments_signer_role}"
 }
