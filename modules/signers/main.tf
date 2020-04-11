@@ -19,3 +19,7 @@ resource tokend_account_signer "rec_payments_signer" {
   identity = 0
   role_id = "${var.rec_payments_signer_role}"
 }
+
+output "rec_payments_signer_pkey" {
+  value = "${tokend_account_signer.rec_payments_signer.public_key}"
+}

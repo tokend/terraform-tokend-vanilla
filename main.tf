@@ -26,19 +26,11 @@ variable asset_type_security {
 module "accounts" {
   source = "modules/accounts"
   general_account_role = "${module.account_roles.general_account_role}"
-//  general_account_signers = [
-//    {
-//      role_id = "${module.signer_roles.default_signer_role}"
-//    }
-//  ]
-  rec_payments_account_signers = [
-    {
-      role_id = "${module.signer_roles.default_signer_role}"
-    },
-    {
-      role_id = "${module.signer_roles.rec_payments_signer_role}"
-    }
-  ]
+
+  general_signer_pkey = "" # TODO remove
+  default_signer_role = "${module.signer_roles.default_signer_role}"
+  rec_payments_signer_pkey = ""
+  rec_payments_signer_role = "${module.signer_roles.rec_payments_signer_role}"
 }
 
 // creates basic account rules
