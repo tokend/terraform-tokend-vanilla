@@ -12,14 +12,3 @@ resource tokend_account_signer "license_signer" {
   identity = 0
   role_id = "${var.license_signer_role}"
 }
-
-resource tokend_account_signer "rec_payments_signer" {
-  public_key = "GDX6P3OBSMLKVPADU2FPJZJSSB6S5SCSMHKDC2RLJVE6PAWPDBGUM4QG" # SBZY7CTSALS4TJ5MZ47RPUNT7RLKY6ACN3F7U2KHRTFGMEXI43F5D2B6
-  weight = 1000
-  identity = 0
-  role_id = "${var.rec_payments_signer_role}"
-}
-
-output "rec_payments_signer_pkey" {
-  value = "${tokend_account_signer.rec_payments_signer.public_key}"
-}
