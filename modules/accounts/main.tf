@@ -14,7 +14,7 @@ resource tokend_account "recurring_payments_account" {
             role_id = "${var.rec_payments_signer_role}"
             public_key = "GDX6P3OBSMLKVPADU2FPJZJSSB6S5SCSMHKDC2RLJVE6PAWPDBGUM4QG" # SBZY7CTSALS4TJ5MZ47RPUNT7RLKY6ACN3F7U2KHRTFGMEXI43F5D2B6
             weight = 1000
-            identity = 0
+            identity = 1
         }
     ]
 }
