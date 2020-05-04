@@ -18,6 +18,9 @@ variable "asset_type_default" {
   type = "string"
 }
 
+variable "asset_type_nft" {
+  type = "string"
+}
 
 resource tokend_key_value "poll_type_restricted" {
   key = "poll_type:restricted"
@@ -47,6 +50,12 @@ resource tokend_key_value "asset_type_default" {
     key = "asset_type:default"
     value_type = "uint32"
     value = "${var.asset_type_default}"
+}
+
+resource tokend_key_value "asset_type_nft" {
+  key = "asset_type:nft"
+  value_type = "uint32"
+  value = "${var.asset_type_nft}"
 }
 
 resource tokend_key_value "change_role_task-submit_auto_verification" {

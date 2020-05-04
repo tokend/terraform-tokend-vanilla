@@ -23,6 +23,11 @@ variable asset_type_security {
   default = "2"
 }
 
+variable asset_type_nft {
+  type = "string"
+  default = "10"
+}
+
 // creates basic account rules
 module "account_rules" {
   source = "modules/account_rules"
@@ -30,6 +35,7 @@ module "account_rules" {
   asset_type_default = "${var.asset_type_default}"
   asset_type_kyc = "${var.asset_type_kyc}"
   asset_type_security = "${var.asset_type_security}"
+  asset_type_nft = "${var.asset_type_nft}"
 }
 
 // create default account roles
@@ -53,6 +59,11 @@ module "account_roles" {
     "${module.account_rules.vote_remover}",
     "${module.account_rules.forbid_restricted_vote_remove}",
     "${module.account_rules.kyc_recovery_creator}",
+    "${module.account_rules.nft_sender}",
+    "${module.account_rules.nft_atomic_swap_receiver}",
+    "${module.account_rules.nft_payment_receiver}",
+    "${module.account_rules.nft_withdrawer}",
+    "${module.account_rules.nft_issuance_receiver}",
   ]
 
   general_rules = [
@@ -95,6 +106,11 @@ module "account_roles" {
     "${module.account_rules.vote_remover}",
     "${module.account_rules.forbid_restricted_vote_remove}",
     "${module.account_rules.kyc_recovery_creator}",
+    "${module.account_rules.nft_sender}",
+    "${module.account_rules.nft_atomic_swap_receiver}",
+    "${module.account_rules.nft_payment_receiver}",
+    "${module.account_rules.nft_withdrawer}",
+    "${module.account_rules.nft_issuance_receiver}",
   ]
 
   syndicate_rules = [
@@ -143,6 +159,11 @@ module "account_roles" {
     "${module.account_rules.poll_end_time_updater}",
     "${module.account_rules.kyc_recovery_creator}",
     "${module.account_rules.atomic_swap_ask_creator}",
+    "${module.account_rules.nft_sender}",
+    "${module.account_rules.nft_atomic_swap_receiver}",
+    "${module.account_rules.nft_payment_receiver}",
+    "${module.account_rules.nft_withdrawer}",
+    "${module.account_rules.nft_issuance_receiver}",
   ]
 
   us_accredited = [
@@ -185,6 +206,11 @@ module "account_roles" {
     "${module.account_rules.vote_remover}",
     "${module.account_rules.forbid_restricted_vote_remove}",
     "${module.account_rules.kyc_recovery_creator}",
+    "${module.account_rules.nft_sender}",
+    "${module.account_rules.nft_atomic_swap_receiver}",
+    "${module.account_rules.nft_payment_receiver}",
+    "${module.account_rules.nft_withdrawer}",
+    "${module.account_rules.nft_issuance_receiver}",
   ]
 
   us_verified = [
@@ -217,6 +243,11 @@ module "account_roles" {
     "${module.account_rules.vote_remover}",
     "${module.account_rules.forbid_restricted_vote_remove}",
     "${module.account_rules.kyc_recovery_creator}",
+    "${module.account_rules.nft_sender}",
+    "${module.account_rules.nft_atomic_swap_receiver}",
+    "${module.account_rules.nft_payment_receiver}",
+    "${module.account_rules.nft_withdrawer}",
+    "${module.account_rules.nft_issuance_receiver}",
   ]
 
   blocked_rules = []
@@ -263,6 +294,7 @@ module "key_values" {
   asset_type_kyc = "${var.asset_type_kyc}"
   asset_type_security = "${var.asset_type_security}"
   asset_type_default = "${var.asset_type_default}"
+  asset_type_nft = "${var.asset_type_nft}"
 }
 
 module "assets" {
