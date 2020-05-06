@@ -150,3 +150,9 @@ resource tokend_key_value "atomic_swap_bid_tasks" {
   value_type = "uint32"
   value = "1"
 }
+
+resource tokend_key_value "data_type_card_event" {
+  key = "data_type:card_event"
+  value_type = "uint64"
+  value = "1"
+}
