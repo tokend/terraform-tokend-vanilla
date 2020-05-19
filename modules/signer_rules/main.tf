@@ -79,6 +79,15 @@ resource tokend_signer_rule "stamp_creator" {
   entry_type = "stamp"
 }
 
+resource tokend_signer_rule "rec_payment_creator" {
+  action = "send"
+  entry_type = "asset"
+  entry = {
+    asset_code = "*"
+    asset_type = "*"
+  }
+}
+
 output "aml_alert_reviewer" {
   value = "${tokend_signer_rule.aml_alert_reviewer.id}"
 }
@@ -117,6 +126,10 @@ output "fee_manager" {
 
 output "license_creator" {
   value = "${tokend_signer_rule.license_creator.id}"
+}
+
+output "rec_payment_creator" {
+  value = "${tokend_signer_rule.rec_payment_creator.id}"
 }
 
 output "stamp_creator" {

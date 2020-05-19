@@ -23,6 +23,14 @@ variable asset_type_security {
   default = "2"
 }
 
+module "accounts" {
+  source = "modules/accounts"
+  general_account_role = "${module.account_roles.general_account_role}"
+
+  rec_payments_signer_role = "${module.signer_roles.rec_payments_signer_role}"
+  default_signer_role = "${module.signer_roles.default_signer_role}"
+}
+
 // creates basic account rules
 module "account_rules" {
   source = "modules/account_rules"
@@ -254,6 +262,11 @@ module "signer_roles" {
   create_kyc = [
   "${module.signer_rules.kyc_recovery_creator}",
   ]
+
+  rec_payments_rules = [
+    "${module.signer_rules.tx_sender}",
+    "${module.signer_rules.rec_payment_creator}"
+  ]
 }
 
 module "key_values" {
@@ -276,4 +289,5 @@ module "external_system_type_pool_entry" {
 module "signers" {
   source = "modules/signers"
   license_signer_role = "${module.signer_roles.license_signer_role}"
+  rec_payments_signer_role = "${module.signer_roles.rec_payments_signer_role}"
 }
