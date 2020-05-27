@@ -18,16 +18,6 @@ resource tokend_account_rule "payment_receiver" {
   }
 }
 
-resource tokend_account_rule "atomic_swap_receiver" {
-  action     = "receive_atomic_swap"
-  entry_type = "asset"
-
-  entry = {
-    asset_type = "${var.asset_type_default}"
-    asset_code = "*"
-  }
-}
-
 resource tokend_account_rule "withdrawer" {
   action     = "withdraw"
   entry_type = "asset"
@@ -79,10 +69,6 @@ output "default_for_default_sell_offer_creator" {
 
 output "sender" {
   value = "${tokend_account_rule.sender.id}"
-}
-
-output "atomic_swap_receiver" {
-  value = "${tokend_account_rule.atomic_swap_receiver.id}"
 }
 
 output "payment_receiver" {

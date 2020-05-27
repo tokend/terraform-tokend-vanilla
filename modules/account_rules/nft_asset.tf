@@ -18,16 +18,6 @@ resource tokend_account_rule "nft_payment_receiver" {
   }
 }
 
-resource tokend_account_rule "nft_atomic_swap_receiver" {
-  action     = "receive_atomic_swap"
-  entry_type = "asset"
-
-  entry = {
-    asset_type = "${var.asset_type_nft}"
-    asset_code = "*"
-  }
-}
-
 resource tokend_account_rule "nft_withdrawer" {
   action     = "withdraw"
   entry_type = "asset"
@@ -136,10 +126,6 @@ output "default_for_nft_sell_offer_creator" {
 
 output "nft_sender" {
   value = "${tokend_account_rule.nft_sender.id}"
-}
-
-output "nft_atomic_swap_receiver" {
-  value = "${tokend_account_rule.nft_atomic_swap_receiver.id}"
 }
 
 output "nft_payment_receiver" {

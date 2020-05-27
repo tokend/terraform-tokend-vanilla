@@ -1,16 +1,4 @@
-variable "restricted_poll_type" {
-  type = "string"
-}
-
-variable "unrestricted_poll_type" {
-  type = "string"
-}
-
 variable "asset_type_kyc" {
-  type = "string"
-}
-
-variable "asset_type_security" {
   type = "string"
 }
 
@@ -22,28 +10,10 @@ variable "asset_type_nft" {
   type = "string"
 }
 
-resource tokend_key_value "poll_type_restricted" {
-  key = "poll_type:restricted"
-  value_type = "uint32"
-  value = "${var.restricted_poll_type}"
-}
-
-resource tokend_key_value "poll_type_unrestricted" {
-  key = "poll_type:unrestricted"
-  value_type = "uint32"
-  value = "${var.unrestricted_poll_type}"
-}
-
 resource tokend_key_value "asset_type_kyc_required" {
   key = "asset_type:kyc_required"
   value_type = "uint32"
   value = "${var.asset_type_kyc}"
-}
-
-resource tokend_key_value "asset_type_security" {
-  key = "asset_type:security"
-  value_type = "uint32"
-  value = "${var.asset_type_security}"
 }
 
 resource tokend_key_value "asset_type_default" {
@@ -138,24 +108,6 @@ resource tokend_key_value "kyc_recovery_enabled" {
 
 resource tokend_key_value "create_kyc_recovery_tasks" {
   key = "create_kyc_recovery_tasks"
-  value_type = "uint32"
-  value = "1"
-}
-
-resource tokend_key_value "create_poll_tasks" {
-  key        = "create_poll_tasks:*"
-  value_type = "uint32"
-  value      = "1"
-}
-
-resource tokend_key_value "atomic_swap_ask_tasks" {
-  key = "atomic_swap_ask_tasks"
-  value_type = "uint32"
-  value = "0"
-}
-
-resource tokend_key_value "atomic_swap_bid_tasks" {
-  key = "atomic_swap_bid_tasks:*"
   value_type = "uint32"
   value = "1"
 }
