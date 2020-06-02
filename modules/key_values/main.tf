@@ -156,3 +156,9 @@ resource tokend_key_value "data_type_card_event" {
   value_type = "uint64"
   value = "1"
 }
+
+resource tokend_key_value "data_type_invitation" {
+  key = "data_type:invitation"
+  value_type = "uint64"
+  value = "1"
+}
