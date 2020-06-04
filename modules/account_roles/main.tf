@@ -6,6 +6,10 @@ variable general_rules {
   type = "list"
 }
 
+variable verified_general_rules {
+  type = "list"
+}
+
 variable syndicate_rules {
   type = "list"
 }
@@ -28,6 +32,10 @@ resource tokend_account_role "unverified" {
 
 resource tokend_account_role "general" {
   rules = ["${var.general_rules}"]
+}
+
+resource tokend_account_role "verified_general" {
+  rules = ["${var.verified_general_rules}"]
 }
 
 resource tokend_account_role "syndicate" {
@@ -58,6 +66,12 @@ resource tokend_key_value "general" {
   value = "${tokend_account_role.general.id}"
 }
 
+resource tokend_key_value "verified_general" {
+  key = "account_role:verified_general"
+  value_type = "uint32"
+  value = "${tokend_account_role.verified_general.id}"
+}
+
 resource tokend_key_value "syndicate" {
   key = "account_role:corporate"
   value_type = "uint32"
@@ -84,4 +98,8 @@ resource tokend_key_value "us_accredited" {
 
 output "general_account_role" {
   value = "${tokend_account_role.general.id}"
+}
+
+output "verified_general_account_role" {
+  value = "${tokend_account_role.verified_general.id}"
 }
