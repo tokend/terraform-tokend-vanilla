@@ -33,7 +33,7 @@ resource tokend_key_value "poll_type_restricted" {
   value = "${var.restricted_poll_type}"
 }
 
-resource tokend_key_value "change_role_task:general_kyc_reset" {
+resource tokend_key_value "change_role_task_general_kyc_reset" {
   key = "change_role_tasks:${var.verified_general_role_id}:${var.general_role_id}"
   value_type = "uint32"
   value = "0"
