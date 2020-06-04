@@ -319,6 +319,7 @@ module "key_values" {
   asset_type_security = "${var.asset_type_security}"
   asset_type_default = "${var.asset_type_default}"
   general_role_id = "${module.account_roles.general_account_role}"
+  unverified_role_id = "${module.account_roles.unverified_account_role}"
   verified_general_role_id = "${module.account_roles.verified_general_account_role}"
 }
 

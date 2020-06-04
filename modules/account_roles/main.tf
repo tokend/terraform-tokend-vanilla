@@ -100,6 +100,10 @@ output "general_account_role" {
   value = "${tokend_account_role.general.id}"
 }
 
+output "unverified_account_role" {
+  value = "${tokend_account_role.unverified.id}"
+}
+
 output "verified_general_account_role" {
   value = "${tokend_account_role.verified_general.id}"
 }

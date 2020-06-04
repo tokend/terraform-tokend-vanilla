@@ -22,6 +22,10 @@ variable "general_role_id" {
   type = "string"
 }
 
+variable "unverified_role_id" {
+  type = "string"
+}
+
 variable "verified_general_role_id" {
   type = "string"
 }
@@ -35,6 +39,12 @@ resource tokend_key_value "poll_type_restricted" {
 
 resource tokend_key_value "change_role_task_general_kyc_reset" {
   key = "change_role_tasks:${var.verified_general_role_id}:${var.general_role_id}"
+  value_type = "uint32"
+  value = "0"
+}
+
+resource tokend_key_value "change_role_task_unverified_general" {
+  key = "change_role_tasks:${var.general_role_id}:${var.unverified_role_id}"
   value_type = "uint32"
   value = "0"
 }
