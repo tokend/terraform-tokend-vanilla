@@ -179,3 +179,10 @@ resource tokend_key_value "data_type_card_event" {
   value_type = "uint64"
   value = "1"
 }
+
+resource tokend_key_value "data_type_card_event" {
+  key = "data_type:invoice_event"
+  value_type = "uint64"
+  value = "3"
+}
+
