@@ -118,7 +118,7 @@ resource tokend_key_value "sale_create_tasks" {
 resource tokend_key_value "issuance_tasks_default" {
   key        = "issuance_tasks:*"
   value_type = "uint32"
-  value      = "0"
+  value      = "1"
 }
 
 resource tokend_key_value "preissuance_tasks_default" {
