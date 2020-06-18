@@ -80,7 +80,7 @@ resource tokend_key_value "default_change_role_tasks" {
 }
 
 resource tokend_key_value "unverified_to_general_change_role_tasks" {
-  key        = "change_role_tasks:4:5"
+  key        = "change_role_tasks:${tokend_account_role.unverified.id}:${tokend_account_role.general.id}"
   value_type = "uint32"
   value      = "0"
 }
