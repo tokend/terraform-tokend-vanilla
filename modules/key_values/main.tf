@@ -79,6 +79,12 @@ resource tokend_key_value "default_change_role_tasks" {
   value      = "1"
 }
 
+resource tokend_key_value "unverified_to_general_change_role_tasks" {
+  key        = "change_role_tasks:4:5"
+  value_type = "uint32"
+  value      = "0"
+}
+
 resource tokend_key_value "asset_create_tasks" {
   key        = "asset_create_tasks"
   value_type = "uint32"
