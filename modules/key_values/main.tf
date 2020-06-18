@@ -88,7 +88,7 @@ resource tokend_key_value "unverified_to_general_change_role_tasks" {
 resource tokend_key_value "asset_create_tasks" {
   key        = "asset_create_tasks"
   value_type = "uint32"
-  value      = "1"
+  value      = "0"
 }
 
 resource tokend_key_value "limits_update_tasks" {
