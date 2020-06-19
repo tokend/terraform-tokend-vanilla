@@ -81,3 +81,11 @@ resource tokend_key_value "us_accredited" {
   value_type = "uint32"
   value = "${tokend_account_role.us_accredited.id}"
 }
+
+output "unverified_account_role" {
+  value = tokend_account_role.unverified.id
+}
+
+output "general_account_role" {
+  value = tokend_account_role.general.id
+}

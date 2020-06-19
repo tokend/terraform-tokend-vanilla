@@ -263,6 +263,8 @@ module "key_values" {
   asset_type_kyc = "${var.asset_type_kyc}"
   asset_type_security = "${var.asset_type_security}"
   asset_type_default = "${var.asset_type_default}"
+  unverified_account_role = "${module.account_roles.unverified_account_role}"
+  general_account_role = "${module.account_roles.general_account_role}"
 }
 
 module "assets" {

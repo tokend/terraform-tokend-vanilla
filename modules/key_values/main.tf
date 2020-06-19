@@ -18,6 +18,13 @@ variable "asset_type_default" {
   type = "string"
 }
 
+variable "unverified_account_role" {
+  type = "string"
+}
+
+variable "general_account_role" {
+  type = "string"
+}
 
 resource tokend_key_value "poll_type_restricted" {
   key = "poll_type:restricted"
@@ -80,7 +87,7 @@ resource tokend_key_value "default_change_role_tasks" {
 }
 
 resource tokend_key_value "unverified_to_general_change_role_tasks" {
-  key        = "change_role_tasks:${tokend_account_role.unverified.id}:${tokend_account_role.general.id}"
+  key        = "change_role_tasks:${var.unverified_account_role}:${var.general_account_role}"
   value_type = "uint32"
   value      = "0"
 }
