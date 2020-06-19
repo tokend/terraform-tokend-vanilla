@@ -83,9 +83,9 @@ resource tokend_key_value "us_accredited" {
 }
 
 output "unverified_account_role" {
-  value = tokend_account_role.unverified.id
+  value = "${tokend_account_role.unverified.id}"
 }
 
 output "general_account_role" {
-  value = tokend_account_role.general.id
+  value = "${tokend_account_role.general.id}"
 }
