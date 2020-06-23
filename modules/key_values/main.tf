@@ -150,3 +150,9 @@ resource tokend_key_value "atomic_swap_bid_tasks" {
   value_type = "uint32"
   value = "1"
 }
+
+resource tokend_key_value "bridges_enabled" {
+  key        = "bridges_enabled"
+  value_type = "uint32"
+  value      = "1"
+}
