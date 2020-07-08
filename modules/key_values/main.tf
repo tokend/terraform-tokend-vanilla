@@ -92,6 +92,12 @@ resource tokend_key_value "unverified_to_general_change_role_tasks" {
   value      = "0"
 }
 
+resource tokend_key_value "unverified_to_general_change_role_tasks" {
+  key        = "change_role_tasks:${var.general_account_role}:${var.general_account_role}"
+  value_type = "uint32"
+  value      = "0"
+}
+
 resource tokend_key_value "asset_create_tasks" {
   key        = "asset_create_tasks"
   value_type = "uint32"
