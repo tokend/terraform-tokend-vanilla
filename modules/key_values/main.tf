@@ -168,3 +168,15 @@ resource tokend_key_value "data_type_invitation_event" {
   value_type = "uint64"
   value = "1"
 }
+
+resource tokend_key_value "data_type_invoice" {
+  key = "data_type:invoice"
+  value_type = "uint64"
+  value = "1"
+}
+
+resource tokend_key_value "data_type_invoice_event" {
+  key = "data_type:invoice_event"
+  value_type = "uint64"
+  value = "1"
+}
