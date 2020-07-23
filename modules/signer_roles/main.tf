@@ -10,7 +10,7 @@ variable "license_admin" {
   type = "list"
 }
 
-variable "rec_payments_rules" {
+variable "payments_rules" {
   type = "list"
 }
 
@@ -79,15 +79,15 @@ resource tokend_signer_role "license_admin" {
   }
 }
 
-resource tokend_signer_role "rec_payments_signer" {
+resource tokend_signer_role "payments_signer" {
   rules = [
-    "${var.rec_payments_rules}"
+    "${var.payments_rules}"
   ]
 
   details = {
     admin_role = false
-    name = "Recurring Payments signer role"
-    description = "Able to sign recurring payments"
+    name = "Payments signer role"
+    description = "Able to sign payments"
   }
 }
 
@@ -122,17 +122,17 @@ resource tokend_key_value "license_admin_role" {
 }
 
 resource tokend_key_value "rec_payments_role" {
-  key = "signer_role:rec_payments"
+  key = "signer_role:payments"
   value_type = "uint64"
-  value = "${tokend_signer_role.rec_payments_signer.id}"
+  value = "${tokend_signer_role.payments_signer.id}"
 }
 
 output "license_signer_role" {
   value = "${tokend_signer_role.license_admin.id}"
 }
 
-output "rec_payments_signer_role" {
-  value = "${tokend_signer_role.rec_payments_signer.id}"
+output "payments_signer_role" {
+  value = "${tokend_signer_role.payments_signer.id}"
 }
 
 output "default_signer_role" {

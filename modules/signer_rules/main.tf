@@ -79,7 +79,7 @@ resource tokend_signer_rule "stamp_creator" {
   entry_type = "stamp"
 }
 
-resource tokend_signer_rule "rec_payment_creator" {
+resource tokend_signer_rule "payment_creator" {
   action = "send"
   entry_type = "asset"
   entry = {
@@ -128,8 +128,8 @@ output "license_creator" {
   value = "${tokend_signer_rule.license_creator.id}"
 }
 
-output "rec_payment_creator" {
-  value = "${tokend_signer_rule.rec_payment_creator.id}"
+output "payment_creator" {
+  value = "${tokend_signer_rule.payment_creator.id}"
 }
 
 output "stamp_creator" {
