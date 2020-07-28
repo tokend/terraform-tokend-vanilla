@@ -10,6 +10,14 @@ variable "asset_type_security" {
   type ="string"
 }
 
+variable "asset_type_product" {
+  type ="string"
+}
+
+variable "asset_type_sticker" {
+  type ="string"
+}
+
 variable restricted_poll_type {
   type = "string"
 }

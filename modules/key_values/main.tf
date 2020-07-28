@@ -14,6 +14,14 @@ variable "asset_type_security" {
   type = "string"
 }
 
+variable "asset_type_sticker" {
+  type = "string"
+}
+
+variable "asset_type_product" {
+  type = "string"
+}
+
 variable "asset_type_default" {
   type = "string"
 }
@@ -48,6 +56,18 @@ resource tokend_key_value "asset_type_security" {
   key = "asset_type:security"
   value_type = "uint32"
   value = "${var.asset_type_security}"
+}
+
+resource tokend_key_value "asset_type_product" {
+  key = "asset_type:product"
+  value_type = "uint32"
+  value = "${var.asset_type_product}"
+}
+
+resource tokend_key_value "asset_type_sticker" {
+  key = "asset_type:sticker"
+  value_type = "uint32"
+  value = "${var.asset_type_sticker}"
 }
 
 resource tokend_key_value "asset_type_default" {

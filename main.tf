@@ -23,6 +23,16 @@ variable asset_type_security {
   default = "2"
 }
 
+variable asset_type_product {
+  type = "string"
+  default = "3"
+}
+
+variable asset_type_sticker {
+  type = "string"
+  default = "4"
+}
+
 // creates basic account rules
 module "account_rules" {
   source = "modules/account_rules"
@@ -30,6 +40,8 @@ module "account_rules" {
   asset_type_default = "${var.asset_type_default}"
   asset_type_kyc = "${var.asset_type_kyc}"
   asset_type_security = "${var.asset_type_security}"
+  asset_type_product = "${var.asset_type_product}"
+  asset_type_sticker = "${var.asset_type_sticker}"
 }
 
 // create default account roles
@@ -143,6 +155,7 @@ module "account_roles" {
     "${module.account_rules.poll_end_time_updater}",
     "${module.account_rules.kyc_recovery_creator}",
     "${module.account_rules.atomic_swap_ask_creator}",
+    "${module.account_rules.sticker_issuance_receiver}",
   ]
 
   us_accredited = [
@@ -188,7 +201,7 @@ module "account_roles" {
   ]
 
   us_verified = [
-        "${module.account_rules.balance_creator}",
+    "${module.account_rules.balance_creator}",
     "${module.account_rules.sender}",
     "${module.account_rules.payment_receiver}",
     "${module.account_rules.atomic_swap_receiver}",
@@ -252,7 +265,7 @@ module "signer_roles" {
   ]
 
   create_kyc = [
-  "${module.signer_rules.kyc_recovery_creator}",
+    "${module.signer_rules.kyc_recovery_creator}",
   ]
 }
 
@@ -262,6 +275,8 @@ module "key_values" {
   unrestricted_poll_type = "${var.unrestricted_poll_type}"
   asset_type_kyc = "${var.asset_type_kyc}"
   asset_type_security = "${var.asset_type_security}"
+  asset_type_sticker = "${var.asset_type_sticker}"
+  asset_type_product = "${var.asset_type_product}"
   asset_type_default = "${var.asset_type_default}"
   unverified_account_role = "${module.account_roles.unverified_account_role}"
   general_account_role = "${module.account_roles.general_account_role}"
