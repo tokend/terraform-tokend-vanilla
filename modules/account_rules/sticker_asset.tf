@@ -7,3 +7,7 @@ resource tokend_account_rule "sticker_issuance_receiver" {
     asset_code = "*"
   }
 }
+
+output "sticker_issuance_receiver" {
+  value = "${tokend_account_rule.sticker_issuance_receiver.id}"
+}
