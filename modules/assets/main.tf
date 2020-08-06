@@ -49,6 +49,27 @@ resource tokend_asset "EUR" {
   ]
 }
 
+resource tokend_asset "BOXX" {
+  code                        = "BOXX"
+  max_issuance_amount         = "90000000"
+  initial_pre_issuance_amount = "0"
+  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  trailing_digits_count       = 15
+
+  details = {
+    erc20 =  {
+         deposit = true,
+         address = 0x780116d91e5592e58a3b3c76a351571b39abcec6
+      }
+  }
+
+  policies = [
+    "withdrawable"
+    "base_asset"
+  ]
+}
+
+
 resource tokend_asset_pair "BTC_USD" {
   base  = "${tokend_asset.BTC.id}"
   quote = "${tokend_asset.USD.id}"
