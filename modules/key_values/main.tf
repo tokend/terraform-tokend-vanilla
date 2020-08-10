@@ -10,6 +10,14 @@ variable "asset_type_nft" {
   type = "string"
 }
 
+variable "account_unverified" {
+  type = "string"
+}
+
+variable "account_general" {
+  type = "string"
+}
+
 resource tokend_key_value "asset_type_kyc_required" {
   key = "asset_type:kyc_required"
   value_type = "uint32"
@@ -56,6 +64,12 @@ resource tokend_key_value "default_change_role_tasks" {
   key        = "change_role_tasks:*:*"
   value_type = "uint32"
   value      = "1"
+}
+
+resource tokend_key_value "sign_up_change_role_task" {
+  key        = "change_role_tasks:${var.account_unverified}:${var.account_general}"
+  value_type = "uint32"
+  value      = "0"
 }
 
 resource tokend_key_value "asset_create_tasks" {

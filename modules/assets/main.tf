@@ -54,17 +54,14 @@ resource tokend_asset "BOXX" {
   max_issuance_amount         = "90000000"
   initial_pre_issuance_amount = "0"
   pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
-  trailing_digits_count       = 15
+  trailing_digits_count       = 6
 
   details = {
-    erc20 =  {
-         deposit = true,
-         address = 0x780116d91e5592e58a3b3c76a351571b39abcec6
-      }
+    name = "BOXX"
   }
 
   policies = [
-    "withdrawable"
+    "withdrawable",
     "base_asset"
   ]
 }

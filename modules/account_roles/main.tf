@@ -14,6 +14,22 @@ variable blocked_rules {
   type = "list"
 }
 
+output "general" {
+  value = "${tokend_account_role.general.id}"
+}
+
+output "syndicate" {
+  value = "${tokend_account_role.syndicate.id}"
+}
+
+output "blocked" {
+  value = "${tokend_account_role.blocked.id}"
+}
+
+output "unverified" {
+  value = "${tokend_account_role.unverified.id}"
+}
+
 resource tokend_account_role "unverified" {
   rules = ["${var.unverified_rules}"]
 }
