@@ -1,5 +1,9 @@
+variable "payment_creator_signer_role" {
+  type = "string"
+}
+
 resource tokend_signer_rule "issuance_creator" {
-  action =  "create"
+  action = "create"
   entry_type = "reviewable_request"
   entry = {
     request_type = "create_issuance"
@@ -16,8 +20,25 @@ resource tokend_signer_rule "kyc_recovery_creator" {
   }
 }
 
+resource tokend_signer_rule "forbid_manage_signers" {
+  action = "manage"
+  entry_type = "signer"
+  forbids = true
+  entry = {
+    role_id = "${var.payment_creator_signer_role}"
+  }
+}
+
+resource tokend_signer_rule "manage_payment_signers" {
+  action = "manage"
+  entry_type = "signer"
+  entry = {
+    role_id = "${payment_creator_signer_role}"
+  }
+}
+
 resource tokend_signer_rule "tx_sender" {
-  action     = "send"
+  action = "send"
   entry_type = "transaction"
 }
 
@@ -88,6 +109,16 @@ resource tokend_signer_rule "payment_creator" {
   }
 }
 
+resource tokend_signer_rule "forbid_payments" {
+  action = "send"
+  entry_type = "asset"
+  forbids = true
+  entry = {
+    asset_code = "*"
+    asset_type = "*"
+  }
+}
+
 output "aml_alert_reviewer" {
   value = "${tokend_signer_rule.aml_alert_reviewer.id}"
 }
@@ -138,4 +169,16 @@ output "stamp_creator" {
 
 output "kyc_recovery_creator" {
   value = "${tokend_signer_rule.kyc_recovery_creator.id}"
+}
+
+output "forbid_manage_payment_signers" {
+  value = "${tokend_signer_rule.forbid_manage_signers}"
+}
+
+output "manage_payment_signers" {
+  value = "${tokend_signer_rule.manage_payment_signers}"
+}
+
+output "forbid_payments" {
+  value = "${tokend_signer_rule.forbid_payments}"
 }

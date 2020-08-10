@@ -23,12 +23,28 @@ variable asset_type_security {
   default = "2"
 }
 
+variable "payment_account" {
+  type = "string"
+}
+
+variable "recurring_payments_signer" {
+  type = "string"
+}
+
+variable "payment_signer" {
+  type = "string"
+}
+
+
 module "accounts" {
   source = "modules/accounts"
   general_account_role = "${module.account_roles.general_account_role}"
 
-  payments_signer_role = "${module.signer_roles.payments_signer_role}"
   default_signer_role = "${module.signer_roles.default_signer_role}"
+
+  payments_account_id = "${var.payment_account}"
+  payments_signer = "${var.payment_signer}"
+  recurring_payments_signer = "${var.recurring_payments_signer}"
 }
 
 // creates basic account rules
@@ -153,14 +169,25 @@ module "account_roles" {
 // create defaul signer rules
 module "signer_rules" {
   source = "modules/signer_rules"
+  payment_creator_signer_role = "${module.signer_roles.payments_only_signer_role}"
 }
 
 // create default signer roles
 module "signer_roles" {
   source = "modules/signer_roles"
 
+  payments_approver_rules = [
+    "${module.signer_rules.manage_payment_signers}",
+  ]
+
+  payments_only_rules = [
+    "${module.signer_rules.payment_creator}",
+  ]
+
   default_rules = [
     "1",
+    "${module.signer_rules.forbid_payments}",
+    "${module.signer_rules.forbid_manage_payment_signers}",
   ]
 
   kyc_aml_admin = [
@@ -185,7 +212,8 @@ module "signer_roles" {
 
   payments_rules = [
     "${module.signer_rules.tx_sender}",
-    "${module.signer_rules.payment_creator}"
+    "${module.signer_rules.payment_creator}",
+    "${module.signer_rules.manage_payment_signers}"
   ]
 }
 
@@ -212,5 +240,4 @@ module "external_system_type_pool_entry" {
 module "signers" {
   source = "modules/signers"
   license_signer_role = "${module.signer_roles.license_signer_role}"
-  rec_payments_signer_role = "${module.signer_roles.payments_signer_role}"
 }

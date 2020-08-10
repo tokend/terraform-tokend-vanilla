@@ -10,7 +10,11 @@ variable "license_admin" {
   type = "list"
 }
 
-variable "payments_rules" {
+variable "payments_only_rules" {
+  type = "list"
+}
+
+variable "payments_approver_rules" {
   type = "list"
 }
 
@@ -35,7 +39,7 @@ resource tokend_signer_role "issuance_signer" {
 
 resource tokend_signer_role "create_kyc_recovery" {
   rules = [
-  "${var.create_kyc}",
+    "${var.create_kyc}",
   ]
   details = {
     admin_role = false
@@ -50,8 +54,8 @@ resource tokend_signer_role "super_admin" {
   ]
 
   details = {
-    admin_role  = true
-    name        = "Super Administrator"
+    admin_role = true
+    name = "Super Administrator"
     description = "Have full access to system administration functionality"
   }
 }
@@ -62,8 +66,8 @@ resource tokend_signer_role "kyc_aml_admin" {
   ]
 
   details = {
-    admin_role  = true
-    name        = "KYC/AML"
+    admin_role = true
+    name = "KYC/AML"
     description = "Responsible for reviewing users requests including KYC, asset/sale creation etc"
   }
 }
@@ -79,9 +83,9 @@ resource tokend_signer_role "license_admin" {
   }
 }
 
-resource tokend_signer_role "payments_signer" {
+resource tokend_signer_role "payments_only_signer" {
   rules = [
-    "${var.payments_rules}"
+    "${var.payments_only_rules}"
   ]
 
   details = {
@@ -91,48 +95,73 @@ resource tokend_signer_role "payments_signer" {
   }
 }
 
+resource tokend_signer_role "payments_manager" {
+  rules = [
+    "${var.payments_only_rules}",
+    "${var.payments_approver_rules}"
+  ]
+
+  details = {
+    admin_role = false
+    name = "Payments manager signer role"
+    description = "Able to approve payments, manage payment signers"
+  }
+}
+
 // users operational signer role
 resource tokend_signer_role "default" {
-  rules = ["1"]
+  rules = [
+    "${var.default_rules}"
+  ]
 }
 
 // KV for Identity Storage
 resource tokend_key_value "default" {
-  key        = "signer_role:default"
+  key = "signer_role:default"
   value_type = "uint32"
-  value      = "${tokend_signer_role.default.id}"
+  value = "${tokend_signer_role.default.id}"
 }
 
 resource tokend_key_value "create_kyc_recovery_role" {
-  key        = "kyc_recovery_signer_role"
+  key = "kyc_recovery_signer_role"
   value_type = "uint64"
-  value      = "${tokend_signer_role.create_kyc_recovery.id}"
+  value = "${tokend_signer_role.create_kyc_recovery.id}"
 }
 
 resource tokend_key_value "issuance_signer_role" {
-  key        = "signer_role:issuance"
+  key = "signer_role:issuance"
   value_type = "uint32"
-  value      = "${tokend_signer_role.issuance_signer.id}"
+  value = "${tokend_signer_role.issuance_signer.id}"
 }
 
 resource tokend_key_value "license_admin_role" {
-  key        = "license_admin_signer_role"
+  key = "license_admin_signer_role"
   value_type = "uint64"
-  value      = "${tokend_signer_role.license_admin.id}"
+  value = "${tokend_signer_role.license_admin.id}"
 }
 
 resource tokend_key_value "rec_payments_role" {
   key = "signer_role:payments"
   value_type = "uint64"
-  value = "${tokend_signer_role.payments_signer.id}"
+  value = "${tokend_signer_role.payments_only_signer.id}"
+}
+
+resource tokend_key_value "rec_payments_role" {
+  key = "signer_role:payments_manager"
+  value_type = "uint64"
+  value = "${tokend_signer_role.payments_manager.id}"
 }
 
 output "license_signer_role" {
   value = "${tokend_signer_role.license_admin.id}"
 }
 
-output "payments_signer_role" {
-  value = "${tokend_signer_role.payments_signer.id}"
+output "payments_only_signer_role" {
+  value = "${tokend_signer_role.payments_only_signer.id}"
+}
+
+output "payments_manager_signer_role" {
+  value = "${tokend_signer_role.payments_manager.id}"
 }
 
 output "default_signer_role" {
