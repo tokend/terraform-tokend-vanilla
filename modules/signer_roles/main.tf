@@ -14,10 +14,6 @@ variable "payments_only_rules" {
   type = "list"
 }
 
-variable "payments_approver_rules" {
-  type = "list"
-}
-
 variable "create_kyc" {
   type = "list"
 }
@@ -83,22 +79,9 @@ resource tokend_signer_role "license_admin" {
   }
 }
 
-resource tokend_signer_role "payments_only_signer" {
-  rules = [
-    "${var.payments_only_rules}"
-  ]
-
-  details = {
-    admin_role = false
-    name = "Payments signer role"
-    description = "Able to sign payments"
-  }
-}
-
 resource tokend_signer_role "payments_manager" {
   rules = [
     "${var.payments_only_rules}",
-    "${var.payments_approver_rules}"
   ]
 
   details = {
@@ -143,21 +126,11 @@ resource tokend_key_value "license_admin_role" {
 resource tokend_key_value "rec_payments_role" {
   key = "signer_role:payments"
   value_type = "uint64"
-  value = "${tokend_signer_role.payments_only_signer.id}"
-}
-
-resource tokend_key_value "rec_payments_role" {
-  key = "signer_role:payments_manager"
-  value_type = "uint64"
   value = "${tokend_signer_role.payments_manager.id}"
 }
 
 output "license_signer_role" {
   value = "${tokend_signer_role.license_admin.id}"
-}
-
-output "payments_only_signer_role" {
-  value = "${tokend_signer_role.payments_only_signer.id}"
 }
 
 output "payments_manager_signer_role" {

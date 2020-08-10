@@ -169,16 +169,11 @@ module "account_roles" {
 // create defaul signer rules
 module "signer_rules" {
   source = "modules/signer_rules"
-  payment_creator_signer_role = "${module.signer_roles.payments_only_signer_role}"
 }
 
 // create default signer roles
 module "signer_roles" {
   source = "modules/signer_roles"
-
-  payments_approver_rules = [
-    "${module.signer_rules.manage_payment_signers}",
-  ]
 
   payments_only_rules = [
     "${module.signer_rules.payment_creator}",
@@ -186,8 +181,6 @@ module "signer_roles" {
 
   default_rules = [
     "1",
-    "${module.signer_rules.forbid_payments}",
-    "${module.signer_rules.forbid_manage_payment_signers}",
   ]
 
   kyc_aml_admin = [
@@ -213,7 +206,6 @@ module "signer_roles" {
   payments_rules = [
     "${module.signer_rules.tx_sender}",
     "${module.signer_rules.payment_creator}",
-    "${module.signer_rules.manage_payment_signers}"
   ]
 }
 

@@ -1,7 +1,3 @@
-variable "payment_creator_signer_role" {
-  type = "string"
-}
-
 resource tokend_signer_rule "issuance_creator" {
   action = "create"
   entry_type = "reviewable_request"
@@ -17,23 +13,6 @@ resource tokend_signer_rule "kyc_recovery_creator" {
   entry_type = "reviewable_request"
   entry = {
     request_type = "kyc_recovery"
-  }
-}
-
-resource tokend_signer_rule "forbid_manage_signers" {
-  action = "manage"
-  entry_type = "signer"
-  forbids = true
-  entry = {
-    role_id = "${var.payment_creator_signer_role}"
-  }
-}
-
-resource tokend_signer_rule "manage_payment_signers" {
-  action = "manage"
-  entry_type = "signer"
-  entry = {
-    role_id = "${payment_creator_signer_role}"
   }
 }
 
@@ -169,14 +148,6 @@ output "stamp_creator" {
 
 output "kyc_recovery_creator" {
   value = "${tokend_signer_rule.kyc_recovery_creator.id}"
-}
-
-output "forbid_manage_payment_signers" {
-  value = "${tokend_signer_rule.forbid_manage_signers}"
-}
-
-output "manage_payment_signers" {
-  value = "${tokend_signer_rule.manage_payment_signers}"
 }
 
 output "forbid_payments" {
