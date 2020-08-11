@@ -5,10 +5,17 @@ resource tokend_key_value "external_system_type_stellar" {
   value      = "1"
 }
 
-resource tokend_key_value "external_system_type_ethereum" {
-  key        = "external_system_type:ethereum"
+resource tokend_key_value "external_system_type_ethereum_erc20" {
+  key        = "external_system_type:ethereum_erc20"
   value_type = "uint32"
   value      = "2"
+}
+
+
+resource tokend_key_value "external_system_type_ethereum_erc721" {
+  key        = "external_system_type:ethereum_erc20"
+  value_type = "uint32"
+  value      = "3"
 }
 
 resource "tokend_external_system_pool_entry" "test_stellar" {
