@@ -150,6 +150,8 @@ module "key_values" {
   asset_type_kyc = "${var.asset_type_kyc}"
   asset_type_default = "${var.asset_type_default}"
   asset_type_nft = "${var.asset_type_nft}"
+  account_general = "${module.account_roles.general}"
+  account_unverified = "${module.account_roles.unverified}"
 }
 
 module "assets" {
