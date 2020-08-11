@@ -13,7 +13,7 @@ resource tokend_key_value "external_system_type_ethereum_erc20" {
 
 
 resource tokend_key_value "external_system_type_ethereum_erc721" {
-  key        = "external_system_type:ethereum_erc20"
+  key        = "external_system_type:ethereum_erc721"
   value_type = "uint32"
   value      = "3"
 }
