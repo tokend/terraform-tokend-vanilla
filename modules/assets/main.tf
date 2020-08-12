@@ -11,41 +11,25 @@ resource tokend_asset "USD" {
 
   policies = [
     "transferable",
-    "base_asset",
     "stats_quote_asset",
+    "can_be_quote_in_atomic_swap",
   ]
 }
 
-resource tokend_asset "BTC" {
-  code                        = "BTC"
-  max_issuance_amount         = "21000000"
-  initial_pre_issuance_amount = "21000000"
+resource tokend_asset "ETH" {
+  code                        = "ETH"
+  max_issuance_amount         = "112000000"
+  initial_pre_issuance_amount = "112000000"
   pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
   trailing_digits_count       = 6
 
   details = {
-    name = "Bitcoin"
+    name = "US Dollar"
   }
 
   policies = [
     "transferable",
-    "base_asset",
-  ]
-}
-
-resource tokend_asset "EUR" {
-  code                        = "EUR"
-  max_issuance_amount         = "9223372036853"
-  initial_pre_issuance_amount = "9223372036853"
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
-  trailing_digits_count       = 6
-
-  details = {
-    name = "Euro"
-  }
-
-  policies = [
-    "transferable",
+    "can_be_quote_in_atomic_swap"
   ]
 }
 
@@ -62,20 +46,6 @@ resource tokend_asset "BOXX" {
 
   policies = [
     "withdrawable",
-    "base_asset"
+    "base_asset",
   ]
 }
-
-
-resource tokend_asset_pair "BTC_USD" {
-  base  = "${tokend_asset.BTC.id}"
-  quote = "${tokend_asset.USD.id}"
-  price = "11757"
-}
-
-resource tokend_asset_pair "EUR_USD" {
-  base = "${tokend_asset.EUR.id}"
-  quote = "${tokend_asset.USD.id}"
-  price = "1.1"
-}
-
