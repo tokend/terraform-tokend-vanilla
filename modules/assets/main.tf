@@ -10,6 +10,7 @@ resource tokend_asset "USD" {
   }
 
   policies = [
+    "base_asset",
     "transferable",
     "stats_quote_asset",
     "can_be_quote_in_atomic_swap",
@@ -24,10 +25,11 @@ resource tokend_asset "ETH" {
   trailing_digits_count       = 6
 
   details = {
-    name = "US Dollar"
+    name = "Ethereum"
   }
 
   policies = [
+    "base_asset",
     "transferable",
     "can_be_quote_in_atomic_swap"
   ]
