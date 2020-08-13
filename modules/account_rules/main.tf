@@ -70,6 +70,15 @@ resource tokend_account_rule "reviewable_request_creator" { // TODO shrink scope
 }
 
 
+resource tokend_account_rule "reviewable_request_creator_with_tasks" { // TODO shrink scope to specific requests
+  action = "create_with_tasks"
+  entry_type = "reviewable_request"
+  entry = {
+    request_type = "*"
+  }
+}
+
+
 
 resource tokend_account_rule "sale_participant" {
   action     = "participate"
@@ -105,6 +114,10 @@ output "sale_participant" {
 
 output "reviewable_request_creator" {
   value = "${tokend_account_rule.reviewable_request_creator.id}"
+}
+
+output "reviewable_request_creator_with_tasks" {
+  value = "${tokend_account_rule.reviewable_request_creator_with_tasks.id}"
 }
 
 output "signer_manager" {

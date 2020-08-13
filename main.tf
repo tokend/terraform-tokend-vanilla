@@ -98,6 +98,7 @@ module "account_roles" {
     "${module.account_rules.kyc_withdrawer}",
     "${module.account_rules.kyc_issuance_receiver}",
     "${module.account_rules.reviewable_request_creator}",
+    "${module.account_rules.reviewable_request_creator_with_tasks}",
     "${module.account_rules.sale_participant}",
     "${module.account_rules.asset_withdrawer}",
     "${module.account_rules.external_binder}",
