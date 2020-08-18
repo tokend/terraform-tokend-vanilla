@@ -125,3 +125,15 @@ resource tokend_key_value "create_kyc_recovery_tasks" {
   value_type = "uint32"
   value = "1"
 }
+
+resource tokend_key_value "ext_sys_exp_period_erc721" {
+  key = "ext_sys_exp_period:2"
+  value_type = "uint32"
+  value = "1200"
+}
+
+resource tokend_key_value "ext_sys_exp_period_erc20" {
+  key = "ext_sys_exp_period:3"
+  value_type = "uint32"
+  value = "1200"
+}
