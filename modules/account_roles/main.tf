@@ -22,6 +22,14 @@ variable us_accredited {
   type = "list"
 }
 
+output "general" {
+  value = "${tokend_account_role.general.id}"
+}
+
+output "unverified" {
+  value = "${tokend_account_role.unverified.id}"
+}
+
 resource tokend_account_role "unverified" {
   rules = ["${var.unverified_rules}"]
 }

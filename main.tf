@@ -53,6 +53,7 @@ module "account_roles" {
     "${module.account_rules.vote_remover}",
     "${module.account_rules.forbid_restricted_vote_remove}",
     "${module.account_rules.kyc_recovery_creator}",
+    "${module.account_rules.data_creator}",
   ]
 
   general_rules = [
@@ -95,6 +96,9 @@ module "account_roles" {
     "${module.account_rules.vote_remover}",
     "${module.account_rules.forbid_restricted_vote_remove}",
     "${module.account_rules.kyc_recovery_creator}",
+    "${module.account_rules.data_creator}",
+    "${module.account_rules.data_updater}",
+    "${module.account_rules.data_updater_for_other}",
   ]
 
   syndicate_rules = [
@@ -263,6 +267,8 @@ module "key_values" {
   asset_type_kyc = "${var.asset_type_kyc}"
   asset_type_security = "${var.asset_type_security}"
   asset_type_default = "${var.asset_type_default}"
+  account_general = "${module.account_roles.general}"
+  account_unverified = "${module.account_roles.unverified}"
 }
 
 module "assets" {

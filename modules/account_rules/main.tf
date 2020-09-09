@@ -170,6 +170,21 @@ resource tokend_account_rule "atomic_swap_ask_creator" {
   }
 }
 
+resource tokend_account_rule "data_creator" {
+  action = "create"
+  entry_type = "data"
+}
+
+resource tokend_account_rule "data_updater" {
+  action = "create"
+  entry_type = "update"
+}
+
+resource tokend_account_rule "data_updater_for_other" {
+  action = "create"
+  entry_type = "update_for_other"
+}
+
 output "external_binder" {
   value = "${tokend_account_rule.external_binder.id}"
 }
@@ -177,7 +192,6 @@ output "external_binder" {
 output "sale_participant" {
   value = "${tokend_account_rule.sale_participant.id}"
 }
-
 
 output "reviewable_request_creator" {
   value = "${tokend_account_rule.reviewable_request_creator.id}"
@@ -241,4 +255,16 @@ output "kyc_recovery_creator" {
 
 output "atomic_swap_ask_creator" {
   value = "${tokend_account_rule.atomic_swap_ask_creator.id}"
+}
+
+output "data_creator" {
+  value = "${tokend_account_rule.data_creator.id}"
+}
+
+output "data_updater" {
+  value = "${tokend_account_rule.data_updater.id}"
+}
+
+output "data_updater_for_other" {
+  value = "${tokend_account_rule.data_updater_for_other.id}"
 }
