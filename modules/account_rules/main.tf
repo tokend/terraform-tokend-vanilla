@@ -173,16 +173,28 @@ resource tokend_account_rule "atomic_swap_ask_creator" {
 resource tokend_account_rule "data_creator" {
   action = "create"
   entry_type = "data"
+
+  entry = {
+    type = "*"
+  }
 }
 
 resource tokend_account_rule "data_updater" {
   action = "create"
   entry_type = "update"
+
+  entry = {
+    type = "*"
+  }
 }
 
 resource tokend_account_rule "data_updater_for_other" {
   action = "create"
   entry_type = "update_for_other"
+
+  entry = {
+    type = "*"
+  }
 }
 
 output "external_binder" {
