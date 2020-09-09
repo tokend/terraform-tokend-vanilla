@@ -180,8 +180,8 @@ resource tokend_account_rule "data_creator" {
 }
 
 resource tokend_account_rule "data_updater" {
-  action = "create"
-  entry_type = "update"
+  action = "update"
+  entry_type = "data"
 
   entry = {
     type = "*"
@@ -189,8 +189,8 @@ resource tokend_account_rule "data_updater" {
 }
 
 resource tokend_account_rule "data_updater_for_other" {
-  action = "create"
-  entry_type = "update_for_other"
+  action = "update_for_other"
+  entry_type = "data"
 
   entry = {
     type = "*"
