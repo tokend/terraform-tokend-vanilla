@@ -138,12 +138,6 @@ resource tokend_key_value "ext_sys_exp_period_erc20" {
   value = "1200"
 }
 
-resource tokend_key_value "ext_sys_exp_period_erc20" {
-  key = "ext_sys_exp_period:3"
-  value_type = "uint32"
-  value = "1200"
-}
-
 resource tokend_key_value "data_type_identity" {
   key = "data_type:identity"
   value_type = "uint32"
