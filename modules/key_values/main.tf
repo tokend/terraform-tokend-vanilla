@@ -146,12 +146,12 @@ resource tokend_key_value "data_type_identity" {
 
 resource tokend_key_value "data_type_identity_type" {
   key = "data_type:identity_type"
-  value_type = "uint32"
+  value_type = "uint64"
   value = 2
 }
 
 resource tokend_key_value "data_task_identity" {
   key = "data_task:identity"
-  value_type = "uint32"
+  value_type = "uint64"
   value = 3
 }
