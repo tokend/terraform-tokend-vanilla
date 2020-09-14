@@ -140,7 +140,7 @@ resource tokend_key_value "ext_sys_exp_period_erc20" {
 
 resource tokend_key_value "data_type_identity" {
   key = "data_type:identity"
-  value_type = "uint32"
+  value_type = "uint64"
   value = 1
 }
 
@@ -152,6 +152,6 @@ resource tokend_key_value "data_type_identity_type" {
 
 resource tokend_key_value "data_task_identity" {
   key = "data_task:identity"
-  value_type = "uint64"
+  value_type = "uint32"
   value = 3
 }
