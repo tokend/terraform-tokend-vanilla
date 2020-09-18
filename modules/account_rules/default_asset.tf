@@ -3,7 +3,7 @@ resource tokend_account_rule "sender" {
   entry_type = "asset"
 
   entry = {
-    asset_type = "${var.asset_type_default}"
+    asset_type = "*"
     asset_code = "*"
   }
 }
@@ -13,7 +13,7 @@ resource tokend_account_rule "payment_receiver" {
   entry_type = "asset"
 
   entry = {
-    asset_type = "${var.asset_type_default}"
+    asset_type = "*"
     asset_code = "*"
   }
 }
@@ -23,7 +23,7 @@ resource tokend_account_rule "atomic_swap_receiver" {
   entry_type = "asset"
 
   entry = {
-    asset_type = "${var.asset_type_default}"
+    asset_type = "*"
     asset_code = "*"
   }
 }
@@ -33,7 +33,7 @@ resource tokend_account_rule "withdrawer" {
   entry_type = "asset"
 
   entry = {
-    asset_type = "${var.asset_type_default}"
+    asset_type = "*"
     asset_code = "*"
   }
 }
@@ -44,8 +44,8 @@ resource tokend_account_rule "default_for_default_buy_offer_creator" {
   entry_type = "offer"
   entry = {
     is_buy = true
-    quote_asset_type = "${var.asset_type_default}"
-    base_asset_type = "${var.asset_type_default}"
+    quote_asset_type = "*"
+    base_asset_type = "*"
   }
 }
 
@@ -54,8 +54,8 @@ resource tokend_account_rule "default_for_default_sell_offer_creator" {
   entry_type = "offer"
   entry = {
     is_buy = false
-    quote_asset_type = "${var.asset_type_default}"
-    base_asset_type = "${var.asset_type_default}"
+    quote_asset_type = "*"
+    base_asset_type = "*"
   }
 }
 
@@ -64,7 +64,7 @@ resource tokend_account_rule "issuance_receiver" {
   entry_type = "asset"
 
   entry = {
-    asset_type = "${var.asset_type_default}"
+    asset_type = "*"
     asset_code = "*"
   }
 }
