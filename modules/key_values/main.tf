@@ -130,13 +130,13 @@ resource tokend_key_value "kyc_recovery_enabled" {
 resource tokend_key_value "create_kyc_recovery_tasks" {
   key = "create_kyc_recovery_tasks"
   value_type = "uint32"
-  value = "1"
+  value = "0"
 }
 
 resource tokend_key_value "create_poll_tasks" {
   key        = "create_poll_tasks:*"
   value_type = "uint32"
-  value      = "0"
+  value      = "1"
 }
 
 resource tokend_key_value "atomic_swap_ask_tasks" {

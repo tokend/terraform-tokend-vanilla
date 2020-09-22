@@ -87,3 +87,9 @@ resource tokend_key_value "general_change_role_tasks" {
   value_type = "uint32"
   value      = "0"
 }
+
+resource tokend_key_value "corporate_change_role_tasks" {
+  key        = "change_role_tasks:*:${tokend_account_role.corporate.id}"
+  value_type = "uint32"
+  value      = "0"
+}
