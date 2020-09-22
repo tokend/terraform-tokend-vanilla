@@ -89,7 +89,7 @@ resource tokend_key_value "general_change_role_tasks" {
 }
 
 resource tokend_key_value "corporate_change_role_tasks" {
-  key        = "change_role_tasks:*:${tokend_account_role.corporate.id}"
+  key        = "change_role_tasks:*:${tokend_account_role.syndicate.id}"
   value_type = "uint32"
   value      = "0"
 }
