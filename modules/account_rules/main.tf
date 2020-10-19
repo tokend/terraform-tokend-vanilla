@@ -43,7 +43,7 @@ resource tokend_account_rule "reviewable_request_creator" { // TODO shrink scope
 resource tokend_key_value "default_role_rules" {
   key = "default_role_rules"
   value_type = "string"
-  value = "[${tokend_account_role.data_creater.id}, ${tokend_account_role.data_updater.id}, ${tokend_account_role.tx_sender.id}, ${tokend_account_role.role_updater.id}, ${tokend_account_role.signer_manager.id}]"
+  value = "[${tokend_account_rule.data_creater.id}, ${tokend_account_rule.data_updater.id}, ${tokend_account_rule.tx_sender.id}, ${tokend_account_rule.role_updater.id}, ${tokend_account_rule.signer_manager.id}]"
 }
 
 output "reviewable_request_creator" {
