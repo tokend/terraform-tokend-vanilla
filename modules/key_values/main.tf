@@ -39,9 +39,3 @@ resource tokend_key_value "kyc_recovery_enabled" {
   value_type = "uint32"
   value      = "0"
 }
-
-resource tokend_key_value "default_role_rules" {
-  key = "default_role_rules"
-  value_type = "string"
-  value = "[${var.data_creater}, ${var.data_updater}, ${var.tx_sender}, ${var.role_updater}, ${var.signer_manager}]"
-}
