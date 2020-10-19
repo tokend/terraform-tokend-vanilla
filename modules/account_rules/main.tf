@@ -16,6 +16,22 @@ resource tokend_account_rule "tx_sender" {
   entry_type = "transaction"
 }
 
+resource tokend_account_rule "data_updater" {
+  action     = "update"
+  entry_type = "data"
+  entry = {
+    type = "*"
+  }
+}
+
+resource tokend_account_rule "data_creater" {
+  action     = "create"
+  entry_type = "data"
+  entry = {
+    type = "*"
+  }
+}  
+
 resource tokend_account_rule "reviewable_request_creator" { // TODO shrink scope to specific requests
   action = "create"
   entry_type = "reviewable_request"
