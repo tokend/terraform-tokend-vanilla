@@ -133,13 +133,13 @@ resource tokend_key_value "limits_update_tasks" {
 resource tokend_key_value "asset_update_default" {
   key        = "asset_update_tasks:*"
   value_type = "uint32"
-  value      = "1"
+  value      = "0"
 }
 
 resource tokend_key_value "asset_update_task" {
   key        = "asset_update_tasks"
   value_type = "uint32"
-  value      = "1"
+  value      = "0"
 }
 
 resource tokend_key_value "sale_create_tasks" {
