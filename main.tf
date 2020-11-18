@@ -13,6 +13,11 @@ variable asset_type_default {
   default = "0"
 }
 
+variable default_change_role_tasks {
+  type = "string"
+  default = "1"
+}
+
 variable asset_type_kyc {
   type = "string"
   default = "1"
@@ -263,6 +268,7 @@ module "key_values" {
   asset_type_kyc = "${var.asset_type_kyc}"
   asset_type_security = "${var.asset_type_security}"
   asset_type_default = "${var.asset_type_default}"
+  default_change_role_tasks = "${var.default_change_role_tasks}"
 }
 
 module "assets" {

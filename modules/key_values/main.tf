@@ -18,6 +18,10 @@ variable "asset_type_default" {
   type = "string"
 }
 
+variable "default_change_role_tasks" {
+  type = "string"
+  default = "1"
+}
 
 resource tokend_key_value "poll_type_restricted" {
   key = "poll_type:restricted"
@@ -76,7 +80,7 @@ resource tokend_key_value "default_withdraw_tasks" {
 resource tokend_key_value "default_change_role_tasks" {
   key        = "change_role_tasks:*:*"
   value_type = "uint32"
-  value      = "1"
+  value      = "${var.default_change_role_tasks}"
 }
 
 resource tokend_key_value "asset_create_tasks" {
