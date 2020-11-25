@@ -25,8 +25,11 @@ resource tokend_asset "ETH" {
   trailing_digits_count       = 6
 
   details = {
+    is_coinpayments = true,
     name = "Ethereum"
   }
+
+
 
   policies = [
     "base_asset",
