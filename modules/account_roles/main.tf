@@ -10,6 +10,14 @@ variable syndicate_rules {
   type = "list"
 }
 
+variable charity_rules {
+  type = "list"
+}
+
+variable beneficiary_rules {
+  type = "list"
+}
+
 variable blocked_rules {
   type = "list"
 }
@@ -46,6 +54,14 @@ resource tokend_account_role "us_verified" {
   rules = ["${var.us_verified}"]
 }
 
+resource tokend_account_role "charity" {
+  rules = ["${var.charity_rules}"]
+}
+
+resource tokend_account_role "beneficiary" {
+  rules = ["${var.beneficiary_rules}"]
+}
+
 resource tokend_key_value "unverified" {
   key = "account_role:unverified"
   value_type = "uint32"
@@ -62,6 +78,18 @@ resource tokend_key_value "syndicate" {
   key = "account_role:corporate"
   value_type = "uint32"
   value = "${tokend_account_role.syndicate.id}"
+}
+
+resource tokend_key_value "charity" {
+  key = "account_role:charity"
+  value_type = "uint32"
+  value = "${tokend_account_role.charity.id}"
+}
+
+resource tokend_key_value "beneficiary" {
+  key = "account_role:beneficiary"
+  value_type = "uint32"
+  value = "${tokend_account_role.beneficiary.id}"
 }
 
 resource tokend_key_value "blocked" {
