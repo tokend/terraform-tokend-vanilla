@@ -60,9 +60,9 @@ module "account_roles" {
     "${module.account_rules.kyc_recovery_creator}",
   ]
 
-  general_rules = ['1']
+  general_rules = ["1"]
 
-  syndicate_rules = ['1']
+  syndicate_rules = ["1"]
 
   us_accredited = [
     "${module.account_rules.balance_creator}",
