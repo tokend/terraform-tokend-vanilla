@@ -60,7 +60,7 @@ resource tokend_signer_role "basic_plus" {
   details = {
     admin_role = false
     name = "Basic+"
-    description = "Use ID of role as value in kv by kyc_recovery_signer_role key"
+    description = "Like basic, but can start and review a workflow"
   }
 }
 
