@@ -1,7 +1,3 @@
-variable "default_rules" {
-  type = "list"
-}
-
 variable "document_admin" {
   type = "list"
 }
