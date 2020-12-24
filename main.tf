@@ -2,13 +2,13 @@
 module "account_roles" {
   source = "modules/account_roles"
 
-  super_admin = []
+  super_admin_rules = []
   
-  document_admin = []
+  document_admin_rules = []
 
-  basic = []
+  basic_rules = []
 
-  basic_plus = []
+  basic_plus_rules = []
 
   unverified_rules = []
 
