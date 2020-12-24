@@ -10,11 +10,11 @@ variable "basic" {
   type = "list"
 }
 
-variable "super_admin" {
+variable "master_admin" {
   type = "list"
 }
 
-resource tokend_signer_role "super_admin" {
+resource tokend_signer_role "master_admin" {
   rules = [
     "1",
   ]

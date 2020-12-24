@@ -2,7 +2,7 @@
 module "account_roles" {
   source = "modules/account_roles"
 
-  super_admin = []
+  master_admin = []
   
   document_admin = []
 
@@ -23,7 +23,7 @@ module "signer_rules" {
 module "signer_roles" {
   source = "modules/signer_roles"
 
-  super_admin = []
+  master_admin = []
 
   document_admin = []
 

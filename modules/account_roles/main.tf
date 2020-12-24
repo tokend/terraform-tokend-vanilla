@@ -18,7 +18,7 @@ variable "basic" {
   type = "list"
 }
 
-variable "super_admin" {
+variable "master_admin" {
   type = "list"
 }
 
@@ -42,9 +42,9 @@ resource tokend_account_role "blocked" {
   }
 }
 
-resource tokend_account_role "super_admin" {
+resource tokend_account_role "master_admin" {
   rules = [
-    "${var.super_admin}",
+    "${var.master_admin}",
   ]
   
   details = {
@@ -118,8 +118,8 @@ resource tokend_key_value "document_admin" {
   value = "${tokend_account_role.document_admin.id}"
 }
 
-resource tokend_key_value "super_admin" {
-  key = "account_role:super_admin"
+resource tokend_key_value "master_admin" {
+  key = "account_role:master_admin"
   value_type = "uint32"
-  value = "${tokend_account_role.super_admin.id}"
+  value = "${tokend_account_role.master_admin.id}"
 }
