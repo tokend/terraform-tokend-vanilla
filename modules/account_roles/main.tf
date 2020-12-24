@@ -40,6 +40,58 @@ resource tokend_account_role "blocked" {
     name        = "Blocked"
     description = ""
   }
+
+  depends_on = [
+    "tokend_account_role.unverified"
+  ]
+}
+
+resource tokend_account_role "basic" {
+  rules = [
+    "${var.basic}",
+  ]
+
+  details = {
+    admin_role = false
+    name = "Basic"
+    description = "Role allows to perform document search and review a workflow"
+  }
+
+  depends_on = [
+    "tokend_account_role.blocked"
+  ]
+}
+
+resource tokend_account_role "basic_plus" {
+  rules = [
+    "${var.basic_plus}",
+  ]
+
+  details = {
+    admin_role = false
+    name = "Basic+"
+    description = "Role allows to upload, search and review documents, start a wokflow"
+  }
+
+  depends_on = [
+    "tokend_account_role.basic"
+  ]
+}
+
+resource tokend_account_role "document_admin" {
+  rules = [
+    "${var.document_admin}",
+  ]
+
+  details = {
+    admin_role  = false
+    name        = "Document Admin"
+    description = "Role allows to upload, search and review documents, start a workflow, manage workflow templates"
+  }
+
+  depends_on = [
+    "tokend_account_role.basic_plus"
+  ]
 }
 
 resource tokend_account_role "master_admin" {
@@ -50,43 +102,13 @@ resource tokend_account_role "master_admin" {
   details = {
     admin_role  = true
     name        = "Super Administrator"
-    description = "Have full access to system administration functionality"
+    description = "Have full access to system functionality"
   }
-}
 
-resource tokend_account_role "document_admin" {
-  rules = [
-    "${var.document_admin}",
+  depends_on = [
+    "tokend_account_role.document_admin"
   ]
-  details = {
-    admin_role  = true
-    name        = "Document Admin"
-    description = "Responsible for editing workflow template"
-  }
 }
-
-resource tokend_account_role "basic" {
-  rules = [
-    "${var.basic}",
-  ]
-  details = {
-    admin_role = false
-    name = "Basic"
-    description = "Role allows signer only to perform document search and review a workflow"
-  }
-}
-
-resource tokend_account_role "basic_plus" {
-  rules = [
-    "${var.basic_plus}",
-  ]
-  details = {
-    admin_role = false
-    name = "Basic+"
-    description = "Like basic, but can start and review a workflow"
-  }
-}
-
 
 resource tokend_key_value "unverified" {
   key = "account_role:unverified"
