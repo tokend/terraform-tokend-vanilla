@@ -6,20 +6,35 @@ module "account_rules" {
 module "account_roles" {
   source = "modules/account_roles"
 
-  master_admin = []
+  master_admin = [
+  	"${module.account_rules.tx_sender}",
+  	"${module.account_rules.signer_manager}",
+  ]
   
-  document_admin = []
+  document_admin = [
+  	"${module.account_rules.tx_sender}",
+  	"${module.account_rules.signer_manager}",
+  ]
 
-  basic = []
+  basic = [
+  	"${module.account_rules.tx_sender}",
+  	"${module.account_rules.signer_manager}",
+  ]
 
-  basic_plus = []
+  basic_plus = [
+  	"${module.account_rules.tx_sender}",
+  	"${module.account_rules.signer_manager}",
+  ]
 
   unverified_rules = [
   	"${module.account_rules.tx_sender}",
   	"${module.account_rules.signer_manager}",
   ]
 
-  blocked_rules = []
+  blocked_rules = [
+  "${module.account_rules.tx_sender}",
+  "${module.account_rules.signer_manager}",
+  ]
 }
 
 module "signer_rules" {
