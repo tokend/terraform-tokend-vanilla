@@ -1,3 +1,7 @@
+module "account_rules" {
+  source = "modules/account_rules"
+}
+
 // create default account roles
 module "account_roles" {
   source = "modules/account_roles"
@@ -10,7 +14,10 @@ module "account_roles" {
 
   basic_plus = []
 
-  unverified_rules = []
+  unverified_rules = [
+  	"${module.account_rules.tx_sender}",
+  	"${module.account_rules.signer_manager}",
+  ]
 
   blocked_rules = []
 }
