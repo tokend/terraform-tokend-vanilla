@@ -60,6 +60,6 @@ output "data_creater" {
   value = "${tokend_account_rule.data_creater.id}"
 }
 
-output "data_creater" {
+output "data_updater" {
   value = "${tokend_account_rule.data_updater.id}"
 }
