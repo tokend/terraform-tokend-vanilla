@@ -10,42 +10,54 @@ module "account_roles" {
   	"${module.account_rules.tx_sender}",
   	"${module.account_rules.signer_manager}",
     "${module.account_rules.kyc_recovery_creator}",
-    "${module.account_rules.reviewable_request_creator}"
+    "${module.account_rules.reviewable_request_creator}",
+    "${module.account_rules.data_creater}",
+    "${module.account_rules.data_updater}"
   ]
   
   document_admin = [
   	"${module.account_rules.tx_sender}",
   	"${module.account_rules.signer_manager}",
     "${module.account_rules.kyc_recovery_creator}",
-    "${module.account_rules.reviewable_request_creator}"
+    "${module.account_rules.reviewable_request_creator}",
+    "${module.account_rules.data_creater}",
+    "${module.account_rules.data_updater}"
   ]
 
   basic = [
   	"${module.account_rules.tx_sender}",
   	"${module.account_rules.signer_manager}",
     "${module.account_rules.kyc_recovery_creator}",
-    "${module.account_rules.reviewable_request_creator}"
+    "${module.account_rules.reviewable_request_creator}",
+    "${module.account_rules.data_creater}",
+    "${module.account_rules.data_updater}"
   ]
 
   basic_plus = [
   	"${module.account_rules.tx_sender}",
   	"${module.account_rules.signer_manager}",
     "${module.account_rules.kyc_recovery_creator}",
-    "${module.account_rules.reviewable_request_creator}"
+    "${module.account_rules.reviewable_request_creator}",
+    "${module.account_rules.data_creater}",
+    "${module.account_rules.data_updater}"
   ]
 
   unverified_rules = [
   	"${module.account_rules.tx_sender}",
   	"${module.account_rules.signer_manager}",
     "${module.account_rules.kyc_recovery_creator}",
-    "${module.account_rules.reviewable_request_creator}"
+    "${module.account_rules.reviewable_request_creator}",
+    "${module.account_rules.data_creater}",
+    "${module.account_rules.data_updater}"
   ]
 
   blocked_rules = [
-  "${module.account_rules.tx_sender}",
-  "${module.account_rules.signer_manager}",
-  "${module.account_rules.kyc_recovery_creator}",
-  "${module.account_rules.reviewable_request_creator}"
+    "${module.account_rules.tx_sender}",
+    "${module.account_rules.signer_manager}",
+    "${module.account_rules.kyc_recovery_creator}",
+    "${module.account_rules.reviewable_request_creator}",
+    "${module.account_rules.data_creater}",
+    "${module.account_rules.data_updater}"
   ]
 }
 

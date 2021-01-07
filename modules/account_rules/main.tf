@@ -24,6 +24,22 @@ resource tokend_account_rule "kyc_recovery_creator" {
   }
 }
 
+resource tokend_account_rule "data_updater" {
+  action     = "update"
+  entry_type = "data"
+  entry = {
+    type = "*"
+  }
+}
+
+resource tokend_account_rule "data_creater" {
+  action     = "create"
+  entry_type = "data"
+  entry = {
+    type = "*"
+  }
+}  
+
 output "signer_manager" {
   value = "${tokend_account_rule.signer_manager.id}"
 }
@@ -38,4 +54,12 @@ output "reviewable_request_creator" {
 
 output "kyc_recovery_creator" {
   value = "${tokend_account_rule.kyc_recovery_creator.id}"
+}
+
+output "data_creater" {
+  value = "${tokend_account_rule.data_creater.id}"
+}
+
+output "data_creater" {
+  value = "${tokend_account_rule.data_updater.id}"
 }
