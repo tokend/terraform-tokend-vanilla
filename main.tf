@@ -9,31 +9,43 @@ module "account_roles" {
   master_admin = [
   	"${module.account_rules.tx_sender}",
   	"${module.account_rules.signer_manager}",
+    "${module.account_rules.kyc_recovery_creator}",
+    "${module.account_rules.reviewable_request_creator}"
   ]
   
   document_admin = [
   	"${module.account_rules.tx_sender}",
   	"${module.account_rules.signer_manager}",
+    "${module.account_rules.kyc_recovery_creator}",
+    "${module.account_rules.reviewable_request_creator}"
   ]
 
   basic = [
   	"${module.account_rules.tx_sender}",
   	"${module.account_rules.signer_manager}",
+    "${module.account_rules.kyc_recovery_creator}",
+    "${module.account_rules.reviewable_request_creator}"
   ]
 
   basic_plus = [
   	"${module.account_rules.tx_sender}",
   	"${module.account_rules.signer_manager}",
+    "${module.account_rules.kyc_recovery_creator}",
+    "${module.account_rules.reviewable_request_creator}"
   ]
 
   unverified_rules = [
   	"${module.account_rules.tx_sender}",
   	"${module.account_rules.signer_manager}",
+    "${module.account_rules.kyc_recovery_creator}",
+    "${module.account_rules.reviewable_request_creator}"
   ]
 
   blocked_rules = [
   "${module.account_rules.tx_sender}",
   "${module.account_rules.signer_manager}",
+  "${module.account_rules.kyc_recovery_creator}",
+  "${module.account_rules.reviewable_request_creator}"
   ]
 }
 
