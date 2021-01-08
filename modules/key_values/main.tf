@@ -37,5 +37,5 @@ resource tokend_key_value "data_type-review" {
 resource tokend_key_value "kyc_recovery_enabled" {
   key        = "kyc_recovery_enabled"
   value_type = "uint32"
-  value      = "0"
+  value      = "1"
 }
