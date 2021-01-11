@@ -69,13 +69,25 @@ module "signer_rules" {
 module "signer_roles" {
   source = "modules/signer_roles"
 
-  master_admin = []
+  master_admin = [
+  	"${module.signer_rules.data_creater}",
+    "${module.signer_rules.data_updater}"
+  ]
 
-  document_admin = []
+  document_admin = [
+  	"${module.signer_rules.data_creater}",
+    "${module.signer_rules.data_updater}"
+  ]
 
-  basic = []
+  basic = [
+  	"${module.signer_rules.data_creater}",
+    "${module.signer_rules.data_updater}"
+  ]
 
-  basic_plus = []
+  basic_plus = [
+  	"${module.signer_rules.data_creater}",
+    "${module.signer_rules.data_updater}"
+  ]
 }
 
 module "key_values" {
