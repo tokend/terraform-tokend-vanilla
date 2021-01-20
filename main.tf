@@ -88,6 +88,10 @@ module "signer_roles" {
   	"${module.signer_rules.data_creater}",
     "${module.signer_rules.data_updater}"
   ]
+
+  create_kyc = [
+    "${module.signer_rules.kyc_recovery_creator}",
+  ]
 }
 
 module "key_values" {
