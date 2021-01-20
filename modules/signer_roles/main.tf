@@ -14,10 +14,6 @@ variable "master_admin" {
   type = "list"
 }
 
-variable "license_admin" {
-  type = "list"
-}
-
 variable "create_kyc" {
   type = "list"
 }
@@ -79,17 +75,6 @@ resource tokend_signer_role "create_kyc_recovery" {
   }
 }
 
-resource tokend_signer_role "license_admin" {
-  rules = [
-  "${var.license_admin}"
-  ]
-  details = {
-    admin_role = true
-    name = "License Admin"
-    description = "Able to manage system licenses"
-  }
-}
-
 // users operational signer role
 resource tokend_signer_role "default" {
   rules = ["1"]
@@ -108,12 +93,6 @@ resource tokend_key_value "create_kyc_recovery_role" {
   value      = "${tokend_signer_role.create_kyc_recovery.id}"
 }
 
-resource tokend_key_value "license_admin_role" {
-  key        = "license_admin_signer_role"
-  value_type = "uint64"
-  value      = "${tokend_signer_role.license_admin.id}"
-}
-
 resource tokend_key_value "basic_role" {
   key        = "basic_signer_role"
   value_type = "uint64"
@@ -130,8 +109,4 @@ resource tokend_key_value "document_admin_role" {
   key        = "document_admin_signer_role"
   value_type = "uint64"
   value      = "${tokend_signer_role.document_admin.id}"
-}
-
-output "license_signer_role" {
-  value = "${tokend_signer_role.license_admin.id}"
 }
