@@ -92,6 +92,10 @@ module "signer_roles" {
   create_kyc = [
     "${module.signer_rules.kyc_recovery_creator}",
   ]
+
+  license_admin = [
+    "${module.signer_rules.license_creator}",
+  ]
 }
 
 module "key_values" {
