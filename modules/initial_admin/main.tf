@@ -1,8 +1,9 @@
 resource tokend_initial_admin "admin" {
-  email      = "huh?...@gmail.com"
-  first_name = "Admin"
-  last_name  = "Admin2"
-  job_title  = "Master Admin"
-  role_id    = "7"
+  email        = "non@existing.mail"
+  title        = "Mr"
+  first_name   = "Master"
+  last_name    = "Admin"
+  job_function = "1"
+  job_title    = "Master Admin"
+  role_id      = "7"
 }
-
