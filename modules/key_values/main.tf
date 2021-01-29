@@ -1,7 +1,7 @@
 resource tokend_key_value "create_kyc_recovery_tasks" {
   key = "create_kyc_recovery_tasks"
   value_type = "uint32"
-  value = "1"
+  value = "0"
 }
 
 resource tokend_key_value "change_role_task-submit_auto_verification" {
