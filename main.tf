@@ -25,7 +25,9 @@ variable asset_type_security {
 
 module "accounts" {
   source = "modules/accounts"
-  general_signer_role = "${module.signer_roles.general}"
+  general_account_signers = [
+    "${module.signers.general_signer}"
+  ]
   general_account_role = "${module.account_roles.general}"
 }
 
