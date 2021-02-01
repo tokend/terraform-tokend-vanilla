@@ -30,7 +30,7 @@ module "accounts" {
       role_id = "${module.signer_roles.general}"
     }
   ]
-
+  general_signer_role = "${module.signer_roles.general}"
   general_account_role = "${module.account_roles.general}"
 }
 
@@ -290,4 +290,5 @@ module "external_system_type_pool_entry" {
 module "signers" {
   source = "modules/signers"
   license_signer_role = "${module.signer_roles.license_signer_role}"
+  default_signer_role = "${module.signer_roles.general}"
 }
