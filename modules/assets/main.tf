@@ -52,17 +52,17 @@ resource tokend_asset "USD" {
 resource tokend_asset_pair "BTC_DOGE" {
   base  = "${tokend_asset.BTC.id}"
   quote = "${tokend_asset.DOGE.id}"
-  price = "1960909"
+  price = "11"
 }
 
 resource tokend_asset_pair "USD_DOGE" {
   base  = "${tokend_asset.USD.id}"
   quote = "${tokend_asset.DOGE.id}"
-  price = "1000"
+  price = "12"
 }
 
 resource tokend_asset_pair "USD_BTC" {
   base  = "${tokend_asset.BTC.id}"
   quote = "${tokend_asset.USD.id}"
-  price = "2344111116"
+  price = "10"
 }
