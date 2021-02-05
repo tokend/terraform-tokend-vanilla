@@ -52,16 +52,41 @@ resource tokend_key_value "unverified" {
   value = "${tokend_account_role.unverified.id}"
 }
 
-resource tokend_key_value "general" {
-  key = "account_role:general"
+resource tokend_key_value "individual" {
+  key = "account_role:individual"
+  value_type = "uint32"
+  value = "${tokend_account_role.syndicate.id}"
+}
+
+
+resource tokend_key_value "corporate" {
+  key = "account_role:corporate"
+  value_type = "uint32"
+  value = "${tokend_account_role.syndicate.id}"
+}
+
+resource tokend_key_value "proff_client_international_investor" {
+  key = "account_role:proff_client_international_investor"
   value_type = "uint32"
   value = "${tokend_account_role.general.id}"
 }
 
-resource tokend_key_value "syndicate" {
-  key = "account_role:corporate"
+resource tokend_key_value "high_new_worth_individual" {
+  key = "account_role:high_new_worth_individual"
   value_type = "uint32"
-  value = "${tokend_account_role.syndicate.id}"
+  value = "${tokend_account_role.general.id}"
+}
+
+resource tokend_key_value "retail_fan_investor" {
+  key = "account_role:retail_fan_investor"
+  value_type = "uint32"
+  value = "${tokend_account_role.general.id}"
+}
+
+resource tokend_key_value "sophosticated_investor" {
+  key = "account_role:sophosticated_investor"
+  value_type = "uint32"
+  value = "${tokend_account_role.general.id}"
 }
 
 resource tokend_key_value "blocked" {
