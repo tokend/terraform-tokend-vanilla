@@ -1,5 +1,5 @@
 resource tokend_initial_admin "admin" {
-  email        = "non@existing.mail"
+  email        = "torwigua@gmail.com"
   title        = "Mr"
   first_name   = "Master"
   last_name    = "Admin"
