@@ -27,7 +27,7 @@ resource tokend_account_role "unverified" {
 }
 
 resource tokend_account_role "general" {
-  rules = ["${vgeneral_rulesar.}"]
+  rules = ["${var.general_rules}"]
 }
 
 resource tokend_account_role "sophisticated_investor" {
