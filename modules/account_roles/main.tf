@@ -30,6 +30,30 @@ resource tokend_account_role "general" {
   rules = ["${var.general_rules}"]
 }
 
+resource tokend_account_role "sophosticated_investor" {
+  rules = ["${var.general_rules}"]
+}
+
+resource tokend_account_role "retail_fan_investor" {
+  rules = ["${var.general_rules}"]
+}
+
+resource tokend_account_role "high_new_worth_individual" {
+  rules = ["${var.general_rules}"]
+}
+
+resource tokend_account_role "proff_client_international_investor" {
+  rules = ["${var.general_rules}"]
+}
+
+resource tokend_account_role "issuer" {
+  rules = ["${var.syndicate_rules}"]
+}
+
+resource tokend_account_role "verified_issuer" {
+  rules = ["${var.syndicate_rules}"]
+}
+
 resource tokend_account_role "syndicate" {
   rules = ["${var.syndicate_rules}"]
 }
@@ -52,10 +76,17 @@ resource tokend_key_value "unverified" {
   value = "${tokend_account_role.unverified.id}"
 }
 
-resource tokend_key_value "individual" {
-  key = "account_role:individual"
+resource tokend_key_value "issuer" {
+  key = "account_role:issuer"
   value_type = "uint32"
-  value = "${tokend_account_role.syndicate.id}"
+  value = "${tokend_account_role.issuer.id}"
+}
+
+
+resource tokend_key_value "verified_issuer" {
+  key = "account_role:verified_issuer"
+  value_type = "uint32"
+  value = "${tokend_account_role.verified_issuer.id}"
 }
 
 
@@ -68,25 +99,25 @@ resource tokend_key_value "corporate" {
 resource tokend_key_value "proff_client_international_investor" {
   key = "account_role:proff_client_international_investor"
   value_type = "uint32"
-  value = "${tokend_account_role.general.id}"
+  value = "${tokend_account_role.proff_client_international_investor.id}"
 }
 
 resource tokend_key_value "high_new_worth_individual" {
   key = "account_role:high_new_worth_individual"
   value_type = "uint32"
-  value = "${tokend_account_role.general.id}"
+  value = "${tokend_account_role.high_new_worth_individual.id}"
 }
 
 resource tokend_key_value "retail_fan_investor" {
   key = "account_role:retail_fan_investor"
   value_type = "uint32"
-  value = "${tokend_account_role.general.id}"
+  value = "${tokend_account_role.retail_fan_investor.id}"
 }
 
 resource tokend_key_value "sophosticated_investor" {
   key = "account_role:sophosticated_investor"
   value_type = "uint32"
-  value = "${tokend_account_role.general.id}"
+  value = "${tokend_account_role.sophosticated_investor.id}"
 }
 
 resource tokend_key_value "blocked" {
