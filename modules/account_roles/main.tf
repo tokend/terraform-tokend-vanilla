@@ -6,10 +6,6 @@ variable general_rules {
   type = "list"
 }
 
-variable sophisticated_investor_rules {
-  type = "list"
-}
-
 variable syndicate_rules {
   type = "list"
 }
@@ -31,11 +27,11 @@ resource tokend_account_role "unverified" {
 }
 
 resource tokend_account_role "general" {
-  rules = ["${var.general_rules}"]
+  rules = ["${vgeneral_rulesar.}"]
 }
 
 resource tokend_account_role "sophisticated_investor" {
-  rules = ["${var.sophisticated_investor_rules}"]
+  rules = ["${var.general_rules}"]
 }
 
 resource tokend_account_role "retail_fan_investor" {
