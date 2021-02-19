@@ -30,7 +30,7 @@ resource tokend_account_role "general" {
   rules = ["${var.general_rules}"]
 }
 
-resource tokend_account_role "sophosticated_investor" {
+resource tokend_account_role "sophisticated_investor" {
   rules = ["${var.general_rules}"]
 }
 
@@ -114,10 +114,10 @@ resource tokend_key_value "retail_fan_investor" {
   value = "${tokend_account_role.retail_fan_investor.id}"
 }
 
-resource tokend_key_value "sophosticated_investor" {
-  key = "account_role:sophosticated_investor"
+resource tokend_key_value "sophisticated_investor" {
+  key = "account_role:sophisticated_investor"
   value_type = "uint32"
-  value = "${tokend_account_role.sophosticated_investor.id}"
+  value = "${tokend_account_role.sophisticated_investor.id}"
 }
 
 resource tokend_key_value "blocked" {
