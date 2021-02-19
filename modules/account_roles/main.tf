@@ -132,6 +132,12 @@ resource tokend_key_value "us_verified" {
   value = "${tokend_account_role.us_verified.id}"
 }
 
+resource tokend_key_value "general" {
+  key = "account_role:general"
+  value_type = "uint32"
+  value = "${tokend_account_role.general.id}"
+}
+
 resource tokend_key_value "us_accredited" {
   key = "account_role:us_accredited"
   value_type = "uint32"
