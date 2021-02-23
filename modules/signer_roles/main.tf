@@ -1,16 +1,4 @@
-variable "document_admin" {
-  type = "list"
-}
-
-variable "basic_plus" {
-  type = "list"
-}
-
-variable "basic" {
-  type = "list"
-}
-
-variable "master_admin" {
+variable "user" {
   type = "list"
 }
 
@@ -22,49 +10,15 @@ variable "license_admin" {
   type = "list"
 }
 
-resource tokend_signer_role "master_admin" {
+resource tokend_signer_role "user" {
   rules = [
-    "1",
+    "${var.user}",
   ]
 
   details = {
-    admin_role  = true
-    name        = "Super Administrator"
-    description = "Have full access to system administration functionality"
-  }
-}
-
-resource tokend_signer_role "document_admin" {
-  rules = [
-    "${var.document_admin}",
-  ]
-
-  details = {
-    admin_role  = true
-    name        = "Document Admin"
-    description = "Responsible for editing workflow template"
-  }
-}
-
-resource tokend_signer_role "basic" {
-  rules = [
-    "${var.basic}",
-  ]
-  details = {
-    admin_role = false
-    name = "Basic"
-    description = "Role allows signer only to perform document search and review a workflow"
-  }
-}
-
-resource tokend_signer_role "basic_plus" {
-  rules = [
-    "${var.basic_plus}",
-  ]
-  details = {
-    admin_role = false
-    name = "Basic+"
-    description = "Like basic, but can start and review a workflow"
+    admin_role  = false
+    name        = "User"
+    description = ""
   }
 }
 
@@ -112,24 +66,6 @@ resource tokend_key_value "license_admin_role" {
   key        = "license_admin_signer_role"
   value_type = "uint64"
   value      = "${tokend_signer_role.license_admin.id}"
-}
-
-resource tokend_key_value "basic_role" {
-  key        = "basic_signer_role"
-  value_type = "uint64"
-  value      = "${tokend_signer_role.basic.id}"
-}
-
-resource tokend_key_value "basic_plus_role" {
-  key        = "basic_plus_signer_role"
-  value_type = "uint32"
-  value      = "${tokend_signer_role.basic_plus.id}"
-}
-
-resource tokend_key_value "document_admin_role" {
-  key        = "document_admin_signer_role"
-  value_type = "uint64"
-  value      = "${tokend_signer_role.document_admin.id}"
 }
 
 output "license_signer_role" {
