@@ -5,5 +5,5 @@ resource tokend_initial_admin "admin" {
   last_name    = "Admin"
   job_function = "1"
   job_title    = "Master Admin"
-  role_id      = "7"
+  role_id      = "6"
 }
