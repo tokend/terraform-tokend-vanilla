@@ -1,3 +1,8 @@
+variable "depends_on" { 
+  default = [] 
+  type = "list" 
+}
+
 resource tokend_initial_admin "admin" {
   email        = "oleg.k@distributedlab.com"
   title        = "Mr"
