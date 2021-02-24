@@ -2,8 +2,8 @@ module "account_rules" {
   source = "modules/account_rules"
 }
 
-module "initial_admin" {
-  source = "modules/initial_admin"
+module "key_values" {
+  source = "modules/key_values"
 }
 
 // create default account roles
@@ -102,6 +102,6 @@ module "signer_roles" {
   ]
 }
 
-module "key_values" {
-  source = "modules/key_values"
+module "initial_admin" {
+  source = "modules/initial_admin"
 }

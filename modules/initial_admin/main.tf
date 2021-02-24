@@ -8,7 +8,7 @@ resource tokend_initial_admin "admin" {
   role_id      = "7"
 
   depends_on = [
-    "tokend_account_role.master_admin",
-    "tokend_key_value.kyc_recovery_enabled"
+    "module.account_roles",
+    "module.key_values"
   ]
 }
