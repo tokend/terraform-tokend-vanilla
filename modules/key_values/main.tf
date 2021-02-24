@@ -45,3 +45,7 @@ resource tokend_key_value "kyc_recovery_enabled" {
   value_type = "uint32"
   value      = "1"
 }
+
+output "kyc_recovery_enabled" {
+  value = "${tokend_key_value.kyc_recovery_enabled.id}"
+}

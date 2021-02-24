@@ -6,9 +6,4 @@ resource tokend_initial_admin "admin" {
   job_function = "1"
   job_title    = "Master Admin"
   role_id      = "7"
-
-  depends_on = [
-    "module.account_roles",
-    "module.key_values"
-  ]
 }

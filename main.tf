@@ -104,4 +104,9 @@ module "signer_roles" {
 
 module "initial_admin" {
   source = "modules/initial_admin"
+
+  dummy = [
+    "${module.account_roles.master_admin}",
+    "${module.key_values.kyc_recovery_enabled}"
+  ]
 }
