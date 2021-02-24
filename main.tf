@@ -2,10 +2,6 @@ module "account_rules" {
   source = "modules/account_rules"
 }
 
-module "initial_admin" {
-  source = "modules/initial_admin"
-}
-
 // create default account roles
 module "account_roles" {
   source = "modules/account_roles"
