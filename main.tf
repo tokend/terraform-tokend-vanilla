@@ -2,10 +2,6 @@ module "account_rules" {
   source = "modules/account_rules"
 }
 
-module "key_values" {
-  source = "modules/key_values"
-}
-
 // create default account roles
 module "account_roles" {
   source = "modules/account_roles"
@@ -100,4 +96,8 @@ module "signer_roles" {
   license_admin = [
     "${module.signer_rules.license_creator}",
   ]
+}
+
+module "key_values" {
+  source = "modules/key_values"
 }
