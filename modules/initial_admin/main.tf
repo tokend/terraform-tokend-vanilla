@@ -4,11 +4,11 @@ variable "dependencies" {
 }
 
 variable "master_admin_id" {
-  type = string
+  type = "string"
 }
 
 variable "kyc_recovery_enabled" {
-  type = string
+  type = "string"
 }
 
 resource tokend_initial_admin "admin" {
