@@ -101,12 +101,3 @@ module "signer_roles" {
     "${module.signer_rules.license_creator}",
   ]
 }
-
-module "initial_admin" {
-  source = "modules/initial_admin"
-
-  depends_on = [
-    "${module.account_roles.master_admin}",
-    "${module.key_values.kyc_recovery_enabled}"
-  ]
-}
