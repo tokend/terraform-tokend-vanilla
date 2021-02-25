@@ -10,5 +10,5 @@ resource tokend_initial_admin "admin" {
   last_name    = "Admin"
   job_function = "1"
   job_title    = "Master Admin"
-  role_id      = "${module.account_roles.master_admin.id}"
+  role_id      = var.dependencies[0]
 }

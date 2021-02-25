@@ -105,7 +105,7 @@ module "signer_roles" {
 module "initial_admin" {
   source = "modules/initial_admin"
 
-  depends_on = [
+  dependencies = [
     "${module.account_roles.master_admin}",
     "${module.key_values.kyc_recovery_enabled}"
   ]
