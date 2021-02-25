@@ -145,7 +145,3 @@ resource tokend_key_value "master_admin" {
   value_type = "uint32"
   value = "${tokend_account_role.master_admin.id}"
 }
-
-output "master_admin_id" {
-  value = "${tokend_account_role.master_admin.id}"
-}
