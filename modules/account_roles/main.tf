@@ -146,6 +146,6 @@ resource tokend_key_value "master_admin" {
   value = "${tokend_account_role.master_admin.id}"
 }
 
-output "master_admin" {
+output "master_admin_id" {
   value = "${tokend_account_role.master_admin.id}"
 }
