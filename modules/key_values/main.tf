@@ -47,5 +47,5 @@ resource tokend_key_value "kyc_recovery_enabled" {
 }
 
 output "kyc_recovery_enabled" {
-  value = "${tokend_key_value.kyc_recovery_enabled}"
+  value = "${tokend_key_value.kyc_recovery_enabled.id}"
 }
