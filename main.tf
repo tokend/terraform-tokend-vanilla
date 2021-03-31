@@ -253,7 +253,8 @@ module "signer_roles" {
   ]
 
   issuance_signer = [
-    "${module.signer_rules.issuance_creator}"
+    "${module.signer_rules.issuance_creator}",
+    "${module.signer_rules.request_reviewer}}",
   ]
 
   create_kyc = [
