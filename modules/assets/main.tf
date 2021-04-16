@@ -29,6 +29,58 @@ resource tokend_asset "EUR" {
   policies = [
     "transferable",
     "base_asset",
-    "stats_quote_asset"
+    "stats_quote_asset",
+    "withrawable"
+  ]
+}
+
+resource tokend_asset "GSHD" {
+  code                        = "GSHD"
+  max_issuance_amount         = "9223372036854 "
+  initial_pre_issuance_amount = "9223372036731 "
+  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZ"
+  trailing_digits_count       = 6
+
+  details = {
+    name = "GSHD"
+  }
+
+  policies = [
+    "transferable",
+    "base_asset"
+  ]
+}
+
+resource tokend_asset "GSHI" {
+  code                        = "GSHI"
+  max_issuance_amount         = "9223372036854 "
+  initial_pre_issuance_amount = "9223372035054 "
+  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZ"
+  trailing_digits_count       = 6
+
+  details = {
+    name = "Points"
+  }
+
+  policies = [
+    "transferable",
+    "base_asset"
+  ]
+}
+
+resource tokend_asset "GSHP" {
+  code                        = "GSHP"
+  max_issuance_amount         = "9223372036854 "
+  initial_pre_issuance_amount = "9223372036731 "
+  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZ"
+  trailing_digits_count       = 2
+
+  details = {
+    name = "Euro"
+  }
+
+  policies = [
+    "transferable",
+    "base_asset"
   ]
 }
