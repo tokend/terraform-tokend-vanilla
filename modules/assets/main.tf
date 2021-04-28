@@ -36,9 +36,9 @@ resource tokend_asset "EUR" {
 
 resource tokend_asset "GSHD" {
   code                        = "GSHD"
-  max_issuance_amount         = "9223372036854 "
-  initial_pre_issuance_amount = "9223372036731 "
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZ"
+  max_issuance_amount         = "9223372036854"
+  initial_pre_issuance_amount = "9223372036731"
+  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
   trailing_digits_count       = 6
 
   details = {
@@ -53,9 +53,9 @@ resource tokend_asset "GSHD" {
 
 resource tokend_asset "GSHI" {
   code                        = "GSHI"
-  max_issuance_amount         = "9223372036854 "
-  initial_pre_issuance_amount = "9223372035054 "
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZ"
+  max_issuance_amount         = "9223372036854"
+  initial_pre_issuance_amount = "9223372035054"
+  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
   trailing_digits_count       = 6
 
   details = {
@@ -70,9 +70,9 @@ resource tokend_asset "GSHI" {
 
 resource tokend_asset "GSHP" {
   code                        = "GSHP"
-  max_issuance_amount         = "9223372036854 "
-  initial_pre_issuance_amount = "9223372036731 "
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZ"
+  max_issuance_amount         = "9223372036854"
+  initial_pre_issuance_amount = "9223372036731"
+  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
   trailing_digits_count       = 2
 
   details = {
