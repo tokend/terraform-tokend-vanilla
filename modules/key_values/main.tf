@@ -155,3 +155,15 @@ resource tokend_key_value "data_task_identity" {
   value_type = "uint32"
   value = 3
 }
+
+resource tokend_key_value "nft_tasks_default" {
+  key = "nft_tasks:default"
+  value_type = "uint32"
+  value = 32768
+}
+
+resource tokend_key_value "nft_tasks_check_flow_tx_confirmed" {
+  key = "nft_tasks:check_flow_tx_confirmed"
+  value_type = "uint32"
+  value = 16384
+}
