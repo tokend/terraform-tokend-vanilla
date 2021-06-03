@@ -56,6 +56,7 @@ module "account_roles" {
   ]
 
   general_rules = [
+    "${module.account_rules.asset_creator}",
     "${module.account_rules.balance_creator}",
     "${module.account_rules.sender}",
     "${module.account_rules.payment_receiver}",
