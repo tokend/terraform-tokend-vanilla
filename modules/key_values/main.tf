@@ -167,3 +167,9 @@ resource tokend_key_value "nft_tasks_check_flow_tx_confirmed" {
   value_type = "uint32"
   value = 16384
 }
+
+resource tokend_key_value "nft_tasks_flow_deposit_tasks" {
+  key = "nft_tasks:flow_deposit_tasks"
+  value_type = "uint32"
+  value = 65536
+}
