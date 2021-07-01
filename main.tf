@@ -253,6 +253,7 @@ module "signer_roles" {
   ]
 
   issuance_signer = [
+    "${module.signer_rules.issuance_creator_with_tasks}",
     "${module.signer_rules.issuance_creator}",
     "${module.signer_rules.request_reviewer}",
   ]

@@ -8,6 +8,16 @@ resource tokend_signer_rule "issuance_creator" {
   }
 }
 
+resource tokend_signer_rule "issuance_creator_with_tasks" {
+  action =  "create_with_tasks"
+  entry_type = "reviewable_request"
+  entry = {
+    request_type = "create_issuance"
+    issuance.asset_code = "*"
+    issuance.asset_type = "*"
+  }
+}
+
 resource tokend_signer_rule "kyc_recovery_creator" {
   action = "create"
   entry_type = "reviewable_request"
@@ -91,6 +101,9 @@ output "issuance_creator" {
   value = "${tokend_signer_rule.issuance_creator.id}"
 }
 
+output "issuance_creator_with_tasks" {
+  value = "${tokend_signer_rule.issuance_creator_with_tasks.id}"
+}
 output "tx_sender" {
   value = "${tokend_signer_rule.tx_sender.id}"
 }
