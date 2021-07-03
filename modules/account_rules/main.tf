@@ -1,8 +1,12 @@
-variable "asset_type_default" {
+variable "asset_type_fiat" {
   type = "string"
 }
 
-variable "asset_type_kyc" {
+variable "asset_type_utility" {
+  type = "string"
+}
+
+variable "asset_type_crypto" {
   type = "string"
 }
 

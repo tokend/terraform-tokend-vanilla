@@ -6,15 +6,19 @@ variable "unrestricted_poll_type" {
   type = "string"
 }
 
-variable "asset_type_kyc" {
-  type = "string"
-}
-
 variable "asset_type_security" {
   type = "string"
 }
 
-variable "asset_type_default" {
+variable "asset_type_utility" {
+  type = "string"
+}
+
+variable "asset_type_crypto" {
+  type = "string"
+}
+
+variable "asset_type_fiat" {
   type = "string"
 }
 
@@ -35,22 +39,30 @@ resource tokend_key_value "poll_type_unrestricted" {
   value = "${var.unrestricted_poll_type}"
 }
 
-resource tokend_key_value "asset_type_kyc_required" {
-  key = "asset_type:kyc_required"
-  value_type = "uint32"
-  value = "${var.asset_type_kyc}"
-}
-
 resource tokend_key_value "asset_type_security" {
   key = "asset_type:security"
   value_type = "uint32"
   value = "${var.asset_type_security}"
 }
 
-resource tokend_key_value "asset_type_default" {
-    key = "asset_type:default"
+resource tokend_key_value "asset_type_utility" {
+    key = "asset_type:utility"
     value_type = "uint32"
-    value = "${var.asset_type_default}"
+    value = "${var.asset_type_utility}"
+}
+
+
+resource tokend_key_value "asset_type_crypto" {
+    key = "asset_type:crypto"
+    value_type = "uint32"
+    value = "${var.asset_type_crypto}"
+}
+
+
+resource tokend_key_value "asset_type_fiat" {
+    key = "asset_type:fiat"
+    value_type = "uint32"
+    value = "${var.asset_type_fiat}"
 }
 
 resource tokend_key_value "change_role_task-submit_auto_verification" {

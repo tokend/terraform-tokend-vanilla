@@ -3,7 +3,7 @@ resource tokend_account_rule "sender" {
   entry_type = "asset"
 
   entry = {
-    asset_type = "${var.asset_type_default}"
+    asset_type = "${var.asset_type_crypto}"
     asset_code = "*"
   }
 }
@@ -13,7 +13,7 @@ resource tokend_account_rule "payment_receiver" {
   entry_type = "asset"
 
   entry = {
-    asset_type = "${var.asset_type_default}"
+    asset_type = "${var.asset_type_crypto}"
     asset_code = "*"
   }
 }
@@ -23,7 +23,7 @@ resource tokend_account_rule "atomic_swap_receiver" {
   entry_type = "asset"
 
   entry = {
-    asset_type = "${var.asset_type_default}"
+    asset_type = "${var.asset_type_crypto}"
     asset_code = "*"
   }
 }
@@ -33,29 +33,29 @@ resource tokend_account_rule "withdrawer" {
   entry_type = "asset"
 
   entry = {
-    asset_type = "${var.asset_type_default}"
+    asset_type = "${var.asset_type_crypto}"
     asset_code = "*"
   }
 }
 
 
-resource tokend_account_rule "default_for_default_buy_offer_creator" {
+resource tokend_account_rule "crypto_for_crypto_buy_offer_creator" {
   action = "create"
   entry_type = "offer"
   entry = {
     is_buy = true
-    quote_asset_type = "${var.asset_type_default}"
-    base_asset_type = "${var.asset_type_default}"
+    quote_asset_type = "${var.asset_type_crypto}"
+    base_asset_type = "${var.asset_type_crypto}"
   }
 }
 
-resource tokend_account_rule "default_for_default_sell_offer_creator" {
+resource tokend_account_rule "crypto_for_crypto_sell_offer_creator" {
   action = "create"
   entry_type = "offer"
   entry = {
     is_buy = false
-    quote_asset_type = "${var.asset_type_default}"
-    base_asset_type = "${var.asset_type_default}"
+    quote_asset_type = "${var.asset_type_crypto}"
+    base_asset_type = "${var.asset_type_crypto}"
   }
 }
 
@@ -64,35 +64,35 @@ resource tokend_account_rule "issuance_receiver" {
   entry_type = "asset"
 
   entry = {
-    asset_type = "${var.asset_type_default}"
+    asset_type = "${var.asset_type_crypto}"
     asset_code = "*"
   }
 }
 
-output "default_for_default_buy_offer_creator" {
-  value = "${tokend_account_rule.default_for_default_buy_offer_creator.id}"
+output "crypto_for_crypto_buy_offer_creator" {
+  value = "${tokend_account_rule.crypto_for_crypto_buy_offer_creator.id}"
 }
 
-output "default_for_default_sell_offer_creator" {
-  value = "${tokend_account_rule.default_for_default_sell_offer_creator.id}"
+output "crypto_for_crypto_sell_offer_creator" {
+  value = "${tokend_account_rule.crypto_for_crypto_sell_offer_creator.id}"
 }
 
-output "sender" {
+output "crypto_sender" {
   value = "${tokend_account_rule.sender.id}"
 }
 
-output "atomic_swap_receiver" {
+output "crypto_atomic_swap_receiver" {
   value = "${tokend_account_rule.atomic_swap_receiver.id}"
 }
 
-output "payment_receiver" {
+output "crypto_payment_receiver" {
   value = "${tokend_account_rule.payment_receiver.id}"
 }
 
-output "withdrawer" {
+output "crypto_withdrawer" {
   value = "${tokend_account_rule.withdrawer.id}"
 }
 
-output "issuance_receiver" {
+output "crypto_issuance_receiver" {
   value = "${tokend_account_rule.issuance_receiver.id}"
 }

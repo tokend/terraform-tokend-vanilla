@@ -157,37 +157,28 @@ output "security_for_security_sell_offer_creator" {
     value = "${tokend_account_rule.security_for_security_sell_offer_creator.id}"
 }
 
-output "security_for_default_buy_offer_creator" {
+output "security_for_fiat_buy_offer_creator" {
     value = "${tokend_account_rule.security_for_default_buy_offer_creator.id}"
 }
 
-output "security_for_default_sell_offer_creator" {
+output "security_for_fiat_sell_offer_creator" {
   value = "${tokend_account_rule.security_for_default_sell_offer_creator.id}"
 }
 
-output "security_for_kyc_buy_offer_creator" {
+output "security_for_utility_buy_offer_creator" {
   value = "${tokend_account_rule.security_for_kyc_buy_offer_creator.id}"
 }
 
-output "security_for_kyc_sell_offer_creator" {
+output "security_for_utility_sell_offer_creator" {
   value = "${tokend_account_rule.security_for_kyc_sell_offer_creator.id}"
 }
 
-output "default_for_security_buy_offer_creator" {
+output "utility_for_security_buy_offer_creator" {
   value = "${tokend_account_rule.default_for_security_buy_offer_creator.id}"
 }
 
-output "default_for_security_sell_offer_creator" {
+output "utility_for_security_sell_offer_creator" {
   value = "${tokend_account_rule.default_for_security_sell_offer_creator.id}"
-}
-
-
-output "kyc_for_security_buy_offer_creator" {
-  value = "${tokend_account_rule.kyc_for_security_buy_offer_creator.id}"
-}
-
-output "kyc_for_security_sell_offer_creator" {
-  value = "${tokend_account_rule.kyc_for_security_sell_offer_creator.id}"
 }
 
 output "security_sender" {
