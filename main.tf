@@ -31,7 +31,7 @@ variable asset_type_utility {
 
 variable asset_type_security {
   type = "string"
-  default = "2"
+  default = "3"
 }
 
 // creates basic account rules
