@@ -28,7 +28,7 @@ resource tokend_account_rule "atomic_swap_receiver" {
   }
 }
 
-resource tokend_account_rule "withdrawer" {
+resource tokend_account_rule "fiat_withdrawer" {
   action     = "withdraw"
   entry_type = "asset"
 
@@ -90,7 +90,7 @@ output "fiat_payment_receiver" {
 }
 
 output "fiat_withdrawer" {
-  value = "${tokend_account_rule.withdrawer.id}"
+  value = "${tokend_account_rule.fiat_withdrawer.id}"
 }
 
 output "fiat_issuance_receiver" {
