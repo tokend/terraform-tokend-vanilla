@@ -90,8 +90,6 @@ module "account_roles" {
     "${module.account_rules.fiat_for_fiat_sell_offer_creator}",
     "${module.account_rules.security_for_security_buy_offer_creator}",
     "${module.account_rules.security_for_security_sell_offer_creator}",
-    "${module.account_rules.security_for_security_buy_offer_creator}",
-    "${module.account_rules.security_for_security_sell_offer_creator}",
     "${module.account_rules.reviewable_request_creator}",
     "${module.account_rules.sale_participant}",
     "${module.account_rules.asset_withdrawer}",
