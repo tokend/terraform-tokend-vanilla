@@ -1,4 +1,4 @@
-resource tokend_account_rule "sender" {
+resource tokend_account_rule "crypto_sender" {
   action     = "send"
   entry_type = "asset"
 
@@ -8,7 +8,7 @@ resource tokend_account_rule "sender" {
   }
 }
 
-resource tokend_account_rule "payment_receiver" {
+resource tokend_account_rule "crypto_payment_receiver" {
   action     = "receive_payment"
   entry_type = "asset"
 
@@ -18,7 +18,7 @@ resource tokend_account_rule "payment_receiver" {
   }
 }
 
-resource tokend_account_rule "atomic_swap_receiver" {
+resource tokend_account_rule "crypto_atomic_swap_receiver" {
   action     = "receive_atomic_swap"
   entry_type = "asset"
 
@@ -78,15 +78,15 @@ output "crypto_for_crypto_sell_offer_creator" {
 }
 
 output "crypto_sender" {
-  value = "${tokend_account_rule.sender.id}"
+  value = "${tokend_account_rule.crypto_sender.id}"
 }
 
 output "crypto_atomic_swap_receiver" {
-  value = "${tokend_account_rule.atomic_swap_receiver.id}"
+  value = "${tokend_account_rule.crypto_atomic_swap_receiver.id}"
 }
 
 output "crypto_payment_receiver" {
-  value = "${tokend_account_rule.payment_receiver.id}"
+  value = "${tokend_account_rule.crypto_payment_receiver.id}"
 }
 
 output "crypto_withdrawer" {
