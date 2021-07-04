@@ -43,8 +43,8 @@ resource tokend_account_rule "security_for_security_buy_offer_creator" {
   entry_type = "offer"
   entry = {
     is_buy = true
-    quote_asset_type = "${var.asset_type_kyc}"
-    base_asset_type = "${var.asset_type_kyc}"
+    quote_asset_type = "${var.asset_type_security}"
+    base_asset_type = "${var.asset_type_security}"
   }
 }
 
@@ -53,88 +53,134 @@ resource tokend_account_rule "security_for_security_sell_offer_creator" {
   entry_type = "offer"
   entry = {
     is_buy = false
-    quote_asset_type = "${var.asset_type_kyc}"
-    base_asset_type = "${var.asset_type_kyc}"
-  }
-}
-
-resource tokend_account_rule "security_for_kyc_sell_offer_creator" {
-  action = "create"
-  entry_type = "offer"
-  entry = {
-    is_buy = false
-    quote_asset_type = "${var.asset_type_kyc}"
+    quote_asset_type = "${var.asset_type_security}"
     base_asset_type = "${var.asset_type_security}"
   }
 }
 
-resource tokend_account_rule "security_for_kyc_buy_offer_creator" {
+
+resource tokend_account_rule "security_for_crypto_buy_offer_creator" {
   action = "create"
   entry_type = "offer"
   entry = {
     is_buy = true
-    quote_asset_type = "${var.asset_type_kyc}"
+    quote_asset_type = "${var.asset_type_crypto}"
     base_asset_type = "${var.asset_type_security}"
   }
 }
 
-resource tokend_account_rule "security_for_default_buy_offer_creator" {
+resource tokend_account_rule "security_for_fiat_buy_offer_creator" {
   action = "create"
   entry_type = "offer"
   entry = {
     is_buy = true
-    quote_asset_type = "${var.asset_type_default}"
+    quote_asset_type = "${var.asset_type_fiat}"
     base_asset_type = "${var.asset_type_security}"
   }
 }
 
-resource tokend_account_rule "security_for_default_sell_offer_creator" {
+resource tokend_account_rule "security_for_utility_buy_offer_creator" {
+  action = "create"
+  entry_type = "offer"
+  entry = {
+    is_buy = true
+    quote_asset_type = "${var.asset_type_utility}"
+    base_asset_type = "${var.asset_type_security}"
+  }
+}
+
+resource tokend_account_rule "security_for_fiat_sell_offer_creator" {
   action = "create"
   entry_type = "offer"
   entry = {
     is_buy = false
-    quote_asset_type = "${var.asset_type_default}"
+    quote_asset_type = "${var.asset_type_fiat}"
     base_asset_type = "${var.asset_type_security}"
   }
 }
 
-resource tokend_account_rule "kyc_for_security_buy_offer_creator" {
+
+resource tokend_account_rule "security_for_crypto_sell_offer_creator" {
+  action = "create"
+  entry_type = "offer"
+  entry = {
+    is_buy = false
+    quote_asset_type = "${var.asset_type_crypto}"
+    base_asset_type = "${var.asset_type_security}"
+  }
+}
+
+
+resource tokend_account_rule "security_for_utility_sell_offer_creator" {
+  action = "create"
+  entry_type = "offer"
+  entry = {
+    is_buy = false
+    quote_asset_type = "${var.asset_type_utility}"
+    base_asset_type = "${var.asset_type_security}"
+  }
+}
+
+
+resource tokend_account_rule "crypto_for_security_sell_offer_creator" {
+  action = "create"
+  entry_type = "offer"
+  entry = {
+    is_buy = false
+    quote_asset_type = "${var.asset_type_security}"
+    base_asset_type = "${var.asset_type_crypto}"
+  }
+}
+
+resource tokend_account_rule "fiat_for_security_sell_offer_creator" {
+  action = "create"
+  entry_type = "offer"
+  entry = {
+    is_buy = false
+    quote_asset_type = "${var.asset_type_security}"
+    base_asset_type = "${var.asset_type_fiat}"
+  }
+}
+
+resource tokend_account_rule "utility_for_security_sell_offer_creator" {
+  action = "create"
+  entry_type = "offer"
+  entry = {
+    is_buy = false
+    quote_asset_type = "${var.asset_type_security}"
+    base_asset_type = "${var.asset_type_utility}"
+  }
+}
+
+resource tokend_account_rule "utility_for_security_buy_offer_creator" {
   action = "create"
   entry_type = "offer"
   entry = {
     is_buy = true
     quote_asset_type = "${var.asset_type_security}"
-    base_asset_type = "${var.asset_type_kyc}"
+    base_asset_type = "${var.asset_type_utility}"
   }
 }
 
-resource tokend_account_rule "kyc_for_security_sell_offer_creator" {
-  action = "create"
-  entry_type = "offer"
-  entry = {
-    is_buy = false
-    quote_asset_type = "${var.asset_type_security}"
-    base_asset_type = "${var.asset_type_kyc}"
-  }
-}
 
-resource tokend_account_rule "default_for_security_sell_offer_creator" {
-  action = "create"
-  entry_type = "offer"
-  entry = {
-    is_buy = false
-    quote_asset_type = "${var.asset_type_security}"
-    base_asset_type = "${var.asset_type_default}"
-  }
-}
-
-resource tokend_account_rule "default_for_security_buy_offer_creator" {
+resource tokend_account_rule "crypto_for_security_buy_offer_creator" {
   action = "create"
   entry_type = "offer"
   entry = {
     is_buy = true
     quote_asset_type = "${var.asset_type_security}"
-    base_asset_type = "${var.asset_type_default}"
+    base_asset_type = "${var.asset_type_crypto}"
+  }
+}
+
+
+resource tokend_account_rule "fiat_for_security_buy_offer_creator" {
+  action = "create"
+  entry_type = "offer"
+  entry = {
+    is_buy = true
+    quote_asset_type = "${var.asset_type_security}"
+    base_asset_type = "${var.asset_type_fiat}"
   }
 }
 
@@ -158,27 +204,27 @@ output "security_for_security_sell_offer_creator" {
 }
 
 output "security_for_fiat_buy_offer_creator" {
-    value = "${tokend_account_rule.security_for_default_buy_offer_creator.id}"
+    value = "${tokend_account_rule.security_for_fiat_buy_offer_creator.id}"
 }
 
 output "security_for_fiat_sell_offer_creator" {
-  value = "${tokend_account_rule.security_for_default_sell_offer_creator.id}"
+  value = "${tokend_account_rule.security_for_fiat_sell_offer_creator.id}"
 }
 
 output "security_for_utility_buy_offer_creator" {
-  value = "${tokend_account_rule.security_for_kyc_buy_offer_creator.id}"
+  value = "${tokend_account_rule.security_for_utility_buy_offer_creator.id}"
 }
 
 output "security_for_utility_sell_offer_creator" {
-  value = "${tokend_account_rule.security_for_kyc_sell_offer_creator.id}"
+  value = "${tokend_account_rule.security_for_utility_sell_offer_creator.id}"
 }
 
 output "utility_for_security_buy_offer_creator" {
-  value = "${tokend_account_rule.default_for_security_buy_offer_creator.id}"
+  value = "${tokend_account_rule.utility_for_security_buy_offer_creator.id}"
 }
 
 output "utility_for_security_sell_offer_creator" {
-  value = "${tokend_account_rule.default_for_security_sell_offer_creator.id}"
+  value = "${tokend_account_rule.utility_for_security_sell_offer_creator.id}"
 }
 
 output "security_sender" {
