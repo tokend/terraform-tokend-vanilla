@@ -59,7 +59,7 @@ resource tokend_account_rule "utility_for_utility_sell_offer_creator" {
   }
 }
 
-resource tokend_account_rule "issuance_receiver" {
+resource tokend_account_rule "utility_issuance_receiver" {
   action     = "receive_issuance"
   entry_type = "asset"
 
@@ -94,5 +94,5 @@ output "utility_withdrawer" {
 }
 
 output "utility_issuance_receiver" {
-  value = "${tokend_account_rule.issuance_receiver.id}"
+  value = "${tokend_account_rule.utility_issuance_receiver.id}"
 }
