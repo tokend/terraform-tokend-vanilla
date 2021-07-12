@@ -59,6 +59,47 @@ resource tokend_account_rule "utility_for_utility_sell_offer_creator" {
   }
 }
 
+resource tokend_account_rule "utility_for_crypto_buy_offer_creator" {
+  action = "create"
+  entry_type = "offer"
+  entry = {
+    is_buy = true
+    quote_asset_type = "${var.asset_type_crypto}"
+    base_asset_type = "${var.asset_type_utility}"
+  }
+}
+
+resource tokend_account_rule "utility_for_crypto_sell_offer_creator" {
+  action = "create"
+  entry_type = "offer"
+  entry = {
+    is_buy = false
+    quote_asset_type = "${var.asset_type_crypto}"
+    base_asset_type = "${var.asset_type_utility}"
+  }
+}
+
+
+resource tokend_account_rule "utility_for_fiat_buy_offer_creator" {
+  action = "create"
+  entry_type = "offer"
+  entry = {
+    is_buy = true
+    quote_asset_type = "${var.asset_type_fiat}"
+    base_asset_type = "${var.asset_type_utility}"
+  }
+}
+
+resource tokend_account_rule "utility_for_fiat_sell_offer_creator" {
+  action = "create"
+  entry_type = "offer"
+  entry = {
+    is_buy = false
+    quote_asset_type = "${var.asset_type_fiat}"
+    base_asset_type = "${var.asset_type_utility}"
+  }
+}
+
 resource tokend_account_rule "utility_issuance_receiver" {
   action     = "receive_issuance"
   entry_type = "asset"
@@ -75,6 +116,23 @@ output "utility_for_utility_buy_offer_creator" {
 
 output "utility_for_utility_sell_offer_creator" {
   value = "${tokend_account_rule.utility_for_utility_sell_offer_creator.id}"
+}
+
+output "utility_for_crypto_buy_offer_creator" {
+  value = "${tokend_account_rule.utility_for_crypto_buy_offer_creator.id}"
+}
+
+output "utility_for_crypto_sell_offer_creator" {
+  value = "${tokend_account_rule.utility_for_crypto_sell_offer_creator.id}"
+}
+
+
+output "utility_for_fiat_buy_offer_creator" {
+  value = "${tokend_account_rule.utility_for_fiat_buy_offer_creator.id}"
+}
+
+output "utility_for_fiat_sell_offer_creator" {
+  value = "${tokend_account_rule.utility_for_fiat_sell_offer_creator.id}"
 }
 
 output "utility_sender" {

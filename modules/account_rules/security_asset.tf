@@ -211,6 +211,15 @@ output "security_for_fiat_sell_offer_creator" {
   value = "${tokend_account_rule.security_for_fiat_sell_offer_creator.id}"
 }
 
+
+output "security_for_crypto_buy_offer_creator" {
+    value = "${tokend_account_rule.security_for_crypto_buy_offer_creator.id}"
+}
+
+output "security_for_crypto_sell_offer_creator" {
+  value = "${tokend_account_rule.security_for_crypto_sell_offer_creator.id}"
+}
+
 output "security_for_utility_buy_offer_creator" {
   value = "${tokend_account_rule.security_for_utility_buy_offer_creator.id}"
 }
