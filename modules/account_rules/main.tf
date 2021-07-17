@@ -83,7 +83,7 @@ resource tokend_account_rule "reviewable_request_creator_with_tasks" { // TODO s
   action = "create_with_tasks"
   entry_type = "reviewable_request"
   entry = {
-    request_type = "create_issuance"
+    request_type = "*"
   }
 }
 
