@@ -126,7 +126,7 @@ module "account_roles" {
     "${module.account_rules.role_updater}",
     "${module.account_rules.signer_manager}",
     "${module.account_rules.asset_creator}",
-//    "${module.account_rules.reviewable_request_creator_with_tasks}",
+    "${module.account_rules.reviewable_request_creator_with_tasks}",
     "${module.account_rules.asset_remover}",
     "${module.account_rules.security_for_security_buy_offer_creator}",
     "${module.account_rules.security_for_security_sell_offer_creator}",
