@@ -106,6 +106,10 @@ module "account_roles" {
     "${module.account_rules.vote_remover}",
     "${module.account_rules.forbid_restricted_vote_remove}",
     "${module.account_rules.kyc_recovery_creator}",
+    "${module.account_rules.security_issuance_receiver}",
+    "${module.account_rules.utility_issuance_receiver}",
+    "${module.account_rules.fiat_issuance_receiver}",
+    "${module.account_rules.crypto_issuance_receiver}",
   ]
 
   syndicate_rules = [
@@ -149,6 +153,10 @@ module "account_roles" {
     "${module.account_rules.poll_end_time_updater}",
     "${module.account_rules.kyc_recovery_creator}",
     "${module.account_rules.atomic_swap_ask_creator}",
+    "${module.account_rules.security_issuance_receiver}",
+    "${module.account_rules.utility_issuance_receiver}",
+    "${module.account_rules.fiat_issuance_receiver}",
+    "${module.account_rules.crypto_issuance_receiver}",
   ]
 
   blocked_rules = []
