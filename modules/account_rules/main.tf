@@ -74,7 +74,15 @@ resource tokend_account_rule "reviewable_request_creator" { // TODO shrink scope
   }
 }
 
+resource tokend_account_rule "sale_time_updater" {
+  action     = "update_end_time"
+  entry_type = "sale"
 
+  entry = {
+    sale_type = "*"
+    sale_id = "*"
+  }
+}
 
 resource tokend_account_rule "sale_participant" {
   action     = "participate"
@@ -178,6 +186,9 @@ output "sale_participant" {
   value = "${tokend_account_rule.sale_participant.id}"
 }
 
+output "sale_time_updater" {
+  value = "${tokend_account_rule.sale_time_updater.id}"
+}
 
 output "reviewable_request_creator" {
   value = "${tokend_account_rule.reviewable_request_creator.id}"
