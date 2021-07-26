@@ -86,7 +86,7 @@ resource tokend_key_value "default_change_role_tasks" {
 resource tokend_key_value "asset_create_tasks" {
   key        = "asset_create_tasks"
   value_type = "uint32"
-  value      = "1"
+  value      = "0"
 }
 
 resource tokend_key_value "limits_update_tasks" {
@@ -110,7 +110,13 @@ resource tokend_key_value "asset_update_task" {
 resource tokend_key_value "sale_create_tasks" {
   key        = "sale_create_tasks:*"
   value_type = "uint32"
-  value      = "2"
+  value      = "0"
+}
+
+resource tokend_key_value "sale_update_tasks" {
+  key        = "sale_update_tasks:*"
+  value_type = "uint32"
+  value      = "0"
 }
 
 resource tokend_key_value "issuance_tasks_default" {
