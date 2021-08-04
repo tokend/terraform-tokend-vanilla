@@ -149,6 +149,7 @@ module "account_roles" {
     "${module.account_rules.kyc_recovery_creator}",
     "${module.account_rules.atomic_swap_ask_creator}",
     "${module.account_rules.sale_time_updater}",
+    "${module.account_rules.sale_manager}",
   ]
 
   us_accredited = [
