@@ -75,7 +75,7 @@ resource tokend_account_rule "reviewable_request_creator" { // TODO shrink scope
 }
 
 resource tokend_account_rule "sale_time_updater" {
-  action     = "update_end_time"
+  action = "*"
   entry_type = "sale"
 
   entry = {
