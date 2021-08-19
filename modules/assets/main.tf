@@ -25,7 +25,7 @@ resource tokend_asset "ETH" {
   trailing_digits_count       = 6
 
   details = {
-    is_coinpayments = true,
+    is_coinpayer = true,
     name = "Ethereum"
   }
 
@@ -35,22 +35,5 @@ resource tokend_asset "ETH" {
     "base_asset",
     "transferable",
     "can_be_quote_in_atomic_swap"
-  ]
-}
-
-resource tokend_asset "BOXX" {
-  code                        = "BOXX"
-  max_issuance_amount         = "90000000"
-  initial_pre_issuance_amount = "90000000"
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
-  trailing_digits_count       = 6
-
-  details = {
-    name = "BOXX"
-  }
-
-  policies = [
-    "withdrawable",
-    "base_asset",
   ]
 }
