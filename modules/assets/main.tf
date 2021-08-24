@@ -25,7 +25,7 @@ resource tokend_asset "ETH" {
   trailing_digits_count       = 6
 
   details = {
-    is_coinpayments = true,
+    is_coinpayer = true,
     name = "Ethereum"
   }
 
@@ -34,6 +34,29 @@ resource tokend_asset "ETH" {
   policies = [
     "base_asset",
     "transferable",
+    "can_be_quote_in_atomic_swap"
+  ]
+}
+
+resource tokend_asset "NFT" {
+  code                        = "NFT"
+  max_issuance_amount         = "112000000"
+  initial_pre_issuance_amount = "112000000"
+  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  trailing_digits_count       = 6
+
+  details = {
+    is_coinpayer = true,
+    name = "NFT",
+    external_system_type = "3"
+  }
+
+
+
+  policies = [
+    "base_asset",
+    "transferable",
+    "withdrawable",
     "can_be_quote_in_atomic_swap"
   ]
 }

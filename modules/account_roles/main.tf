@@ -10,6 +10,10 @@ variable syndicate_rules {
   type = "list"
 }
 
+variable gallery_rules {
+  type = "list"
+}
+
 variable blocked_rules {
   type = "list"
 }
@@ -20,6 +24,10 @@ output "general" {
 
 output "syndicate" {
   value = "${tokend_account_role.syndicate.id}"
+}
+
+output "gallery" {
+  value = "${tokend_account_role.gallery.id}"
 }
 
 output "blocked" {
@@ -42,6 +50,10 @@ resource tokend_account_role "syndicate" {
   rules = ["${var.syndicate_rules}"]
 }
 
+resource tokend_account_role "syndicate" {
+  rules = ["${var.gallery_rules}"]
+}
+
 resource tokend_account_role "blocked" {
   rules = ["${var.blocked_rules}"]
 }
@@ -61,6 +73,12 @@ resource tokend_key_value "general" {
 
 resource tokend_key_value "syndicate" {
   key = "account_role:corporate"
+  value_type = "uint32"
+  value = "${tokend_account_role.syndicate.id}"
+}
+
+resource tokend_key_value "gallery" {
+  key = "account_role:gallery"
   value_type = "uint32"
   value = "${tokend_account_role.syndicate.id}"
 }
