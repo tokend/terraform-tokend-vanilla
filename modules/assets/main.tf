@@ -46,9 +46,7 @@ resource tokend_asset "NFT" {
   trailing_digits_count       = 6
 
   details = {
-    is_coinpayer = true,
-    name = "NFT",
-    external_system_type = "3"
+    name = "NFT"
   }
 
 
@@ -57,7 +55,7 @@ resource tokend_asset "NFT" {
     "base_asset",
     "transferable",
     "withdrawable",
-    "can_be_quote_in_atomic_swap"
+    "can_be_base_in_atomic_swap"
   ]
 }
 
