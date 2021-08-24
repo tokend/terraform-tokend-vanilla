@@ -47,7 +47,7 @@ resource tokend_account_role "general" {
 }
 
 resource tokend_account_role "syndicate" {
-  rules = ["${var.syndicate_rules}"]
+  rules = ["${var.gallery_rules}"]
 }
 
 resource tokend_account_role "syndicate" {
@@ -80,7 +80,7 @@ resource tokend_key_value "syndicate" {
 resource tokend_key_value "gallery" {
   key = "account_role:gallery"
   value_type = "uint32"
-  value = "${tokend_account_role.syndicate.id}"
+  value = "${tokend_account_role.gallery.id}"
 }
 
 resource tokend_key_value "blocked" {
