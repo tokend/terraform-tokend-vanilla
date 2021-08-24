@@ -55,7 +55,7 @@ resource tokend_asset "NFT" {
   policies = [
     "base_asset",
     "transferable",
-    "withdrawable
+    "withdrawable",
     "can_be_base_in_atomic_swap"
   ]
 }
