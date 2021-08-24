@@ -48,11 +48,6 @@ resource tokend_asset "NFT" {
 
   details = {
     name = "NFT"
-    erc712 = {
-      address = "0x580Da36625bA6c5c3e40B511E84B276b2A668d04",
-      deposit = true,
-      withdraw = true
-    }
   }
 
 
