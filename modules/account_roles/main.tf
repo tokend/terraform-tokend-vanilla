@@ -47,10 +47,10 @@ resource tokend_account_role "general" {
 }
 
 resource tokend_account_role "syndicate" {
-  rules = ["${var.gallery_rules}"]
+  rules = ["${var.syndicate_rules}"]
 }
 
-resource tokend_account_role "syndicate" {
+resource tokend_account_role "gallery" {
   rules = ["${var.gallery_rules}"]
 }
 
