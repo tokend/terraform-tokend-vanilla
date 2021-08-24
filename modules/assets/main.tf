@@ -48,6 +48,11 @@ resource tokend_asset "NFT" {
 
   details = {
     name = "NFT"
+    erc712 = {
+      address = "0x580Da36625bA6c5c3e40B511E84B276b2A668d04",
+      deposit = true,
+      withdraw = true
+    }
   }
 
 
@@ -57,22 +62,5 @@ resource tokend_asset "NFT" {
     "transferable",
     "withdrawable",
     "can_be_base_in_atomic_swap"
-  ]
-}
-
-resource tokend_asset "BOXX" {
-  code                        = "BOXX"
-  max_issuance_amount         = "90000000"
-  initial_pre_issuance_amount = "90000000"
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
-  trailing_digits_count       = 6
-
-  details = {
-    name = "BOXX"
-  }
-
-  policies = [
-    "withdrawable",
-    "base_asset",
   ]
 }
