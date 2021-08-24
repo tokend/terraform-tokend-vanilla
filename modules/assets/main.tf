@@ -38,6 +38,28 @@ resource tokend_asset "ETH" {
   ]
 }
 
+resource tokend_asset "NFT" {
+  code                        = "NFT"
+  max_issuance_amount         = "112000000"
+  initial_pre_issuance_amount = "112000000"
+  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  trailing_digits_count       = 6
+  type                        = 10
+
+  details = {
+    name = "NFT"
+  }
+
+
+
+  policies = [
+    "base_asset",
+    "transferable",
+    "withdrawable",
+    "can_be_base_in_atomic_swap"
+  ]
+}
+
 resource tokend_asset "BOXX" {
   code                        = "BOXX"
   max_issuance_amount         = "90000000"
