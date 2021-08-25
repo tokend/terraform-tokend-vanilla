@@ -47,7 +47,8 @@ resource tokend_asset "NFT" {
   type                        = 10    
 
   details = {
-    name = "NFT"
+    name = "NFT",
+    external_system_type = "3"
   }
 
 
