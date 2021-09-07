@@ -14,7 +14,7 @@ variable blocked_rules {
   type = "list"
 }
 
-variable us_verified {
+variable financial {
   type = "list"
 }
 
@@ -42,8 +42,8 @@ resource tokend_account_role "us_accredited" {
   rules = ["${var.us_accredited}"]
 }
 
-resource tokend_account_role "us_verified" {
-  rules = ["${var.us_verified}"]
+resource tokend_account_role "financial" {
+  rules = ["${var.financial}"]
 }
 
 resource tokend_key_value "unverified" {
@@ -70,10 +70,10 @@ resource tokend_key_value "blocked" {
   value = "${tokend_account_role.blocked.id}"
 }
 
-resource tokend_key_value "us_verified" {
-  key = "account_role:us_verified"
+resource tokend_key_value "financial" {
+  key = "account_role:financial"
   value_type = "uint32"
-  value = "${tokend_account_role.us_verified.id}"
+  value = "${tokend_account_role.financial.id}"
 }
 
 resource tokend_key_value "us_accredited" {
