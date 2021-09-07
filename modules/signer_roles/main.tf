@@ -18,6 +18,10 @@ variable "issuance_signer" {
   type = "list"
 }
 
+variable "pending_offer_signer" {
+  type = "list"
+}
+
 resource tokend_signer_role "issuance_signer" {
   rules = [
     "${var.issuance_signer}",
@@ -75,6 +79,17 @@ resource tokend_signer_role "license_admin" {
   }
 }
 
+resource tokend_signer_role "pending_offer_signer" {
+  rules = [
+    "${var.pending_offer_signer}"
+  ]
+
+  details = {
+    admin_role = false
+    name = "Pending Offer Signer"
+    description = "Able to manage pending offers"
+  }
+}
 
 // users operational signer role
 resource tokend_signer_role "default" {
@@ -108,4 +123,14 @@ resource tokend_key_value "license_admin_role" {
 
 output "license_signer_role" {
   value = "${tokend_signer_role.license_admin.id}"
+}
+
+resource tokend_key_value "pending_offer_role" {
+  key        = "signer_role:pending_offer_signer"
+  value_type = "uint32"
+  value      = "${tokend_signer_role.pending_offer_signer.id}"
+}
+
+output "pending_offer_signer_role" {
+  value = "${tokend_signer_role.pending_offer_signer.id}"
 }

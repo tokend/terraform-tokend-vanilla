@@ -79,6 +79,36 @@ resource tokend_signer_rule "stamp_creator" {
   entry_type = "stamp"
 }
 
+resource tokend_signer_rule "buy_offer_creator" {
+  action = "create"
+  entry_type = "offer"
+  entry = {
+    is_buy = true
+    quote_asset_type = "*"
+    base_asset_type = "*"
+  }
+}
+
+resource tokend_signer_rule "offer_remover" {
+  action = "remove"
+  entry_type = "offer"
+  entry = {
+    is_buy = true
+    quote_asset_type = "*"
+    base_asset_type = "*"
+  }
+}
+
+resource tokend_signer_rule "sale_participant" {
+  action = "participate"
+  entry_type = "sale"
+
+  entry = {
+    sale_type = "*"
+    sale_id = "*"
+  }
+}
+
 output "aml_alert_reviewer" {
   value = "${tokend_signer_rule.aml_alert_reviewer.id}"
 }
@@ -125,4 +155,16 @@ output "stamp_creator" {
 
 output "kyc_recovery_creator" {
   value = "${tokend_signer_rule.kyc_recovery_creator.id}"
+}
+
+output "buy_offer_creator" {
+  value = "${tokend_signer_rule.buy_offer_creator.id}"
+}
+
+output "offer_remover" {
+  value = "${tokend_signer_rule.offer_remover.id}"
+}
+
+output "sale_participant" {
+  value = "${tokend_signer_rule.sale_participant.id}"
 }

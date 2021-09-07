@@ -259,6 +259,12 @@ module "signer_roles" {
   create_kyc = [
   "${module.signer_rules.kyc_recovery_creator}",
   ]
+
+  pending_offer_signer = [
+    "${module.signer_rules.buy_offer_creator}",
+    "${module.signer_rules.offer_remover}",
+    "${module.signer_rules.sale_participant}",
+  ]
 }
 
 module "key_values" {
