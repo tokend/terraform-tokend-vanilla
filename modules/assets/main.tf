@@ -1,4 +1,4 @@
-resource tokend_asset "USDJ" {
+resource tokend_asset "JUSD" {
   code                        = "JUSD"
   max_issuance_amount         = "9223372036853"
   initial_pre_issuance_amount = "9223372036853"
@@ -29,4 +29,10 @@ resource tokend_asset "USDT" {
     "transferable",
     "stats_quote_asset",
   ]
+}
+
+resource tokend_asset_pair "JUSD_USDT" {
+  base = "${tokend_asset.JUSD.id}"
+  quote = "${tokend_asset.USDT.id}"
+  price = "1"
 }
