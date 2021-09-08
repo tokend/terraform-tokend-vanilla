@@ -119,6 +119,12 @@ resource tokend_key_value "asset_update_task" {
   value      = "1"
 }
 
+resource tokend_key_value "bridges_enabled" {
+  key        = "bridges_enabled"
+  value_type = "uint32"
+  value      = "1"
+}
+
 resource tokend_key_value "sale_create_tasks" {
   key        = "sale_create_tasks:*"
   value_type = "uint32"
