@@ -69,6 +69,10 @@ module "account_roles" {
   ]
 
   general_rules = [
+    "${module.account_rules.security_withdrawer}",
+    "${module.account_rules.utility_withdrawer}",
+    "${module.account_rules.fiat_withdrawer}",
+    "${module.account_rules.crypto_withdrawer}",
     "${module.account_rules.balance_creator}",
     "${module.account_rules.crypto_sender}",
     "${module.account_rules.crypto_payment_receiver}",
@@ -114,6 +118,10 @@ module "account_roles" {
   ]
 
   syndicate_rules = [
+    "${module.account_rules.security_withdrawer}",
+    "${module.account_rules.utility_withdrawer}",
+    "${module.account_rules.fiat_withdrawer}",
+    "${module.account_rules.crypto_withdrawer}",
     "${module.account_rules.balance_creator}",
     "${module.account_rules.crypto_sender}",
     "${module.account_rules.crypto_payment_receiver}",
