@@ -194,8 +194,8 @@ module "account_roles" {
     "${module.account_rules.kyc_recovery_creator}",
   ]
 
-  us_verified = [
-        "${module.account_rules.balance_creator}",
+  financial = [
+    "${module.account_rules.balance_creator}",
     "${module.account_rules.sender}",
     "${module.account_rules.payment_receiver}",
     "${module.account_rules.atomic_swap_receiver}",
@@ -260,6 +260,12 @@ module "signer_roles" {
 
   create_kyc = [
   "${module.signer_rules.kyc_recovery_creator}",
+  ]
+
+  pending_offer_signer = [
+    "${module.signer_rules.buy_offer_creator}",
+    "${module.signer_rules.offer_remover}",
+    "${module.signer_rules.sale_participant}",
   ]
 }
 
