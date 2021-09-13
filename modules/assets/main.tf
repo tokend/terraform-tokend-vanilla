@@ -34,5 +34,5 @@ resource tokend_asset "USDT" {
 resource tokend_asset_pair "JUSD_USDT" {
   base = "${tokend_asset.JUSD.id}"
   quote = "${tokend_asset.USDT.id}"
-  price = "1"
+  price = "0.001"
 }
