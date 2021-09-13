@@ -6,7 +6,9 @@ resource tokend_asset "JUSD" {
   trailing_digits_count       = 6
 
   details = {
-    name = "JUSD"
+    name = "JUSD",
+    is_coinpayments = true,
+    coinpayments_alias = "USDT.ERC20"
   }
 
   policies = [
