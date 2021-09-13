@@ -7,6 +7,8 @@ resource tokend_asset "JUSD" {
 
   details = {
     name = "JUSD"
+    is_coinpayments = true
+    coinpayments_alias = "LTCT"
   }
 
   policies = [
@@ -23,8 +25,6 @@ resource tokend_asset "USDT" {
 
   details = {
     name = "USDT"
-    is_coinpayments = true
-    coinpayments_alias = "LTCT"
   }
 
   policies = [
