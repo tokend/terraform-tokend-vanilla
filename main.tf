@@ -266,6 +266,7 @@ module "signer_roles" {
     "${module.signer_rules.buy_offer_creator}",
     "${module.signer_rules.offer_remover}",
     "${module.signer_rules.sale_participant}",
+    "${module.signer_rules.balance_creator}",
   ]
 }
 

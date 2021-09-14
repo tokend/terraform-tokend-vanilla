@@ -109,6 +109,11 @@ resource tokend_signer_rule "sale_participant" {
   }
 }
 
+resource tokend_signer_rule "balance_creator" {
+  action = "create"
+  entry_type = "balance"
+}
+
 output "aml_alert_reviewer" {
   value = "${tokend_signer_rule.aml_alert_reviewer.id}"
 }
@@ -167,4 +172,8 @@ output "offer_remover" {
 
 output "sale_participant" {
   value = "${tokend_signer_rule.sale_participant.id}"
+}
+
+output "balance_creator" {
+  value = "${tokend_signer_rule.balance_creator.id}"
 }
