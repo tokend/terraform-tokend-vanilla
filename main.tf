@@ -268,6 +268,15 @@ module "signer_roles" {
     "${module.signer_rules.sale_participant}",
     "${module.signer_rules.balance_creator}",
   ]
+
+  transactions_signer = [
+    "${module.signer_rules.tx_sender}",
+    "${module.signer_rules.sale_checker}",
+    "${module.signer_rules.aml_alert_creator}",
+    "${module.signer_rules.withdrawal_reviewer}",
+    "${module.signer_rules.issuance_creator}",
+    "${module.signer_rules.sale_closer}",
+  ]
 }
 
 module "key_values" {
@@ -291,4 +300,5 @@ module "external_system_type_pool_entry" {
 module "signers" {
   source = "modules/signers"
   license_signer_role = "${module.signer_roles.license_signer_role}"
+  transactions_signer_role = "${module.signer_roles.transactions_signer_role}"
 }

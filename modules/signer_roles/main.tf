@@ -22,6 +22,10 @@ variable "pending_offer_signer" {
   type = "list"
 }
 
+variable "transactions_signer" {
+  type = "list"
+}
+
 resource tokend_signer_role "issuance_signer" {
   rules = [
     "${var.issuance_signer}",
@@ -91,6 +95,18 @@ resource tokend_signer_role "pending_offer_signer" {
   }
 }
 
+resource tokend_signer_role "transactions_signer" {
+  rules = [
+    "${var.transactions_signer}",
+  ]
+
+  details = {
+    admin_role = true
+    name = "Transactions signer"
+    description = "Role allows to sign transactions of the financial admin"
+  }
+}
+
 // users operational signer role
 resource tokend_signer_role "default" {
   rules = ["1"]
@@ -134,3 +150,14 @@ resource tokend_key_value "pending_offer_role" {
 output "pending_offer_signer_role" {
   value = "${tokend_signer_role.pending_offer_signer.id}"
 }
+
+resource tokend_key_value "transactions_signer_role" {
+  key        = "transactions_signer_role"
+  value_type = "uint64"
+  value      = "${tokend_signer_role.transactions_signer.id}"
+}
+
+output "transactions_signer_role" {
+  value = "${tokend_signer_role.transactions_signer.id}"
+}
+
