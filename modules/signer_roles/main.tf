@@ -22,7 +22,7 @@ variable "pending_offer_signer" {
   type = "list"
 }
 
-variable "transactions_signer" {
+variable "financial_signer" {
   type = "list"
 }
 
@@ -95,14 +95,14 @@ resource tokend_signer_role "pending_offer_signer" {
   }
 }
 
-resource tokend_signer_role "transactions_signer" {
+resource tokend_signer_role "financial_signer" {
   rules = [
-    "${var.transactions_signer}",
+    "${var.financial_signer}",
   ]
 
   details = {
     admin_role = true
-    name = "Transactions signer"
+    name = "Financial signer"
     description = "Role allows to sign transactions of the financial admin"
   }
 }
@@ -151,13 +151,13 @@ output "pending_offer_signer_role" {
   value = "${tokend_signer_role.pending_offer_signer.id}"
 }
 
-resource tokend_key_value "transactions_signer_role" {
-  key        = "transactions_signer_role"
+resource tokend_key_value "financial_signer_role" {
+  key        = "financial_signer_role"
   value_type = "uint64"
-  value      = "${tokend_signer_role.transactions_signer.id}"
+  value      = "${tokend_signer_role.financial_signer.id}"
 }
 
-output "transactions_signer_role" {
-  value = "${tokend_signer_role.transactions_signer.id}"
+output "financial_signer_role" {
+  value = "${tokend_signer_role.financial_signer.id}"
 }
 
