@@ -114,6 +114,31 @@ resource tokend_signer_rule "balance_creator" {
   entry_type = "balance"
 }
 
+resource tokend_signer_rule "withdrawal_reviewer" {
+  action = "review"
+  entry_type = "reviewable_request"
+  entry = {
+    request_type = "create_withdraw"
+  }
+}
+
+resource tokend_signer_rule "aml_alert_creator" {
+  action = "create"
+  entry_type = "reviewable_request"
+  entry = {
+    request_type = "create_aml_alert"
+  }
+}
+
+resource tokend_signer_rule "sale_closer" {
+  action = "manage"
+  entry_type = "sale"
+  entry = {
+    sale_type = "*"
+    sale_id = "*"
+  }
+}
+
 output "aml_alert_reviewer" {
   value = "${tokend_signer_rule.aml_alert_reviewer.id}"
 }
@@ -176,4 +201,16 @@ output "sale_participant" {
 
 output "balance_creator" {
   value = "${tokend_signer_rule.balance_creator.id}"
+}
+
+output "withdrawal_reviewer" {
+  value = "${tokend_signer_rule.withdrawal_reviewer.id}"
+}
+
+output "aml_alert_creator" {
+  value = "${tokend_signer_rule.aml_alert_creator.id}"
+}
+
+output "sale_closer" {
+  value = "${tokend_signer_rule.sale_closer.id}"
 }
