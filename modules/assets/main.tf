@@ -14,7 +14,7 @@ resource tokend_asset "JUSD" {
   policies = [
     "transferable",
     "can_be_base_in_atomic_swap",
-    "base asset",
+    "base_asset",
   ]
 }
 
