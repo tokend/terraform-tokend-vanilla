@@ -160,10 +160,3 @@ resource tokend_key_value "bridges_enabled" {
   value_type = "uint32"
   value      = "1"
 }
-
-
-resource tokend_key_value "collateral_wallets" {
-  key = "collateral_wallets"
-  value_type = "string"
-  value = '{"JAX":["mqwTzSwf31g5UTp5dou6YkzovGSYjQFmYG","mxQsksaTJb11i7vSxAUL6VBjoQnhP3bfFz"],"JAXV":[]}'
-}
