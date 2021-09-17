@@ -93,7 +93,7 @@ resource tokend_signer_rule "offer_remover" {
   action = "remove"
   entry_type = "offer"
   entry = {
-    is_buy = true
+    is_buy = false
     quote_asset_type = "*"
     base_asset_type = "*"
   }
