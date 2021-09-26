@@ -24,7 +24,7 @@ variable "asset_type_fiat" {
 
 variable "default_change_role_tasks" {
   type = "string"
-  default = "1"
+  default = "0"
 }
 
 resource tokend_key_value "poll_type_restricted" {
