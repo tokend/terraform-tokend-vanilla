@@ -19,11 +19,11 @@ variable blocked_rules {
 }
 
 resource tokend_account_role "unverified" {
-  rules = ["${var.unverified_blocked_rules}"]
+  rules = ["${var.unverified_rules}"]
 }
 
 resource tokend_account_role "unverified_blocked" {
-  rules = ["${var.unverified_rules}"]
+  rules = ["${var.unverified_blocked_rules}"]
 }
 
 resource tokend_account_role "general" {
