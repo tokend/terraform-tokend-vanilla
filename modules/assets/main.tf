@@ -63,6 +63,26 @@ resource tokend_asset "BTC" {
   ]
 }
 
+
+resource tokend_asset "LTCT" {
+  code                        = "LTCT"
+  max_issuance_amount         = "21000000"
+  initial_pre_issuance_amount = "21000000"
+  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  trailing_digits_count       = 6
+  type = "${var.asset_type_crypto}"
+
+  details = {
+    name = "Litecoin Testnet"
+    is_coinpayments = true
+  }
+
+  policies = [
+    "transferable",
+    "base_asset",
+  ]
+}
+
 resource tokend_asset "USDT" {
   code                        = "USDT"
   max_issuance_amount         = "9223372036853"
