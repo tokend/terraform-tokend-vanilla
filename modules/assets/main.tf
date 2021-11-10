@@ -1,9 +1,9 @@
 variable asset_type_crypto {
-  type = "number"
+  type = "string"
 }
 
 variable asset_type_fiat {
-  type = "number"
+  type = "string"
 }
 
 resource tokend_asset "USDC" {
