@@ -255,8 +255,8 @@ module "key_values" {
 
 module "assets" {
   source = "modules/assets"
-  asset_type_crypto = "${asset_type_crypto}"
-  asset_type_fiat = "${asset_type_fiat}"
+  asset_type_crypto = "${var.asset_type_crypto}"
+  asset_type_fiat = "${var.asset_type_fiat}"
 }
 
 module "external_system_type_pool_entry" {
