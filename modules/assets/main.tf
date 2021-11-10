@@ -1,9 +1,10 @@
 resource tokend_asset "USD" {
-  code                        = "USD"
-  max_issuance_amount         = "9223372036853"
+  code = "USD"
+  max_issuance_amount = "9223372036853"
   initial_pre_issuance_amount = "9223372036853"
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
-  trailing_digits_count       = 6
+  pre_issuance_signer = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  trailing_digits_count = 6
+  type = 1
 
   details = {
     name = "US Dollar"
@@ -17,11 +18,12 @@ resource tokend_asset "USD" {
 }
 
 resource tokend_asset "EUR" {
-  code                        = "EUR"
-  max_issuance_amount         = "9223372036853"
+  code = "EUR"
+  max_issuance_amount = "9223372036853"
   initial_pre_issuance_amount = "9223372036853"
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
-  trailing_digits_count       = 6
+  pre_issuance_signer = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  trailing_digits_count = 6
+  type = 1
 
   details = {
     name = "Euro"
