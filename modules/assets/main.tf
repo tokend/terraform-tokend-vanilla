@@ -12,7 +12,7 @@ resource tokend_asset "USDC" {
   initial_pre_issuance_amount = "9223372036853"
   pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
   trailing_digits_count       = 6
-  type = "${asset_type_crypto}"
+  type = "${var.asset_type_crypto}"
 
   details = {
     name = "USD Coin"
@@ -31,7 +31,7 @@ resource tokend_asset "ETH" {
   initial_pre_issuance_amount = "9223372036853"
   pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
   trailing_digits_count       = 6
-  type = "${asset_type_crypto}"
+  type = "${var.asset_type_crypto}"
 
   details = {
     name = "Ethereum"
@@ -50,7 +50,7 @@ resource tokend_asset "BTC" {
   initial_pre_issuance_amount = "21000000"
   pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
   trailing_digits_count       = 6
-  type = "${asset_type_crypto}"
+  type = "${var.asset_type_crypto}"
 
   details = {
     name = "Bitcoin"
@@ -69,7 +69,7 @@ resource tokend_asset "USDT" {
   initial_pre_issuance_amount = "9223372036853"
   pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
   trailing_digits_count       = 6
-  type = "${asset_type_crypto}"
+  type = "${var.asset_type_crypto}"
 
   details = {
     name = "USD Tether"
@@ -88,6 +88,7 @@ resource tokend_asset "USD" {
   initial_pre_issuance_amount = "9223372036853"
   pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
   trailing_digits_count       = 6
+  type = "${var.asset_type_fiat}"
 
   details = {
     name = "US Dollar"
@@ -105,6 +106,7 @@ resource tokend_asset "EUR" {
   initial_pre_issuance_amount = "9223372036853"
   pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
   trailing_digits_count       = 6
+  type = "${var.asset_type_fiat}"
 
   details = {
     name = "Euro"
