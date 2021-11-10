@@ -10,7 +10,7 @@ resource tokend_asset "USDC" {
   code                        = "USDC"
   max_issuance_amount         = "9223372036853"
   initial_pre_issuance_amount = "9223372036853"
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  pre_issuance_signer         = "GCDTYTJMHGBB6C56LYF4CSYOI7I4A7LXGQRCAHGLOCYSB4W347HW6HLY"
   trailing_digits_count       = 6
   type = "${var.asset_type_crypto}"
 
@@ -29,7 +29,7 @@ resource tokend_asset "ETH" {
   code                        = "ETH"
   max_issuance_amount         = "9223372036853"
   initial_pre_issuance_amount = "9223372036853"
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  pre_issuance_signer         = "GCDTYTJMHGBB6C56LYF4CSYOI7I4A7LXGQRCAHGLOCYSB4W347HW6HLY"
   trailing_digits_count       = 6
   type = "${var.asset_type_crypto}"
 
@@ -48,7 +48,7 @@ resource tokend_asset "BTC" {
   code                        = "BTC"
   max_issuance_amount         = "21000000"
   initial_pre_issuance_amount = "21000000"
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  pre_issuance_signer         = "GCDTYTJMHGBB6C56LYF4CSYOI7I4A7LXGQRCAHGLOCYSB4W347HW6HLY"
   trailing_digits_count       = 6
   type = "${var.asset_type_crypto}"
 
@@ -68,7 +68,7 @@ resource tokend_asset "LTCT" {
   code                        = "LTCT"
   max_issuance_amount         = "21000000"
   initial_pre_issuance_amount = "21000000"
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  pre_issuance_signer         = "GCDTYTJMHGBB6C56LYF4CSYOI7I4A7LXGQRCAHGLOCYSB4W347HW6HLY"
   trailing_digits_count       = 6
   type = "${var.asset_type_crypto}"
 
@@ -87,7 +87,7 @@ resource tokend_asset "USDT" {
   code                        = "USDT"
   max_issuance_amount         = "9223372036853"
   initial_pre_issuance_amount = "9223372036853"
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  pre_issuance_signer         = "GCDTYTJMHGBB6C56LYF4CSYOI7I4A7LXGQRCAHGLOCYSB4W347HW6HLY"
   trailing_digits_count       = 6
   type = "${var.asset_type_crypto}"
 
@@ -106,7 +106,7 @@ resource tokend_asset "USD" {
   code                        = "USD"
   max_issuance_amount         = "9223372036853"
   initial_pre_issuance_amount = "9223372036853"
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  pre_issuance_signer         = "GCDTYTJMHGBB6C56LYF4CSYOI7I4A7LXGQRCAHGLOCYSB4W347HW6HLY"
   trailing_digits_count       = 6
   type = "${var.asset_type_fiat}"
 
@@ -124,7 +124,7 @@ resource tokend_asset "EUR" {
   code                        = "EUR"
   max_issuance_amount         = "9223372036853"
   initial_pre_issuance_amount = "9223372036853"
-  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  pre_issuance_signer         = "GCDTYTJMHGBB6C56LYF4CSYOI7I4A7LXGQRCAHGLOCYSB4W347HW6HLY"
   trailing_digits_count       = 6
   type = "${var.asset_type_fiat}"
 
