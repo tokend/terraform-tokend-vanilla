@@ -15,23 +15,23 @@ variable default_change_role_tasks {
 
 variable asset_type_fiat {
   type = "string"
-  default = "0"
+  default = "1"
 }
 
 
 variable asset_type_crypto {
   type = "string"
-  default = "1"
+  default = "2"
 }
 
 variable asset_type_utility {
   type = "string"
-  default = "2"
+  default = "3"
 }
 
 variable asset_type_security {
   type = "string"
-  default = "3"
+  default = "4"
 }
 
 // creates basic account rules
