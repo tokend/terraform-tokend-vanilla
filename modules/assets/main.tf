@@ -144,3 +144,33 @@ resource tokend_asset_pair "EUR_USD" {
   quote = "${tokend_asset.USD.id}"
   price = "1.1"
 }
+
+resource tokend_asset_pair "LTCT_EUR" {
+  base = "${tokend_asset.LTCT.id}"
+  quote = "${tokend_asset.EUR.id}"
+  price = "1.1"
+}
+
+resource tokend_asset_pair "BTC_EUR" {
+  base = "${tokend_asset.BTC.id}"
+  quote = "${tokend_asset.EUR.id}"
+  price = "1.1"
+}
+
+resource tokend_asset_pair "ETH_EUR" {
+  base = "${tokend_asset.ETH.id}"
+  quote = "${tokend_asset.EUR.id}"
+  price = "1.1"
+}
+
+resource tokend_asset_pair "USDT_EUR" {
+  base = "${tokend_asset.USDT.id}"
+  quote = "${tokend_asset.EUR.id}"
+  price = "1.1"
+}
+
+resource tokend_asset_pair "USDC_EUR" {
+  base = "${tokend_asset.USDC.id}"
+  quote = "${tokend_asset.EUR.id}"
+  price = "1.1"
+}
