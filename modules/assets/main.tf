@@ -12,7 +12,13 @@ resource tokend_asset "bnft" {
   type = "${var.asset_type_nft}"
 
   details = {
-    name = "BNFT"
+    name = "BNFT",
+    external_system_type = 3,
+    erc721 = {
+      deposit = true,
+      withdraw = true,
+      address = "0x580Da36625bA6c5c3e40B511E84B276b2A668d04"
+    }
   }
 
   policies = [
@@ -50,7 +56,7 @@ resource tokend_asset "ETH" {
   trailing_digits_count       = 6
 
   details = {
-    is_coinpayments = true,
+    is_coinpayer = true,
     name = "Ethereum"
   }
 
