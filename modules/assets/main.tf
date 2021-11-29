@@ -12,8 +12,8 @@ resource tokend_asset "bnft" {
   type = "${var.asset_type_nft}"
 
   details = {
-    name = "BNFT",
-    external_system_type = 3,
+    name = "BNFT"
+    external_system_type = 3
     }
   }
 
