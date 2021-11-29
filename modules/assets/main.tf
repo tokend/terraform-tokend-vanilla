@@ -1,3 +1,28 @@
+variable "asset_type_nft" {
+  type = "string"
+}
+
+resource tokend_asset "bnft" {
+  code                        = "bnft"
+  max_issuance_amount         = "9223372036853"
+  initial_pre_issuance_amount = "9223372036853"
+  pre_issuance_signer         = "GBA4EX43M25UPV4WIE6RRMQOFTWXZZRIPFAI5VPY6Z2ZVVXVWZ6NEOOB"
+  trailing_digits_count       = 6
+
+  type = "${var.asset_type_nft}"
+
+  details = {
+    name = "BNFT"
+  }
+
+  policies = [
+    "base_asset",
+    "transferable",
+    "can_be_base_in_atomic_swap",
+    "withdrawable"
+  ]
+}
+
 resource tokend_asset "USD" {
   code                        = "USD"
   max_issuance_amount         = "9223372036853"

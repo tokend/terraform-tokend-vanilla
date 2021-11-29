@@ -158,6 +158,7 @@ module "key_values" {
 
 module "assets" {
   source = "modules/assets"
+  asset_type_nft = "${var.asset_type_nft}"
 }
 
 module "external_system_type_pool_entry" {
