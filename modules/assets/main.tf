@@ -14,11 +14,11 @@ resource tokend_asset "bnft" {
   details = {
     name = "BNFT",
     external_system_type = 3,
-    erc721 = {
-      deposit = true,
-      withdraw = true,
+    erc721 = tomap({
+      deposit = true
+      withdraw = true
       address = "0x580Da36625bA6c5c3e40B511E84B276b2A668d04"
-    }
+    })
   }
 
   policies = [
