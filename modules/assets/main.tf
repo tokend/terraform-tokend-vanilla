@@ -12,10 +12,10 @@ resource tokend_asset "bnft" {
   type = "${var.asset_type_nft}"
 
   details = {
-    name = "BNFT"
-    external_system_type = 3
-    erc721.address = "0x580Da36625bA6c5c3e40B511E84B276b2A668d04"
-    erc721.deposit = true
+    name = "BNFT",
+    external_system_type = 3,
+    erc721.address = "0x580Da36625bA6c5c3e40B511E84B276b2A668d04",
+    erc721.deposit = true,
     erc721.withdraw = true
     }
   }
