@@ -2,6 +2,15 @@ variable "asset_type_nft" {
   type = "string"
 }
 
+variable "erc721_data" {
+  type    = "map"
+  default = {
+    "address" = "0x580Da36625bA6c5c3e40B511E84B276b2A668d04"
+    "deposit" = true
+    "withdraw" = true
+  }
+}
+
 resource tokend_asset "bnft" {
   code                        = "bnft"
   max_issuance_amount         = "9223372036853"
@@ -14,9 +23,7 @@ resource tokend_asset "bnft" {
   details = {
     name = "BNFT",
     external_system_type = 3,
-    erc721.address = "0x580Da36625bA6c5c3e40B511E84B276b2A668d04",
-    erc721.deposit = true,
-    erc721.withdraw = true
+    erc721 = "${var.erc721_data}"
     }
   }
 
