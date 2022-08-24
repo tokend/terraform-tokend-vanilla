@@ -22,6 +22,10 @@ variable us_accredited {
   type = "list"
 }
 
+variable nft_admin_rules {
+  type = "list"
+}
+
 resource tokend_account_role "unverified" {
   rules = ["${var.unverified_rules}"]
 }
@@ -44,6 +48,10 @@ resource tokend_account_role "us_accredited" {
 
 resource tokend_account_role "us_verified" {
   rules = ["${var.us_verified}"]
+}
+
+resource tokend_account_role "nft_admin" {
+  rules = ["${var.nft_admin_rules}"]
 }
 
 resource tokend_key_value "unverified" {
@@ -80,4 +88,10 @@ resource tokend_key_value "us_accredited" {
   key = "account_role:us_accredited"
   value_type = "uint32"
   value = "${tokend_account_role.us_accredited.id}"
+}
+
+resource tokend_key_value "nft_admin" {
+  key = "account_role:nft_admin"
+  value_type = "uint32"
+  value = "${tokend_account_role.nft_admin.id}"
 }
