@@ -259,13 +259,13 @@ output "atomic_swap_ask_creator" {
 }
 
 output "data_creator" {
-  value "${tokend_account_rule.data_creator.id}"
+  value = "${tokend_account_rule.data_creator.id}"
 }
 
 output "data_remover" {
-  value "${tokend_account_rule.data_remover.id}"
+  value = "${tokend_account_rule.data_remover.id}"
 }
 
 output "data_transferer" {
-  value "${tokend_account_rule.data_transferer.id}"
+  value = "${tokend_account_rule.data_transferer.id}"
 }
