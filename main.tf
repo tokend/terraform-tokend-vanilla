@@ -222,6 +222,9 @@ module "account_roles" {
     "${module.account_rules.vote_remover}",
     "${module.account_rules.forbid_restricted_vote_remove}",
     "${module.account_rules.kyc_recovery_creator}",
+    "${module.account_rules.data_creator}",
+    "${module.account_rules.data_remover}",
+    "${module.account_rules.data_transferer}",
   ]
 
   blocked_rules = []
@@ -266,6 +269,9 @@ module "account_roles" {
     "${module.account_rules.vote_remover}",
     "${module.account_rules.forbid_restricted_vote_remove}",
     "${module.account_rules.kyc_recovery_creator}",
+    "${module.account_rules.data_creator}",
+    "${module.account_rules.data_remover}",
+    "${module.account_rules.data_transferer}",
   ]
 }
 
