@@ -173,16 +173,25 @@ resource tokend_account_rule "atomic_swap_ask_creator" {
 resource tokend_account_rule "data_creator" {
   action = "create"
   entry_type = "data"
+  entry = {
+    type = "*"
+  }
 }
 
 resource tokend_account_rule "data_remover" {
   action = "remove"
   entry_type = "data"
+  entry = {
+    type = "*"
+  }
 }
 
 resource tokend_account_rule "data_transferer" {
   action = "transfer_ownership"
   entry_type = "data"
+  entry = {
+    type = "*"
+  }
 }
 
 output "external_binder" {
@@ -260,6 +269,7 @@ output "atomic_swap_ask_creator" {
 
 output "data_creator" {
   value = "${tokend_account_rule.data_creator.id}"
+
 }
 
 output "data_remover" {
