@@ -257,3 +257,15 @@ output "kyc_recovery_creator" {
 output "atomic_swap_ask_creator" {
   value = "${tokend_account_rule.atomic_swap_ask_creator.id}"
 }
+
+output "data_creator" {
+  value "${tokend_account_rule.data_creator.id}"
+}
+
+output "data_remover" {
+  value "${tokend_account_rule.data_remover.id}"
+}
+
+output "data_transferer" {
+  value "${tokend_account_rule.data_transferer.id}"
+}
