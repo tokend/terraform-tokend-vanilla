@@ -1,36 +1,36 @@
 variable restricted_poll_type {
-  type = "string"
+  type = string
   default = "3"
 }
 
 variable unrestricted_poll_type {
-  type = "string"
+  type = string
   default = "4"
 }
 
 variable asset_type_default {
-  type = "string"
+  type = string
   default = "0"
 }
 
 variable default_change_role_tasks {
-  type = "string"
+  type = string
   default = "1"
 }
 
 variable asset_type_kyc {
-  type = "string"
+  type = string
   default = "1"
 }
 
 variable asset_type_security {
-  type = "string"
+  type = string
   default = "2"
 }
 
 // creates basic account rules
 module "account_rules" {
-  source = "modules/account_rules"
+  source = "./modules/account_rules"
   restricted_poll_type = "${var.restricted_poll_type}"
   asset_type_default = "${var.asset_type_default}"
   asset_type_kyc = "${var.asset_type_kyc}"
@@ -39,7 +39,7 @@ module "account_rules" {
 
 // create default account roles
 module "account_roles" {
-  source = "modules/account_roles"
+  source = "./modules/account_roles"
 
   unverified_rules = [
     "${module.account_rules.balance_creator}",
@@ -229,12 +229,12 @@ module "account_roles" {
 
 // create defaul signer rules
 module "signer_rules" {
-  source = "modules/signer_rules"
+  source = "./modules/signer_rules"
 }
 
 // create default signer roles
 module "signer_roles" {
-  source = "modules/signer_roles"
+  source = "./modules/signer_roles"
 
   default_rules = [
     "1",
@@ -262,7 +262,7 @@ module "signer_roles" {
 }
 
 module "key_values" {
-  source = "modules/key_values"
+  source = "./modules/key_values"
   restricted_poll_type = "${var.restricted_poll_type}"
   unrestricted_poll_type = "${var.unrestricted_poll_type}"
   asset_type_kyc = "${var.asset_type_kyc}"
@@ -272,14 +272,14 @@ module "key_values" {
 }
 
 module "assets" {
-  source = "modules/assets"
+  source = "./modules/assets"
 }
 
 module "external_system_type_pool_entry" {
-  source = "modules/external_system_type_pool_entry"
+  source = "./modules/external_system_type_pool_entry"
 }
 
 module "signers" {
-  source = "modules/signers"
+  source = "./modules/signers"
   license_signer_role = "${module.signer_roles.license_signer_role}"
 }

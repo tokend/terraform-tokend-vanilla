@@ -1,25 +1,25 @@
 variable "restricted_poll_type" {
-  type = "string"
+  type = string
 }
 
 variable "unrestricted_poll_type" {
-  type = "string"
+  type = string
 }
 
 variable "asset_type_kyc" {
-  type = "string"
+  type = string
 }
 
 variable "asset_type_security" {
-  type = "string"
+  type = string
 }
 
 variable "asset_type_default" {
-  type = "string"
+  type = string
 }
 
 variable "default_change_role_tasks" {
-  type = "string"
+  type = string
   default = "1"
 }
 

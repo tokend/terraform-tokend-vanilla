@@ -1,17 +1,17 @@
 variable "asset_type_default" {
-  type = "string"
+  type = string
 }
 
 variable "asset_type_kyc" {
-  type = "string"
+  type = string
 }
 
 variable "asset_type_security" {
-  type ="string"
+  type =string
 }
 
 variable restricted_poll_type {
-  type = "string"
+  type = string
 }
 
 
