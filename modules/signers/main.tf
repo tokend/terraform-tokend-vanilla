@@ -1,5 +1,5 @@
 variable "license_signer_role" {
-  type = "string"
+  type = string
 }
 
 resource tokend_account_signer "license_signer" {

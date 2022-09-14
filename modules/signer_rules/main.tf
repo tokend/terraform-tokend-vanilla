@@ -3,8 +3,8 @@ resource tokend_signer_rule "issuance_creator" {
   entry_type = "reviewable_request"
   entry = {
     request_type = "create_issuance"
-    issuance.asset_code = "*"
-    issuance.asset_type = "*"
+    asset_code = "*"
+    asset_type = "*"
   }
 }
 
