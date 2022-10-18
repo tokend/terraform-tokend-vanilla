@@ -317,6 +317,7 @@ module "key_values" {
   asset_type_security = "${var.asset_type_security}"
   asset_type_default = "${var.asset_type_default}"
   default_change_role_tasks = "${var.default_change_role_tasks}"
+  asset_type_nft = "${var.asset_type_nft}"
 }
 
 module "assets" {

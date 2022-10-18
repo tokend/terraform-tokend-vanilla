@@ -23,6 +23,10 @@ variable "default_change_role_tasks" {
   default = "1"
 }
 
+variable "asset_type_nft" {
+  type = "string"
+}
+
 resource tokend_key_value "poll_type_restricted" {
   key = "poll_type:restricted"
   value_type = "uint32"
@@ -51,6 +55,12 @@ resource tokend_key_value "asset_type_default" {
     key = "asset_type:default"
     value_type = "uint32"
     value = "${var.asset_type_default}"
+}
+
+resource tokend_key_value "asset_type_nft" {
+  key = "asset_type:nft"
+  value_type = "uint32"
+  value = "${var.asset_type_nft}"
 }
 
 resource tokend_key_value "change_role_task-submit_auto_verification" {
@@ -159,4 +169,10 @@ resource tokend_key_value "bridges_enabled" {
   key        = "bridges_enabled"
   value_type = "uint32"
   value      = "1"
+}
+
+resource tokend_key_value "asset_type_de" {
+    key = "asset_type:default"
+    value_type = "uint32"
+    value = "${var.asset_type_default}"
 }
