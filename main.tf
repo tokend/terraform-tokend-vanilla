@@ -28,6 +28,11 @@ variable asset_type_security {
   default = "2"
 }
 
+variable asset_type_nft {
+  type = "string"
+  default = "10"
+}
+
 // creates basic account rules
 module "account_rules" {
   source = "modules/account_rules"
